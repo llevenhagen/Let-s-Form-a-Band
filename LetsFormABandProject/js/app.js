@@ -21,9 +21,11 @@ const newRandomIcon = () => {
   randomIcon = icons[Math.floor(Math.random()*icons.length)];
 };
 // console.log(randomIcon);
+
 // add image tag to each square
 $('.square').append('<img>');
-// assign random image paired with class to <img> tags
+
+// function to assign random image paired with class to <img> tags
 const assignRandomIconAndClass = () => {
 for (i =0; i<64; i++) {
   let $single = $('img').eq(i);
@@ -32,11 +34,15 @@ for (i =0; i<64; i++) {
    $single.attr('src', randomIcon.src);
    newRandomIcon();
 }}
+
 assignRandomIconAndClass();
 // console.log($(column1[7]).hasClass('cash'));
-// assign id to each square CHECK
+
+
 // =============MAKE ARRAY FOR EACH COLUMN AND ROW:============
-// ======================COLUMNS:
+
+// ======================COLUMNS:=============================
+
 // ==================COLUMN 1==================================
 const column1 = [$('img').eq(0), $('img').eq(1), $('img').eq(2), $('img').eq(3), $('img').eq(4), $('img').eq(5), $('img').eq(6), $('img').eq(7)];
 // ====================COLUMN 2===============================
@@ -53,7 +59,9 @@ const column6 = [$('img').eq(40), $('img').eq(41), $('img').eq(42), $('img').eq(
 const column7 = [$('img').eq(48), $('img').eq(49), $('img').eq(50), $('img').eq(51), $('img').eq(52), $('img').eq(53), $('img').eq(54), $('img').eq(55)];
 // ====================COLUMN 8==============================
 const column8 = [$('img').eq(56), $('img').eq(57), $('img').eq(58), $('img').eq(59), $('img').eq(60), $('img').eq(61), $('img').eq(62), $('img').eq(63)];
+
 // ====================ROWS:===================================
+
 // ======================ROW 1==========================================
 const row1 = [$('img').eq(0), $('img').eq(9), $('img').eq(17), $('img').eq(25), $('img').eq(33), $('img').eq(41), $('img').eq(49), $('img').eq(57)];
 // ======================ROW 2==========================================
@@ -71,7 +79,7 @@ const row7 = [$('img').eq(7), $('img').eq(15), $('img').eq(23), $('img').eq(31),
 // ======================ROW 8==========================================
 const row8 = [$('img').eq(8), $('img').eq(16), $('img').eq(24), $('img').eq(32), $('img').eq(40), $('img').eq(48), $('img').eq(56), $('img').eq(64)];
 
-// ========================IF 3 MATCH======================
+// ========================FUNCTION FOR IF 3 MATCH=====================
 // all are cash:
 const allAreCash = (firstIndex) => {
   if (firstIndex.hasClass('cash')) {
@@ -85,6 +93,7 @@ const allAreGuitars = (firstIndex) => {
   if (firstIndex.hasClass('guitar')) {
     console.log('you have a guitar');
     let image = $('#guitar').children(0)
+    // IF YOU ALREADY HAVE A GUITAR SELL FOR 100
     if (image.hasClass('guitar')) {
       alert('You got another guitar! You only need one, so you can sell this one for $100!')
       currentCash+=100;
@@ -151,11 +160,11 @@ const allAreDrums = (firstIndex) => {
   }
 }
 
-// =====================DECLARE INITIALCASH====================
+// =====================DECLARE INITIAL CASH====================
 let currentCash = 0;
 // ============TEST EACH COLUMN AND ROW FOR MATCHES=========================
 const checkColumnorRow = (columnOrRow) => {
-// for (i=0; i<) {
+
   // check for columnOrRow[0-2]
   if (columnOrRow[0].attr('class')=== columnOrRow[1].attr('class') && columnOrRow[0].attr('class')=== columnOrRow[2].attr('class')) {
     //
@@ -185,6 +194,7 @@ const checkColumnorRow = (columnOrRow) => {
     }
     window.setTimeout(replaceMatch, 3000);
   }
+  // check for column or row index 1-3
   if (columnOrRow[1].attr('class')=== columnOrRow[2].attr('class') && columnOrRow[1].attr('class')=== columnOrRow[3].attr('class')) {
       allAreCash(columnOrRow[1]);
       allAreGuitars(columnOrRow[1]);
@@ -214,6 +224,7 @@ const checkColumnorRow = (columnOrRow) => {
       }
       window.setTimeout(replaceMatch, 3000);
     }
+    // check for column or row index 2-4
   if (columnOrRow[2].attr('class')=== columnOrRow[3].attr('class') && columnOrRow[2].attr('class')=== columnOrRow[4].attr('class')) {
   allAreCash(columnOrRow[2]);
   allAreGuitars(columnOrRow[2]);
@@ -243,6 +254,7 @@ const checkColumnorRow = (columnOrRow) => {
   }
   window.setTimeout(replaceMatch, 3000);
 }
+ // check for column or row index 3-5
   if (columnOrRow[3].attr('class')=== columnOrRow[4].attr('class') && columnOrRow[3].attr('class')=== columnOrRow[5].attr('class')) {
     allAreCash(columnOrRow[3]);
     allAreGuitars(columnOrRow[3]);
@@ -272,6 +284,7 @@ const checkColumnorRow = (columnOrRow) => {
     }
     window.setTimeout(replaceMatch, 3000);
   }
+   // check for column or row index 4-6
   if (columnOrRow[4].attr('class')=== columnOrRow[5].attr('class') && columnOrRow[4].attr('class')=== columnOrRow[6].attr('class')) {
     allAreCash(columnOrRow[4]);
     allAreGuitars(columnOrRow[4]);
@@ -301,6 +314,7 @@ const checkColumnorRow = (columnOrRow) => {
     }
     window.setTimeout(replaceMatch, 3000);
   }
+   // check for column or row index 5-7.
   if (columnOrRow[5].attr('class')=== columnOrRow[6].attr('class') && columnOrRow[5].attr('class')=== columnOrRow[7].attr('class')) {
     allAreCash(columnOrRow[5]);
     allAreGuitars(columnOrRow[5]);
@@ -354,9 +368,72 @@ CheckAllColumnsAndRows = () => {
   checkColumnorRow(row8);
 }
 
-// CheckAllColumnsAndRows();
+CheckAllColumnsAndRows();
 
+// FUNCTION FOR CALCULATING NEIGHBOR OF EACH IMG/VAL:
+const makeNeighborsClickable = () => {
+  // call other function on every row and column
+  checkSingleArrayForNeighbors(column1);
+  checkSingleArrayForNeighbors(column2);
+  checkSingleArrayForNeighbors(column3);
+  checkSingleArrayForNeighbors(column4);
+  checkSingleArrayForNeighbors(column5);
+  checkSingleArrayForNeighbors(column6);
+  checkSingleArrayForNeighbors(column7);
+  checkSingleArrayForNeighbors(column8);
+  checkSingleArrayForNeighbors(row1);
+  checkSingleArrayForNeighbors(row2);
+  checkSingleArrayForNeighbors(row3);
+  checkSingleArrayForNeighbors(row4);
+  checkSingleArrayForNeighbors(row5);
+  checkSingleArrayForNeighbors(row6);
+  checkSingleArrayForNeighbors(row7);
+  checkSingleArrayForNeighbors(row8);
+}
 
+// make function for checking single column or row for neighbors:
+
+const checkSingleArrayForNeighbors = (array) => {
+  // use for loop to call our each img in array
+  for (item of array) {
+    // console.log(array);
+    // find index of item in array, in order to identify neighbors
+      let itemIndex = array.indexOf(item);
+      // when you click on a specific image in grid:
+    $(item).on('click', (event) => {
+      // console.log(itemIndex);
+      // find class and source of current image:
+      let currentClass = $(event.currentTarget).attr('class');
+      let currentSrc = $(event.currentTarget).attr('src');
+      console.log(currentClass);
+      console.log(currentSrc);
+      // find image right after current image:
+      let downOne = array[itemIndex +1]
+      // when you've clicked on first image, and then click on next image:
+      $(downOne).on('click', ()=> {
+        // console.log('this is working');
+        // find class and source of next image:
+        let downOneClass = $(downOne).attr('class');
+        let downOneSrc = $(downOne).attr('src');
+        console.log(downOneClass);
+        console.log(downOneSrc);
+      })
+      let upOne = array[itemIndex -1];
+      $(upOne).on('click', ()=> {
+        // let upOne = event.currentTarget;
+        // console.log('this also works'+ upOne);
+        // find class and source of image right before current:
+        let upOneClass = $(upOne).attr('class');
+        let upOneSrc = $(upOne).attr('src');
+        console.log(upOneClass);
+        console.log(upOneSrc);
+      })
+    })
+  }
+}
+
+makeNeighborsClickable();
+// call makeNeighborsClickable - where?
 
 // Open MODAL
 
@@ -368,12 +445,13 @@ const $modal = $('#modal');
   }
   const closeModal = () => {
     $modal.hide('slow');
+    // include function CheckAllColumnsAndRows to start game, after 5 seconds:
       window.setTimeout(CheckAllColumnsAndRows, 5000);
   }
-  // event listeners
+  // event listener for click on submit button
   $closeBtn.on('click', closeModal);
   // close Modal
-  openModal();
+  // openModal();
 
 
 // assignRandomIconAndClass();
