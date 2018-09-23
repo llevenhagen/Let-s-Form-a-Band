@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Monoton|Playfair+Display|Russo+One" rel="stylesheet">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="js/app.js" charset="utf-8"></script>
+    <meta charset="utf-8">
+    <title>Let's Form a Band!</title>
+  </head>
+  <body>
+    <header>
+      <h1>Rock On!</h1>
+      <h2>Who will top the charts first??</h2>
+    </header>
+    <div id="grid-container">
+      <aside id ="winner-loser">
+        <h3>Player 1 Time:</h3>
+        <div></div>
+        <h3>Player 2 Time:</h3>
+  <!-- push divs in here with winner/loser info  -->
+      </aside>
+      <div id="grid">
+        <column class="column">
+          <div class="square" id="square1"></div>
+          <div class="square" id="square2"></div>
+          <div class="square" id="square3"></div>
+          <div class="square" id="square4"></div>
+          <div class="square" id="square5"></div>
+          <div class="square" id="square6"></div>
+          <div class="square" id="square7"></div>
+          <div class="square" id="square8"></div>
+        </column>
+        <column class="column">
+          <div class="square" id="square9"></div>
+          <div class="square" id="square10"></div>
+          <div class="square" id="square11"></div>
+          <div class="square" id="square12"></div>
+          <div class="square" id="square13"></div>
+          <div class="square" id="square14"></div>
+          <div class="square" id="square15"></div>
+          <div class="square" id="square16"></div>
+        </column>
+        <column class="column">
+          <div class="square" id="square17"></div>
+          <div class="square" id="square18"></div>
+          <div class="square" id="square19"></div>
+          <div class="square" id="square20"></div>
+          <div class="square" id="square21"></div>
+          <div class="square" id="square22"></div>
+          <div class="square" id="square23"></div>
+          <div class="square" id="square24"></div>
+        </column>
+        <column class="column">
+          <div class="square" id="square25"></div>
+          <div class="square" id="square26"></div>
+          <div class="square" id="square27"></div>
+          <div class="square" id="square28"></div>
+          <div class="square" id="square29"></div>
+          <div class="square" id="square30"></div>
+          <div class="square" id="square31"></div>
+          <div class="square" id="square32"></div>
+        </column>
+        <column class="column">
+          <div class="square" id="square33"></div>
+          <div class="square" id="square34"></div>
+          <div class="square" id="square35"></div>
+          <div class="square" id="square36"></div>
+          <div class="square" id="square37"></div>
+          <div class="square" id="square38"></div>
+          <div class="square" id="square39"></div>
+          <div class="square" id="square40"></div>
+        </column>
+        <column class="column">
+          <div class="square" id="square41"></div>
+          <div class="square" id="square42"></div>
+          <div class="square" id="square43"></div>
+          <div class="square" id="square44"></div>
+          <div class="square" id="square45"></div>
+          <div class="square" id="square46"></div>
+          <div class="square" id="square47"></div>
+          <div class="square" id="square48"></div>
+        </column>
+        <column class="column">
+          <div class="square" id="square49"></div>
+          <div class="square" id="square50"></div>
+          <div class="square" id="square51"></div>
+          <div class="square" id="square52"></div>
+          <div class="square" id="square53"></div>
+          <div class="square" id="square54"></div>
+          <div class="square" id="square55"></div>
+          <div class="square" id="square56"></div>
+        </column>
+        <column class="column">
+          <div class="square" id="square57"></div>
+          <div class="square" id="square58"></div>
+          <div class="square" id="square59"></div>
+          <div class="square" id="square60"></div>
+          <div class="square" id="square61"></div>
+          <div class="square" id="square62"></div>
+          <div class="square" id="square63"></div>
+          <div class="square" id="square64"></div>
+        </column>
+      </div>
+    </div>
+    <div id="inventory">
+      <div id="instruments">
+        <div id="guitar" class="instrument">
+          <h2>Guitar</h2>
+        </div>
+        <div id="keys" class="instrument">
+          <h2>Keys</h2>
+        </div>
+        <div id="drums" class="instrument">
+          <h2>Drums</h2>
+        </div>
+        <div id="mic" class="instrument">
+          <h2>Mic</h2>
+        </div>
+        <div id="bass" class="instrument">
+          <h2>Bass</h2>
+        </div>
+        <div id="money">
+          <h1 id="amount"></h1>
+        </div>
+      </div>
+    </div>
+    <!-- <aside id ="winner-loser">
+      <h3>Player 1</h3>
+      <h3>Player 2</h3>
+<! push divs in here with winner/loser info  -->
+    </aside> -->
+    <footer>
+      <p><a href="https://www.freepik.com/free-photos-vectors/music">Music vector created by Freepik</a></p>
+    </footer>
+    <div id = "modal">
+      <div id = "modal-textbox">
+        <!--==== ALERT ====-->
+        <p>Are you ready to achieve all your dreams, tour the world rocking out for your adoring fans, and roll around in piles of cash!? All you need is instruments for yourself and your four bandmates, and $1,000.00 for recording your first big hit!<br> But wait! You've got an up-and-coming rival trying to top the charts before you! Whoever gathers all the necessary goods first wins the glory and the record deal!</p>
+
+        <!--==== CLOSE BUTTON ====-->
+        <div id = "modal-footer">
+          <div class="role-call">
+              <h3 class="input-text">Player One:</h3>
+              <h3 class="input-text2">Player Two:</h3>
+          </div>
+          <div class="input">
+          <form>
+            <input type="text" id="input-box"/>
+            <input type="text" id="input-box2"/>
+            <!-- <input type="submit" id="submit-btn"/> -->
+          </form>
+          <input type="submit" id="submit-btn"/>
+        </div>
+        </div>
+  </body>
+</html>

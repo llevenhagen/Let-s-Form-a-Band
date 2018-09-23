@@ -1,0 +1,274 @@
+
+body {
+height: 100%;
+width: 100%;
+background: linear-gradient(to bottom, #000000 0%, #000066 100%);
+}
+header {
+  height: 15%;
+  width: 100%;
+  text-align: center;
+}
+header > h1 {
+  margin-top: -1vw;
+  margin-left: -10vw;
+  color: #1D64DD;
+  letter-spacing: 1vw;
+  font-size: 11vw;
+  font-family: 'Monoton', cursive;
+}
+header > h2 {
+  color: white;
+  margin-left: -13vw;
+  margin-top: -9vw;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+}
+/* GRID CSS */
+#grid-container {
+  margin-top: 7vw;
+  height: 60%;
+  width: 100%;
+}
+#grid {
+  margin-left: 17%;
+  height: 600px;
+  width: 55vw;
+  display: inline-flex;
+  position: absolute;
+}
+.column {
+  flex-direction: column;
+  height: 100%;
+  width: 12%;
+  margin-bottom: 100px;
+
+}
+.square {
+  width: 100%;
+  height: 10%;
+  /* border-left: 3px solid black;
+  border-right: 3px solid black; */
+  margin: 5px;
+    /* border-radius: 20px; */
+}
+.guitar {
+  height: 100%;
+  width: 90%;
+  vertical-align: bottom;
+    border-radius: 20px;
+}
+.bass {
+  height: 100%;
+  width: 90%;
+  vertical-align: bottom;
+    border-radius: 20px;
+}
+.mic {
+  height: 100%;
+  width: 90%;
+  vertical-align: bottom;
+    border-radius: 20px;
+}
+.cash {
+  height: 100%;
+  width: 90%;
+  vertical-align: bottom;
+    border-radius: 20px;
+}
+.keys {
+  height: 100%;
+  width: 90%;
+  vertical-align: bottom;
+    border-radius: 20px;
+}
+.bandmate {
+  height: 100%;
+  width: 90%;
+  vertical-align: bottom;
+    border-radius: 20px;
+}
+.boss {
+  height: 100%;
+  width: 90%;
+  vertical-align: bottom;
+    border-radius: 20px;
+}
+.drums {
+  height: 100%;
+  width: 90%;
+  vertical-align: bottom;
+    border-radius: 20px;
+}
+#guitar > img {
+  height: 60%;
+  width: 60%;
+}
+#keys > img {
+  height: 60%;
+  width: 60%;
+}
+#drums > img {
+  height: 60%;
+  width: 60%;
+}
+#mic > img {
+  height: 60%;
+  width: 60%;
+}
+#bass > img {
+  height: 60%;
+  width: 60%;
+}
+/* .icon-image {
+  height: 100%;
+  width: 90%;
+  vertical-align: bottom;
+    border-radius: 20px;
+} */
+/* INVENTORY CSS */
+#inventory {
+  display: flex;
+  height: 25%;
+  width: 100%;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+
+  background-color: white;
+  margin-left: -10px;
+}
+#money {
+  margin-left: 4vw;
+  margin-right: 4vw;
+  width: 15%;
+  height: 10vw;
+  border: 3px solid #E99018;
+  box-shadow: -5px -5px 5px #E99018;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
+  margin-right: -110px;
+  font-size: 2vw;
+}
+#instruments {
+  margin-top: 3vw;
+  margin-left: -70px;
+  height: 80%;
+  width: 100%;
+  flex-direction: row;
+  text-align: center;
+  margin-bottom: 4vw;
+}
+.instrument {
+  font-family: 'Playfair Display', serif;
+  margin-left: 20px;
+  width: 12vw;
+  height: 13vw;
+  border: 3px solid grey;
+  box-shadow: -5px -5px 5px #888;
+  display: inline-block;
+  background-color: white;
+  border-radius: 20px;
+  vertical-align: top;
+}
+.instrument > h2 {
+  margin-top: 2px;
+  margin-bottom: 4px;
+  font-size: 2vw;
+  /* text-decoration: underline; */
+}
+/*  ASIDE*/
+aside {
+  color: white;
+  float: right;
+  width: 20vw;
+  height: 400px;
+  background-color: #F2CC5A;
+  border-radius: 20px 0 0 20px;
+  text-align: left;
+  margin-top: 150px;
+  margin-right: 25px;
+  margin-bottom: 5vw;
+  padding-left: 15px;
+  box-shadow: -5px -5px 5px white;
+}
+aside>div {
+  border-bottom: 1px solid black;
+}
+footer {
+  margin-top: 2vw;
+}
+/*  Modal */
+#modal {
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    overflow: auto;
+    display: none;
+}
+#modal-textbox {
+  text-align: center;
+   font-size: 25px;
+   font-weight: bold;
+    background-color: white;
+    border: 20px solid pink;
+    font-family: 'Playfair Display', serif;
+    height: 750px;
+    width: 500px;
+    border-radius: 2px;
+    margin: 150px auto;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 2%;
+    line-height: 200%;
+}
+#modal-footer {
+  margin-top: -30px;
+    display: inline-block;
+}
+.role-call {
+  display: inline-block;
+}
+.input {
+margin-left: 0;
+vertical-align: bottom;
+}
+.input-text {
+  vertical-align: top;
+  display: inline-block;
+  margin-left: 0;
+  word-spacing: 3px;
+  font-size: 35px;
+}
+.input-text2 {
+  vertical-align: top;
+  display: inline-block;
+  margin-left: 40px;
+  word-spacing: 3px;
+  font-size: 35px;
+}
+form {
+  margin-top: -10px;
+  margin-left: 100px;
+}
+#input-box {
+  margin-left: -100px;
+  padding: 10px 20px;
+}
+#input-box2 {
+  margin-left: 50px;
+  padding: 10px 20px;
+}
+#submit-btn {
+  margin-top: 20px;
+  margin-left: 0;
+  background-color: pink;
+  padding: 10px 20px;
+  font-size: 20px;
+}
