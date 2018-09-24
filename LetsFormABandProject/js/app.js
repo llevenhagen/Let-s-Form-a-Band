@@ -6,6 +6,11 @@ const icons = [
 {src: 'images/keys-icon.png', value: 'keys'},
 {src: 'images/mic-pic.png', value: 'mic'},
 {src: 'images/drums.jpg', value: 'drums'},
+{src: 'images/bass-guitar-pic.png', value: 'bass'},
+{src: 'images/guitar.jpg', value: 'guitar'},
+{src: 'images/keys-icon.png', value: 'keys'},
+{src: 'images/mic-pic.png', value: 'mic'},
+{src: 'images/drums.jpg', value: 'drums'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
@@ -14,6 +19,9 @@ const icons = [
 {src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
+{src: 'images/cash_pic.jpg', value: 'cash'},
+{src: 'images/cash_pic.jpg', value: 'cash'},
+{src: 'images/lazybandmate.png', value: 'bandmate'},
 {src: 'images/lazybandmate.png', value: 'bandmate'},
 {src: 'images/demanding-boss.jpg', value: 'boss'}
 ];
@@ -85,7 +93,7 @@ const row8 = [$('img').eq(8), $('img').eq(16), $('img').eq(24), $('img').eq(32),
 // all are cash:
 const allAreCash = (firstIndex) => {
   if (firstIndex.hasClass('cash')) {
-    currentCash+= 50;
+    currentCash+= 25;
     // console.log(currentCash);
     $('#amount').text(currentCash)
   }
@@ -462,7 +470,8 @@ const checkSingleArrayForNeighbors = (array) => {
     // find index of item in array, in order to identify neighbors
       let itemIndex = array.indexOf(item);
       // when you click on a specific image in grid:
-    $(item).on('click', (event) => {
+      const limitClickOnItems = () => {
+    $(item).one('click', (event) => {
       // console.log(itemIndex);
       // find class and source of current image:
       let $current, $upOne, $downOne;
@@ -485,7 +494,7 @@ const checkSingleArrayForNeighbors = (array) => {
       }
       else {
       $(downOne).off('click');
-      $(downOne).on('click', ()=> {
+      $(downOne).one('click', ()=> {
         // console.log('this is working');
         // find class and source of next image:
         // $downOne = $(event.currentTarget);
@@ -521,7 +530,6 @@ const checkSingleArrayForNeighbors = (array) => {
         CheckAllColumnsAndRows();
           // debugger;
       })
-      $(item).off('click');
       }
       // let upOne = array[itemIndex -1];
       if ($(upOne).attr('class') === 'boss' || $(upOne).attr('class') === 'bandmate' || $current.attr('class') === 'boss' || $current.attr('class') === 'bandmate')
@@ -529,7 +537,7 @@ const checkSingleArrayForNeighbors = (array) => {
       }
       else {
       $(upOne).off('click');
-      $(upOne).on('click', ()=> {
+      $(upOne).one('click', ()=> {
         // let upOne = event.currentTarget;
         // console.log('this also works'+ upOne);
         // find class and source of image right before current:
@@ -577,6 +585,15 @@ const checkSingleArrayForNeighbors = (array) => {
     }
       // event.stopPropagation();
     })
+  }
+  limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
   }
 }
 const clearInventory = () => {
@@ -660,11 +677,12 @@ window.setInterval(addSeconds, 1000);
 }
 
 // ============================Start Game Flow===============================
-openModal();
+// openModal();
 // put Check for Full Inventory at beginning of CheckAllColumnsAndRows
 assignRandomIconAndClass();
 makeNeighborsClickable();
-// CheckAllColumnsAndRows(); --- onlye need this when modal is inactive
+CheckAllColumnsAndRows();
+// --- onlye need this when modal is inactive
 
 // call makeNeighborsClickable - where?
 
