@@ -26,12 +26,37 @@ header > h2 {
 }
 /* GRID CSS */
 #grid-container {
-  margin-top: 7vw;
-  height: 60%;
+  margin-top: 8vw;
+  height: 55vw;
   width: 100%;
 }
+/* Timer: */
+#stopWatch {
+  text-align: center;
+  height: 40px;
+  width: 150px;
+  color: black;
+  background-color: white;
+  border: 2px solid pink;
+  border-radius: 10px;
+  display: block;
+  margin-top: -90px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: 25%;
+  padding: auto;
+}
+#stopWatch >span {
+  line-height: 100%;
+  font-size: 3vw;
+  padding:  5px auto;
+  margin: 0;
+  vertical-align: top;
+}
+/* Grid */
 #grid {
   margin-left: 17%;
+  padding-bottom: 50vw;
   height: 600px;
   width: 55vw;
   display: inline-flex;
@@ -120,18 +145,13 @@ header > h2 {
   height: 60%;
   width: 60%;
 }
-/* .icon-image {
-  height: 100%;
-  width: 90%;
-  vertical-align: bottom;
-    border-radius: 20px;
-} */
+
 /* INVENTORY CSS */
 #inventory {
+  margin-top: 10vw;
   display: flex;
   height: 25%;
   width: 100%;
-  margin-left: 20px;
   display: flex;
   flex-direction: row;
 
