@@ -46,7 +46,7 @@ for (i =0; i<64; i++) {
    newRandomIcon();
 }}
 
-assignRandomIconAndClass();
+// assignRandomIconAndClass();
 // console.log($(column1[7]).hasClass('cash'));
 
 
@@ -108,6 +108,7 @@ const allAreGuitars = (firstIndex) => {
     if (image.hasClass('guitar')) {
       alert('You got another guitar! You only need one, so you can sell this one for $100!')
       currentCash+=100;
+      $('#amount').text(currentCash)
     }
     else {
     let newImage = $('<img>').addClass('guitar').attr('src', 'images/guitar.jpg');
@@ -122,6 +123,7 @@ const allAreBass = (firstIndex) => {
     if (image.hasClass('bass')) {
       alert('You got another bass guitar! You only need one, so you can sell this one for $100!')
       currentCash+=100;
+      $('#amount').text(currentCash)
     }
     else {
     let newImage = $('<img>').addClass('bass').attr('src', 'images/bass-guitar-pic.png');
@@ -136,6 +138,7 @@ const allAreKeys = (firstIndex) => {
     if (image.hasClass('keys')) {
       alert('You got another keyboard! You only need one, so you can sell this one for $100!')
       currentCash+=100;
+      $('#amount').text(currentCash)
     }
     else {
     let newImage = $('<img>').addClass('keys').attr('src', 'images/keys-icon.png');
@@ -150,6 +153,7 @@ const allAreMic = (firstIndex) => {
     if (image.hasClass('mic')) {
       alert('You got another mic! You only need one, so you can sell this one for $100!')
       currentCash+=100;
+      $('#amount').text(currentCash)
     }
     else {
     let newImage = $('<img>').addClass('mic').attr('src', 'images/mic-pic.png');
@@ -164,6 +168,7 @@ const allAreDrums = (firstIndex) => {
     if (image.hasClass('drums')) {
       alert('You got another drumset! You only need one, so you can sell this one for $100!')
       currentCash+=100;
+      $('#amount').text(currentCash)
     }
     else {
     let newImage = $('<img>').addClass('drums').attr('src', 'images/drums.jpg');
@@ -519,6 +524,25 @@ const checkSingleArrayForNeighbors = (array) => {
     })
   }
 }
+const clearInventory = () => {
+  let guitarImage = $('#guitar').children(0);
+  let keysImage = $('#keys').children(0);
+  let drumsImage = $('#drums').children(0);
+  let micImage = $('#mic').children(0);
+  let bassImage = $('#bass').children(0);
+  $(guitarImage).remove();
+  $(keysImage).remove();
+  $(drumsImage).remove();
+  $(micImage).remove();
+  $(bassImage).remove();
+  currentCash = 0;
+  $('#amount').text(currentCash)
+}
+// =======================RELOAD GRID FOR NEW PLAYER FUNCTION========
+const reloadGrid = () => {
+  assignRandomIconAndClass();
+  clearInventory();
+}
 // ==============================WIN FUNCTION ===========================
 const checkForFullInventory = () => {
   let guitarInventory = $('#guitar').children(0);
@@ -527,7 +551,12 @@ const checkForFullInventory = () => {
   let bassInventory = $('#bass').children(0);
   let drumsInventory = $('#drums').children(0);
   if (guitarInventory.hasClass('guitar') && micInventory.hasClass('mic') && keysInventory.hasClass('keys') && bassInventory.hasClass('bass') && drumsInventory.hasClass('drums') && currentCash >= 2000) {
-    alert('You have everything you need! Rock and Roll!')
+    // alert('You have everything you need! Rock and Roll!')
+    // console.log(seconds, minutes);
+    let player1Time = $('.player-time').eq(0);
+    let player2Time = $('.player-time').eq(1);
+    $(player1Time).text(minutes + ':' + seconds);
+    reloadGrid();
   }
 }
 
@@ -572,6 +601,7 @@ if (seconds === 60) {
 }
 // openModal();
 // put Check for Full Inventory at beginning of CheckAllColumnsAndRows
+assignRandomIconAndClass();
 makeNeighborsClickable();
 CheckAllColumnsAndRows();
 
