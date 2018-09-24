@@ -572,7 +572,8 @@ const $modal = $('#modal');
   const closeModal = () => {
     $modal.hide('slow');
     // include function CheckAllColumnsAndRows to start game, after 5 seconds:
-      window.setTimeout(CheckAllColumnsAndRows, 5000);
+      window.setTimeout(CheckAllColumnsAndRows, 3000);
+      window.setTimeout(startTimer, 3000);
   }
   // event listener for click on submit button
   $closeBtn.on('click', closeModal);
@@ -597,16 +598,19 @@ if (seconds === 60) {
   seconds = 0;
   $(minutesInfo).text(minutes)
 }
-
 }
-// openModal();
+// ============================Timer Function==============================
+const startTimer = () => {
+window.setInterval(addSeconds, 1000);
+}
+
+// ============================Start Game Flow===============================
+openModal();
 // put Check for Full Inventory at beginning of CheckAllColumnsAndRows
 assignRandomIconAndClass();
 makeNeighborsClickable();
 CheckAllColumnsAndRows();
 
 // call makeNeighborsClickable - where?
-
-window.setInterval(addSeconds, 1000);
 
 })
