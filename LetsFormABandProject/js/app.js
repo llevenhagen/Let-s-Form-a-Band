@@ -6,15 +6,6 @@ const icons = [
 {src: 'images/keys-icon.png', value: 'keys'},
 {src: 'images/mic-pic.png', value: 'mic'},
 {src: 'images/drums.jpg', value: 'drums'},
-{src: 'images/bass-guitar-pic.png', value: 'bass'},
-{src: 'images/guitar.jpg', value: 'guitar'},
-{src: 'images/keys-icon.png', value: 'keys'},
-{src: 'images/mic-pic.png', value: 'mic'},
-{src: 'images/drums.jpg', value: 'drums'},
-{src: 'images/cash_pic.jpg', value: 'cash'},
-{src: 'images/cash_pic.jpg', value: 'cash'},
-{src: 'images/cash_pic.jpg', value: 'cash'},
-{src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
@@ -106,9 +97,9 @@ const allAreGuitars = (firstIndex) => {
     let image = $('#guitar').children(0)
     // IF YOU ALREADY HAVE A GUITAR SELL FOR 100
     if (image.hasClass('guitar')) {
-      alert('You got another guitar! You only need one, so you can sell this one for $100!')
-      currentCash+=100;
-      $('#amount').text(currentCash)
+      // alert('You got another guitar! You only need one, so you can sell this one for $100!')
+      // currentCash+=100;
+      // $('#amount').text(currentCash)
     }
     else {
     let newImage = $('<img>').addClass('guitar').attr('src', 'images/guitar.jpg');
@@ -121,9 +112,9 @@ const allAreBass = (firstIndex) => {
     console.log('you have a bass');
     let image = $('#bass').children(0)
     if (image.hasClass('bass')) {
-      alert('You got another bass guitar! You only need one, so you can sell this one for $100!')
-      currentCash+=100;
-      $('#amount').text(currentCash)
+      // alert('You got another bass guitar! You only need one, so you can sell this one for $100!')
+      // currentCash+=100;
+      // $('#amount').text(currentCash)
     }
     else {
     let newImage = $('<img>').addClass('bass').attr('src', 'images/bass-guitar-pic.png');
@@ -136,9 +127,9 @@ const allAreKeys = (firstIndex) => {
     console.log('you have a keyboard');
     let image = $('#keys').children(0)
     if (image.hasClass('keys')) {
-      alert('You got another keyboard! You only need one, so you can sell this one for $100!')
-      currentCash+=100;
-      $('#amount').text(currentCash)
+      // alert('You got another keyboard! You only need one, so you can sell this one for $100!')
+      // currentCash+=100;
+      // $('#amount').text(currentCash)
     }
     else {
     let newImage = $('<img>').addClass('keys').attr('src', 'images/keys-icon.png');
@@ -151,9 +142,9 @@ const allAreMic = (firstIndex) => {
     console.log('you have a mic');
     let image = $('#mic').children(0)
     if (image.hasClass('mic')) {
-      alert('You got another mic! You only need one, so you can sell this one for $100!')
-      currentCash+=100;
-      $('#amount').text(currentCash)
+      // alert('You got another mic! You only need one, so you can sell this one for $100!')
+      // currentCash+=100;
+      // $('#amount').text(currentCash)
     }
     else {
     let newImage = $('<img>').addClass('mic').attr('src', 'images/mic-pic.png');
@@ -166,9 +157,9 @@ const allAreDrums = (firstIndex) => {
     console.log('you have a drumset');
     let image = $('#drums').children(0)
     if (image.hasClass('drums')) {
-      alert('You got another drumset! You only need one, so you can sell this one for $100!')
-      currentCash+=100;
-      $('#amount').text(currentCash)
+      // alert('You got another drumset! You only need one, so you can sell this one for $100!')
+      // currentCash+=100;
+      // $('#amount').text(currentCash)
     }
     else {
     let newImage = $('<img>').addClass('drums').attr('src', 'images/drums.jpg');
@@ -206,15 +197,19 @@ const checkColumnorRow = (columnOrRow) => {
     thirdMatch.removeClass().addClass(randomIcon.value)
     thirdMatch.attr('src', randomIcon.src);
     newRandomIcon();
-    window.setTimeout(CheckAllColumnsAndRows, 2000);
+    setTimeout(CheckAllColumnsAndRows, 3000);
     }
+    let stockInventory = () => {
     allAreCash(columnOrRow[0]);
     allAreGuitars(columnOrRow[0]);
     allAreBass(columnOrRow[0]);
     allAreKeys(columnOrRow[0]);
     allAreMic(columnOrRow[0]);
     allAreDrums(columnOrRow[0])
-    window.setTimeout(replaceMatch, 3000);
+  }
+  setTimeout(stockInventory, 2000);
+  setTimeout(replaceMatch, 2050);
+
   }
   // check for column or row index 1-3
   if (columnOrRow[1].attr('class')=== columnOrRow[2].attr('class') && columnOrRow[1].attr('class')=== columnOrRow[3].attr('class')) {
@@ -242,15 +237,18 @@ const checkColumnorRow = (columnOrRow) => {
       // console.log(firstMatch.attr('class'));
       // console.log(secondMatch.attr('class'));
       // console.log(thirdMatch.attr('class'));
-      window.setTimeout(CheckAllColumnsAndRows, 2000);
+      setTimeout(CheckAllColumnsAndRows, 3000);
       }
+      let stockInventory = () => {
       allAreCash(columnOrRow[1]);
       allAreGuitars(columnOrRow[1]);
       allAreBass(columnOrRow[1]);
       allAreKeys(columnOrRow[1]);
       allAreMic(columnOrRow[1]);
       allAreDrums(columnOrRow[1]);
-      window.setTimeout(replaceMatch, 3000);
+    }
+    setTimeout(stockInventory, 2000);
+    setTimeout(replaceMatch, 2050);
     }
     // check for column or row index 2-4
   if (columnOrRow[2].attr('class')=== columnOrRow[3].attr('class') && columnOrRow[2].attr('class')=== columnOrRow[4].attr('class')) {
@@ -278,15 +276,18 @@ const checkColumnorRow = (columnOrRow) => {
   // console.log(firstMatch.attr('class'));
   // console.log(secondMatch.attr('class'));
   // console.log(thirdMatch.attr('class'));
-  window.setTimeout(CheckAllColumnsAndRows, 2000);
+  setTimeout(CheckAllColumnsAndRows, 3000);
   }
+  let stockInventory = () => {
   allAreCash(columnOrRow[2]);
   allAreGuitars(columnOrRow[2]);
   allAreBass(columnOrRow[2]);
   allAreKeys(columnOrRow[2]);
   allAreMic(columnOrRow[2]);
   allAreDrums(columnOrRow[2]);
-  window.setTimeout(replaceMatch, 3000);
+}
+setTimeout(stockInventory, 2000);
+setTimeout(replaceMatch, 2050);
 }
  // check for column or row index 3-5
   if (columnOrRow[3].attr('class')=== columnOrRow[4].attr('class') && columnOrRow[3].attr('class')=== columnOrRow[5].attr('class')) {
@@ -314,15 +315,18 @@ const checkColumnorRow = (columnOrRow) => {
     // console.log(firstMatch.attr('class'));
     // console.log(secondMatch.attr('class'));
     // console.log(thirdMatch.attr('class'));
-    window.setTimeout(CheckAllColumnsAndRows, 2000);
+    setTimeout(CheckAllColumnsAndRows, 3000);
     }
+    let stockInventory = () => {
     allAreCash(columnOrRow[3]);
     allAreGuitars(columnOrRow[3]);
     allAreBass(columnOrRow[3]);
     allAreKeys(columnOrRow[3]);
     allAreMic(columnOrRow[3]);
     allAreDrums(columnOrRow[3]);
-    window.setTimeout(replaceMatch, 3000);
+  }
+  setTimeout(stockInventory, 2000);
+  setTimeout(replaceMatch, 2050);
   }
    // check for column or row index 4-6
   if (columnOrRow[4].attr('class')=== columnOrRow[5].attr('class') && columnOrRow[4].attr('class')=== columnOrRow[6].attr('class')) {
@@ -350,15 +354,18 @@ const checkColumnorRow = (columnOrRow) => {
     // console.log(firstMatch.attr('class'));
     // console.log(secondMatch.attr('class'));
     // console.log(thirdMatch.attr('class'));
-    window.setTimeout(CheckAllColumnsAndRows, 2000);
+    setTimeout(CheckAllColumnsAndRows, 3000);
     }
+    let stockInventory = () => {
     allAreCash(columnOrRow[4]);
     allAreGuitars(columnOrRow[4]);
     allAreBass(columnOrRow[4]);
     allAreKeys(columnOrRow[4]);
     allAreMic(columnOrRow[4]);
     allAreDrums(columnOrRow[4]);
-    window.setTimeout(replaceMatch, 3000);
+  }
+  setTimeout(stockInventory, 2000);
+  setTimeout(replaceMatch, 2050);
   }
    // check for column or row index 5-7.
   if (columnOrRow[5].attr('class')=== columnOrRow[6].attr('class') && columnOrRow[5].attr('class')=== columnOrRow[7].attr('class')) {
@@ -386,15 +393,18 @@ const checkColumnorRow = (columnOrRow) => {
     // console.log(firstMatch.attr('class'));
     // console.log(secondMatch.attr('class'));
     // console.log(thirdMatch.attr('class'));
-    window.setTimeout(CheckAllColumnsAndRows, 2000);
+    setTimeout(CheckAllColumnsAndRows, 3000);
     }
+    let stockInventory = () => {
     allAreCash(columnOrRow[5]);
     allAreGuitars(columnOrRow[5]);
     allAreBass(columnOrRow[5]);
     allAreKeys(columnOrRow[5]);
     allAreMic(columnOrRow[5]);
     allAreDrums(columnOrRow[5]);
-    window.setTimeout(replaceMatch, 3000);
+  }
+  setTimeout(stockInventory, 2000);
+  setTimeout(replaceMatch, 2050);
   }
 }
 // }
@@ -609,7 +619,7 @@ openModal();
 // put Check for Full Inventory at beginning of CheckAllColumnsAndRows
 assignRandomIconAndClass();
 makeNeighborsClickable();
-CheckAllColumnsAndRows();
+// CheckAllColumnsAndRows(); --- onlye need this when modal is inactive
 
 // call makeNeighborsClickable - where?
 
