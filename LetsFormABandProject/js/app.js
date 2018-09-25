@@ -19,8 +19,6 @@ const icons = [
 {src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
-{src: 'images/cash_pic.jpg', value: 'cash'},
-{src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/lazybandmate.png', value: 'bandmate'},
 {src: 'images/lazybandmate.png', value: 'bandmate'},
 {src: 'images/demanding-boss.jpg', value: 'boss'}
