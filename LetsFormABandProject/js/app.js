@@ -471,13 +471,14 @@ const checkSingleArrayForNeighbors = (array) => {
       let itemIndex = array.indexOf(item);
       // when you click on a specific image in grid:
       const limitClickOnItems = () => {
-    $(item).one('click', (event) => {
+    $(item).on('click', (event) => {
       // console.log(itemIndex);
       // find class and source of current image:
       let $current, $upOne, $downOne;
       let downOne = array[itemIndex +1];
       $current = $(event.currentTarget);
-
+      // if ($current.attr('class') !== 'boss' && $current.attr('class') !== 'bandmate') {
+      //   $current.addClass('click-border-red');}
       let upOne = array[itemIndex -1];
       let currentClass = $current.attr('class');
       let currentSrc = $current.attr('src');
@@ -494,7 +495,10 @@ const checkSingleArrayForNeighbors = (array) => {
       }
       else {
       $(downOne).off('click');
-      $(downOne).one('click', ()=> {
+      $(downOne).on('click', ()=> {
+        // $current.removeClass('click-border-red');
+        // if ($(downOne).attr('class') !== 'boss' && $(downOne).attr('class') !== 'bandmate') {
+        //   $(downOne).addClass('click-border-blue');}
         // console.log('this is working');
         // find class and source of next image:
         // $downOne = $(event.currentTarget);
@@ -525,8 +529,8 @@ const checkSingleArrayForNeighbors = (array) => {
         $current.addClass(downOneClass);
         $current.attr('src', downOneSrc);
           // debugger;
-        $(downOne).off('click');
-        $(upOne).off('click');
+        // $(downOne).off('click');
+        // $(upOne).off('click');
         CheckAllColumnsAndRows();
           // debugger;
       })
@@ -537,7 +541,11 @@ const checkSingleArrayForNeighbors = (array) => {
       }
       else {
       $(upOne).off('click');
-      $(upOne).one('click', ()=> {
+      $(upOne).on('click', ()=> {
+        // $current.removeClass('click-border-red');
+        // if ($(upOne).attr('class') !== 'boss' && $(upOne).attr('class') !== 'bandmate') {
+        //   $(upOne).addClass('click-border-green');
+        // }
         // let upOne = event.currentTarget;
         // console.log('this also works'+ upOne);
         // find class and source of image right before current:
@@ -576,24 +584,24 @@ const checkSingleArrayForNeighbors = (array) => {
         console.log(newCurrentClass);
         console.log(newCurrentSrc);
           // debugger;
-        $(upOne).off('click');
-        $(downOne).off('click');
+        // $(upOne).off('click');
+        // $(downOne).off('click');
           // debugger;
         CheckAllColumnsAndRows();
       })
-
     }
-      // event.stopPropagation();
-    })
+    CheckAllColumnsAndRows();
+  })
   }
+
   limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
   }
 }
 const clearInventory = () => {
@@ -644,8 +652,8 @@ const $modal = $('#modal');
   const closeModal = () => {
     $modal.hide('slow');
     // include function CheckAllColumnsAndRows to start game, after 5 seconds:
-      window.setTimeout(CheckAllColumnsAndRows, 3000);
-      window.setTimeout(startTimer, 3000);
+      setTimeout(CheckAllColumnsAndRows, 3000);
+      setTimeout(startTimer, 3000);
   }
   // event listener for click on submit button
   $closeBtn.on('click', closeModal);
@@ -677,11 +685,11 @@ window.setInterval(addSeconds, 1000);
 }
 
 // ============================Start Game Flow===============================
-// openModal();
+openModal();
 // put Check for Full Inventory at beginning of CheckAllColumnsAndRows
 assignRandomIconAndClass();
 makeNeighborsClickable();
-CheckAllColumnsAndRows();
+// CheckAllColumnsAndRows();
 // --- onlye need this when modal is inactive
 
 // call makeNeighborsClickable - where?

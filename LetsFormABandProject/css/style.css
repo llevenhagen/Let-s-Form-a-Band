@@ -293,3 +293,13 @@ form {
   padding: 10px 20px;
   font-size: 20px;
 }
+/* Interactive CSS */
+.click-border-red {
+  border: 2px solid red;
+}
+.click-border-blue {
+  border: 2px solid blue;
+}
+.click-border-green {
+  border: 2px solid green;
+}
