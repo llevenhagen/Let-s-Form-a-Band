@@ -11,6 +11,17 @@ const icons = [
 {src: 'images/keys-icon.png', value: 'keys'},
 {src: 'images/mic-pic.png', value: 'mic'},
 {src: 'images/drums.jpg', value: 'drums'},
+
+{src: 'images/bass-guitar-pic.png', value: 'bass'},
+{src: 'images/guitar.jpg', value: 'guitar'},
+{src: 'images/keys-icon.png', value: 'keys'},
+{src: 'images/mic-pic.png', value: 'mic'},
+{src: 'images/drums.jpg', value: 'drums'},
+{src: 'images/bass-guitar-pic.png', value: 'bass'},
+{src: 'images/guitar.jpg', value: 'guitar'},
+{src: 'images/keys-icon.png', value: 'keys'},
+{src: 'images/mic-pic.png', value: 'mic'},
+{src: 'images/drums.jpg', value: 'drums'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
 {src: 'images/cash_pic.jpg', value: 'cash'},
@@ -52,21 +63,21 @@ for (i =0; i<64; i++) {
 // ======================COLUMNS:=============================
 
 // ==================COLUMN 1==================================
-const column1 = [$('img').eq(0), $('img').eq(1), $('img').eq(2), $('img').eq(3), $('img').eq(4), $('img').eq(5), $('img').eq(6), $('img').eq(7)];
+let column1 = [$('img').eq(0), $('img').eq(1), $('img').eq(2), $('img').eq(3), $('img').eq(4), $('img').eq(5), $('img').eq(6), $('img').eq(7)];
 // ====================COLUMN 2===============================
-const column2 = [$('img').eq(8), $('img').eq(9), $('img').eq(10), $('img').eq(11), $('img').eq(12), $('img').eq(13), $('img').eq(14), $('img').eq(15)];
+let column2 = [$('img').eq(8), $('img').eq(9), $('img').eq(10), $('img').eq(11), $('img').eq(12), $('img').eq(13), $('img').eq(14), $('img').eq(15)];
 // ===================COLUMN 3===============================
-const column3 = [$('img').eq(16), $('img').eq(17), $('img').eq(18), $('img').eq(19), $('img').eq(20), $('img').eq(21), $('img').eq(22), $('img').eq(23)];
+let column3 = [$('img').eq(16), $('img').eq(17), $('img').eq(18), $('img').eq(19), $('img').eq(20), $('img').eq(21), $('img').eq(22), $('img').eq(23)];
 // ==================Column 4================================
-const column4 = [$('img').eq(24), $('img').eq(25), $('img').eq(26), $('img').eq(27), $('img').eq(28), $('img').eq(29), $('img').eq(30), $('img').eq(31)];
+let column4 = [$('img').eq(24), $('img').eq(25), $('img').eq(26), $('img').eq(27), $('img').eq(28), $('img').eq(29), $('img').eq(30), $('img').eq(31)];
 // ==================Column 5================================
-const column5 = [$('img').eq(32), $('img').eq(33), $('img').eq(34), $('img').eq(35), $('img').eq(36), $('img').eq(37), $('img').eq(38), $('img').eq(39)];
+let column5 = [$('img').eq(32), $('img').eq(33), $('img').eq(34), $('img').eq(35), $('img').eq(36), $('img').eq(37), $('img').eq(38), $('img').eq(39)];
 // ====================COLUMN 6=================================
-const column6 = [$('img').eq(40), $('img').eq(41), $('img').eq(42), $('img').eq(43), $('img').eq(44), $('img').eq(45), $('img').eq(46), $('img').eq(47)];
+let column6 = [$('img').eq(40), $('img').eq(41), $('img').eq(42), $('img').eq(43), $('img').eq(44), $('img').eq(45), $('img').eq(46), $('img').eq(47)];
 // =======================Column 7=============================
-const column7 = [$('img').eq(48), $('img').eq(49), $('img').eq(50), $('img').eq(51), $('img').eq(52), $('img').eq(53), $('img').eq(54), $('img').eq(55)];
+let column7 = [$('img').eq(48), $('img').eq(49), $('img').eq(50), $('img').eq(51), $('img').eq(52), $('img').eq(53), $('img').eq(54), $('img').eq(55)];
 // ====================COLUMN 8==============================
-const column8 = [$('img').eq(56), $('img').eq(57), $('img').eq(58), $('img').eq(59), $('img').eq(60), $('img').eq(61), $('img').eq(62), $('img').eq(63)];
+let column8 = [$('img').eq(56), $('img').eq(57), $('img').eq(58), $('img').eq(59), $('img').eq(60), $('img').eq(61), $('img').eq(62), $('img').eq(63)];
 
 // ====================ROWS:===================================
 
@@ -549,6 +560,7 @@ const checkSingleArrayForNeighbors = (array) => {
         // $(upOne).off('click');
         // $(downOne).off('click');
           // debugger;
+          // $(upOne).off('click');
         CheckAllColumnsAndRows();
       })
     }
@@ -585,6 +597,33 @@ const reloadGridAndInventory = () => {
   assignRandomIconAndClass();
   clearInventory();
 }
+
+const restartGame = () => {
+    // $('img').remove();
+    // $('.square').append('<img>');
+
+    // column1 = [$('img').eq(0), $('img').eq(1), $('img').eq(2), $('img').eq(3), $('img').eq(4), $('img').eq(5), $('img').eq(6), $('img').eq(7)];
+    // // ====================COLUMN 2===============================
+    // column2 = [$('img').eq(8), $('img').eq(9), $('img').eq(10), $('img').eq(11), $('img').eq(12), $('img').eq(13), $('img').eq(14), $('img').eq(15)];
+    // // ===================COLUMN 3===============================
+    // column3 = [$('img').eq(16), $('img').eq(17), $('img').eq(18), $('img').eq(19), $('img').eq(20), $('img').eq(21), $('img').eq(22), $('img').eq(23)];
+    // // ==================Column 4================================
+    // column4 = [$('img').eq(24), $('img').eq(25), $('img').eq(26), $('img').eq(27), $('img').eq(28), $('img').eq(29), $('img').eq(30), $('img').eq(31)];
+    // // ==================Column 5================================
+    // column5 = [$('img').eq(32), $('img').eq(33), $('img').eq(34), $('img').eq(35), $('img').eq(36), $('img').eq(37), $('img').eq(38), $('img').eq(39)];
+    // // ====================COLUMN 6=================================
+    // column6 = [$('img').eq(40), $('img').eq(41), $('img').eq(42), $('img').eq(43), $('img').eq(44), $('img').eq(45), $('img').eq(46), $('img').eq(47)];
+    // // =======================Column 7=============================
+    // column7 = [$('img').eq(48), $('img').eq(49), $('img').eq(50), $('img').eq(51), $('img').eq(52), $('img').eq(53), $('img').eq(54), $('img').eq(55)];
+    // // ====================COLUMN 8==============================
+    // column8 = [$('img').eq(56), $('img').eq(57), $('img').eq(58), $('img').eq(59), $('img').eq(60), $('img').eq(61), $('img').eq(62), $('img').eq(63)];
+  // CheckAllColumnsAndRows();
+  reloadGridAndInventory();
+  makeNeighborsClickable();
+  setTimeout(CheckAllColumnsAndRows, 3000);
+}
+
+
 // ==============================WIN FUNCTION ===========================
 const checkForFullInventory = () => {
   let guitarInventory = $('#guitar').children(0);
@@ -592,7 +631,7 @@ const checkForFullInventory = () => {
   let keysInventory = $('#keys').children(0);
   let bassInventory = $('#bass').children(0);
   let drumsInventory = $('#drums').children(0);
-  if (guitarInventory.hasClass('guitar') && micInventory.hasClass('mic') && keysInventory.hasClass('keys') && bassInventory.hasClass('bass') && drumsInventory.hasClass('drums') && currentCash >= 1000) {
+  if (guitarInventory.hasClass('guitar') && micInventory.hasClass('mic') && keysInventory.hasClass('keys') && bassInventory.hasClass('bass') && drumsInventory.hasClass('drums') && currentCash >= 100) {
     let player1Time = $('.player-time').eq(0);
     let player2Time = $('.player-time').eq(1);
     if ($(player1Time).text()=== '') {
@@ -660,9 +699,10 @@ window.setInterval(addSeconds, 1000);
 }
 
 // ============================Start Game Flow===============================
-openModal();
+// openModal();
 // put Check for Full Inventory at beginning of CheckAllColumnsAndRows
 const startGame = () => {
+openModal();
 assignRandomIconAndClass();
 makeNeighborsClickable();}
 startGame();
@@ -670,10 +710,5 @@ startGame();
 // --- onlye need this when modal is inactive
 
 // call makeNeighborsClickable - where?
-const restartGame = () => {
-  assignRandomIconAndClass();
-  makeNeighborsClickable();
-  reloadGridAndInventory();
-  setTimeout(CheckAllColumnsAndRows, 3000);
-}
+
 })
