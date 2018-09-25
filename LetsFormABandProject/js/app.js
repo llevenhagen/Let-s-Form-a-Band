@@ -443,7 +443,7 @@ const checkSingleArrayForNeighbors = (array) => {
     // find index of item in array, in order to identify neighbors
       let itemIndex = array.indexOf(item);
       // when you click on a specific image in grid:
-      const limitClickOnItems = () => {
+      // const limitClickOnItems = () => {
     $(item).on('click', (event) => {
       // console.log(itemIndex);
       // find class and source of current image:
@@ -568,15 +568,15 @@ const checkSingleArrayForNeighbors = (array) => {
   })
   }
 
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  limitClickOnItems(item);
-  }
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // limitClickOnItems(item);
+  // }
 }
 const clearInventory = () => {
   let guitarImage = $('#guitar').children(0);
@@ -654,8 +654,18 @@ const checkForFullInventory = () => {
 }
 
 
-// Open MODAL
-
+// MODAL Functions:
+// Code to move input box values into player 1 and player 2 divs:
+const clickSubmit = () => {
+const $inputBox1 = $('#input-box');
+const $inputBox2 = $('#input-box2');
+const $playerOneName = $inputBox1.val();
+const $playerTwoName = $inputBox2.val();
+$('#player1').text($playerOneName);
+$('#player2').text($playerTwoName);
+closeModal();
+}
+// Modal itself:
 const $modal = $('#modal');
   const $closeBtn = $('#submit-btn');
   // event handlers
@@ -669,8 +679,9 @@ const $modal = $('#modal');
       setTimeout(startTimer, 3000);
   }
   // event listener for click on submit button
-  $closeBtn.on('click', closeModal);
+  $closeBtn.on('click', clickSubmit);
   // close Modal
+
 
 // ==================================Timer=================================
 
