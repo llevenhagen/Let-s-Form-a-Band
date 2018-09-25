@@ -595,13 +595,13 @@ const checkSingleArrayForNeighbors = (array) => {
   }
 
   limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
+  limitClickOnItems(item);
   }
 }
 const clearInventory = () => {
