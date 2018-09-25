@@ -184,12 +184,6 @@ const checkColumnorRow = (columnOrRow) => {
     let firstMatch = columnOrRow[0];
     let secondMatch = columnOrRow[1];
     let thirdMatch = columnOrRow[2];
-    // allAreCash(columnOrRow[0]);
-    // allAreGuitars(columnOrRow[0]);
-    // allAreBass(columnOrRow[0]);
-    // allAreKeys(columnOrRow[0]);
-    // allAreMic(columnOrRow[0]);
-    // allAreDrums(columnOrRow[0])
     // ==============REMOVE THE MATCHING 3======================
     const replaceMatch = () => {
     newRandomIcon();
@@ -219,12 +213,6 @@ const checkColumnorRow = (columnOrRow) => {
   }
   // check for column or row index 1-3
   if (columnOrRow[1].attr('class')=== columnOrRow[2].attr('class') && columnOrRow[1].attr('class')=== columnOrRow[3].attr('class')) {
-      // allAreCash(columnOrRow[1]);
-      // allAreGuitars(columnOrRow[1]);
-      // allAreBass(columnOrRow[1]);
-      // allAreKeys(columnOrRow[1]);
-      // allAreMic(columnOrRow[1]);
-      // allAreDrums(columnOrRow[1]);
       let firstMatch = columnOrRow[1];
       let secondMatch = columnOrRow[2];
       let thirdMatch = columnOrRow[3];
@@ -258,12 +246,6 @@ const checkColumnorRow = (columnOrRow) => {
     }
     // check for column or row index 2-4
   if (columnOrRow[2].attr('class')=== columnOrRow[3].attr('class') && columnOrRow[2].attr('class')=== columnOrRow[4].attr('class')) {
-  // allAreCash(columnOrRow[2]);
-  // allAreGuitars(columnOrRow[2]);
-  // allAreBass(columnOrRow[2]);
-  // allAreKeys(columnOrRow[2]);
-  // allAreMic(columnOrRow[2]);
-  // allAreDrums(columnOrRow[2]);
   let firstMatch = columnOrRow[2];
   let secondMatch = columnOrRow[3];
   let thirdMatch = columnOrRow[4];
@@ -297,12 +279,6 @@ setTimeout(replaceMatch, 2050);
 }
  // check for column or row index 3-5
   if (columnOrRow[3].attr('class')=== columnOrRow[4].attr('class') && columnOrRow[3].attr('class')=== columnOrRow[5].attr('class')) {
-    // allAreCash(columnOrRow[3]);
-    // allAreGuitars(columnOrRow[3]);
-    // allAreBass(columnOrRow[3]);
-    // allAreKeys(columnOrRow[3]);
-    // allAreMic(columnOrRow[3]);
-    // allAreDrums(columnOrRow[3]);
     let firstMatch = columnOrRow[3];
     let secondMatch = columnOrRow[4];
     let thirdMatch = columnOrRow[5];
@@ -336,12 +312,6 @@ setTimeout(replaceMatch, 2050);
   }
    // check for column or row index 4-6
   if (columnOrRow[4].attr('class')=== columnOrRow[5].attr('class') && columnOrRow[4].attr('class')=== columnOrRow[6].attr('class')) {
-    // allAreCash(columnOrRow[4]);
-    // allAreGuitars(columnOrRow[4]);
-    // allAreBass(columnOrRow[4]);
-    // allAreKeys(columnOrRow[4]);
-    // allAreMic(columnOrRow[4]);
-    // allAreDrums(columnOrRow[4]);
     let firstMatch = columnOrRow[4];
     let secondMatch = columnOrRow[5];
     let thirdMatch = columnOrRow[6];
@@ -375,12 +345,6 @@ setTimeout(replaceMatch, 2050);
   }
    // check for column or row index 5-7.
   if (columnOrRow[5].attr('class')=== columnOrRow[6].attr('class') && columnOrRow[5].attr('class')=== columnOrRow[7].attr('class')) {
-    // allAreCash(columnOrRow[5]);
-    // allAreGuitars(columnOrRow[5]);
-    // allAreBass(columnOrRow[5]);
-    // allAreKeys(columnOrRow[5]);
-    // allAreMic(columnOrRow[5]);
-    // allAreDrums(columnOrRow[5]);
     let firstMatch = columnOrRow[5];
     let secondMatch = columnOrRow[6];
     let thirdMatch = columnOrRow[7];
@@ -588,7 +552,7 @@ const checkSingleArrayForNeighbors = (array) => {
         CheckAllColumnsAndRows();
       })
     }
-    CheckAllColumnsAndRows();
+    // CheckAllColumnsAndRows();
   })
   }
 
@@ -614,10 +578,10 @@ const clearInventory = () => {
   $(micImage).remove();
   $(bassImage).remove();
   currentCash = 0;
-  $('#amount').text(currentCash)
+  $('#amount').text(currentCash);
 }
 // =======================RELOAD GRID FOR NEW PLAYER FUNCTION========
-const reloadGrid = () => {
+const reloadGridAndInventory = () => {
   assignRandomIconAndClass();
   clearInventory();
 }
@@ -628,13 +592,25 @@ const checkForFullInventory = () => {
   let keysInventory = $('#keys').children(0);
   let bassInventory = $('#bass').children(0);
   let drumsInventory = $('#drums').children(0);
-  if (guitarInventory.hasClass('guitar') && micInventory.hasClass('mic') && keysInventory.hasClass('keys') && bassInventory.hasClass('bass') && drumsInventory.hasClass('drums') && currentCash >= 2000) {
-    // alert('You have everything you need! Rock and Roll!')
-    // console.log(seconds, minutes);
+  if (guitarInventory.hasClass('guitar') && micInventory.hasClass('mic') && keysInventory.hasClass('keys') && bassInventory.hasClass('bass') && drumsInventory.hasClass('drums') && currentCash >= 200) {
     let player1Time = $('.player-time').eq(0);
     let player2Time = $('.player-time').eq(1);
+    if ($(player1Time).text()=== '') {
     $(player1Time).text(minutes + ':' + seconds);
-    reloadGrid();
+    seconds = 0;
+    minutes = 0;
+    $(secondsInfo).text(seconds);
+    $(minutesInfo).text(minutes);
+    restartGame();
+    // reloadGridAndInventory();
+    // startGame();
+    // CheckAllColumnsAndRows();
+    // setTimeout(CheckAllColumnsAndRows, 3000);
+  }
+  else {
+    $(player2Time).text(minutes + ':' + seconds);
+
+  }
   }
 }
 
@@ -658,10 +634,11 @@ const $modal = $('#modal');
   // close Modal
 
 // ==================================Timer=================================
+
 let seconds = 0;
 let minutes = 0;
-let secondsInfo = $('#timerSeconds');
-let minutesInfo = $('#timerMinutes');
+let secondsInfo = $('#p1TimerSeconds');
+let minutesInfo = $('#p1TimerMinutes');
 $(secondsInfo).text(seconds);
 $(minutesInfo).text(minutes);
 let addSeconds = () => {
@@ -685,11 +662,18 @@ window.setInterval(addSeconds, 1000);
 // ============================Start Game Flow===============================
 openModal();
 // put Check for Full Inventory at beginning of CheckAllColumnsAndRows
+const startGame = () => {
 assignRandomIconAndClass();
-makeNeighborsClickable();
+makeNeighborsClickable();}
+startGame();
 // CheckAllColumnsAndRows();
 // --- onlye need this when modal is inactive
 
 // call makeNeighborsClickable - where?
-
+const restartGame = () => {
+  assignRandomIconAndClass();
+  makeNeighborsClickable();
+  reloadGridAndInventory();
+  setTimeout(CheckAllColumnsAndRows, 3000);
+}
 })
