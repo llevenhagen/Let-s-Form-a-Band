@@ -602,6 +602,9 @@ const reloadGridAndInventory = () => {
 }
 
 const restartGame = () => {
+  seconds = 0;
+  minutes = 0;
+  // $('.player-time').text('');
   reloadGridAndInventory();
   makeNeighborsClickable();
   console.log('restart game function called');
@@ -645,7 +648,8 @@ const winnerFunction = () => {
     }
   };
 openModal3();
-
+// $('.player-time').eq(0).text('');
+// $('.player-time').eq(1).text('');
 }
 
 const checkForFullInventory = () => {
@@ -685,7 +689,20 @@ const checkForFullInventory = () => {
   }
 }
 const resetPage = () => {
-  document.reset();
+  $('#modal3').hide('slow');
+  minutes = 0;
+  seconds = 0;
+  player1Minutes = 0;
+  player1Seconds = 0;
+  player2Minutes = 0;
+  player2Seconds = 0;
+  $('.player-time').eq(0).text('');
+  $('.player-time').eq(1).text('');
+  // setTimeout(CheckAllColumnsAndRows, 3000);
+  // setTimeout(startTimer, 3000);
+  restartGame();
+  openModal();
+
 }
 
 // MODAL Functions:
