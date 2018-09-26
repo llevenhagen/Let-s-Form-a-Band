@@ -35,6 +35,7 @@ const icons = [
 {src: 'images/demanding-boss.jpg', value: 'boss'}
 ];
 // loop randomly through array to populate grid with images paired with class.
+// let randomIcon = icons[Math.floor(Math.random()*icons.length)];
 let randomIcon = icons[Math.floor(Math.random()*icons.length)];
 const newRandomIcon = () => {
   randomIcon = icons[Math.floor(Math.random()*icons.length)];
@@ -82,21 +83,21 @@ let column8 = [$('img').eq(56), $('img').eq(57), $('img').eq(58), $('img').eq(59
 // ====================ROWS:===================================
 
 // ======================ROW 1==========================================
-const row1 = [$('img').eq(0), $('img').eq(9), $('img').eq(17), $('img').eq(25), $('img').eq(33), $('img').eq(41), $('img').eq(49), $('img').eq(57)];
+let row1 = [$('img').eq(0), $('img').eq(9), $('img').eq(17), $('img').eq(25), $('img').eq(33), $('img').eq(41), $('img').eq(49), $('img').eq(57)];
 // ======================ROW 2==========================================
-const row2 = [$('img').eq(2), $('img').eq(10), $('img').eq(18), $('img').eq(26), $('img').eq(34), $('img').eq(42), $('img').eq(50), $('img').eq(58)];
+let row2 = [$('img').eq(2), $('img').eq(10), $('img').eq(18), $('img').eq(26), $('img').eq(34), $('img').eq(42), $('img').eq(50), $('img').eq(58)];
 // // ======================ROW 3==========================================
-const row3 = [$('img').eq(3), $('img').eq(11), $('img').eq(19), $('img').eq(27), $('img').eq(35), $('img').eq(43), $('img').eq(51), $('img').eq(59)];
+let row3 = [$('img').eq(3), $('img').eq(11), $('img').eq(19), $('img').eq(27), $('img').eq(35), $('img').eq(43), $('img').eq(51), $('img').eq(59)];
 // ======================ROW 4==========================================
-const row4 = [$('img').eq(4), $('img').eq(12), $('img').eq(20), $('img').eq(28), $('img').eq(36), $('img').eq(44), $('img').eq(52), $('img').eq(60)];
+let row4 = [$('img').eq(4), $('img').eq(12), $('img').eq(20), $('img').eq(28), $('img').eq(36), $('img').eq(44), $('img').eq(52), $('img').eq(60)];
 // ======================ROW 5==========================================
-const row5 = [$('img').eq(5), $('img').eq(13), $('img').eq(21), $('img').eq(29), $('img').eq(37), $('img').eq(45), $('img').eq(53), $('img').eq(61)];
+let row5 = [$('img').eq(5), $('img').eq(13), $('img').eq(21), $('img').eq(29), $('img').eq(37), $('img').eq(45), $('img').eq(53), $('img').eq(61)];
 // ======================ROW 6==========================================
-const row6 = [$('img').eq(6), $('img').eq(14), $('img').eq(22), $('img').eq(30), $('img').eq(38), $('img').eq(46), $('img').eq(54), $('img').eq(62)];
+let row6 = [$('img').eq(6), $('img').eq(14), $('img').eq(22), $('img').eq(30), $('img').eq(38), $('img').eq(46), $('img').eq(54), $('img').eq(62)];
 // ======================ROW 7==========================================
-const row7 = [$('img').eq(7), $('img').eq(15), $('img').eq(23), $('img').eq(31), $('img').eq(39), $('img').eq(47), $('img').eq(55), $('img').eq(63)];
+let row7 = [$('img').eq(7), $('img').eq(15), $('img').eq(23), $('img').eq(31), $('img').eq(39), $('img').eq(47), $('img').eq(55), $('img').eq(63)];
 // ======================ROW 8==========================================
-const row8 = [$('img').eq(8), $('img').eq(16), $('img').eq(24), $('img').eq(32), $('img').eq(40), $('img').eq(48), $('img').eq(56), $('img').eq(64)];
+let row8 = [$('img').eq(8), $('img').eq(16), $('img').eq(24), $('img').eq(32), $('img').eq(40), $('img').eq(48), $('img').eq(56), $('img').eq(64)];
 
 // ========================FUNCTION FOR IF 3 MATCH=====================
 // all are cash:
@@ -110,7 +111,7 @@ const allAreCash = (firstIndex) => {
 // all are Guitars:
 const allAreGuitars = (firstIndex) => {
   if (firstIndex.hasClass('guitar')) {
-    console.log('you have a guitar');
+    // console.log('you have a guitar');
     let image = $('#guitar').children(0)
     // IF YOU ALREADY HAVE A GUITAR SELL FOR 100
     if (image.hasClass('guitar')) {
@@ -126,7 +127,7 @@ const allAreGuitars = (firstIndex) => {
 // all are Bass:
 const allAreBass = (firstIndex) => {
   if (firstIndex.hasClass('bass')) {
-    console.log('you have a bass');
+    // console.log('you have a bass');
     let image = $('#bass').children(0)
     if (image.hasClass('bass')) {
       // alert('You got another bass guitar! You only need one, so you can sell this one for $100!')
@@ -141,7 +142,7 @@ const allAreBass = (firstIndex) => {
 // all are Keys:
 const allAreKeys = (firstIndex) => {
   if (firstIndex.hasClass('keys')) {
-    console.log('you have a keyboard');
+    // console.log('you have a keyboard');
     let image = $('#keys').children(0)
     if (image.hasClass('keys')) {
       // alert('You got another keyboard! You only need one, so you can sell this one for $100!')
@@ -156,7 +157,7 @@ const allAreKeys = (firstIndex) => {
 // all are Mic:
 const allAreMic = (firstIndex) => {
   if (firstIndex.hasClass('mic')) {
-    console.log('you have a mic');
+    // console.log('you have a mic');
     let image = $('#mic').children(0)
     if (image.hasClass('mic')) {
       // alert('You got another mic! You only need one, so you can sell this one for $100!')
@@ -171,7 +172,7 @@ const allAreMic = (firstIndex) => {
 // all are drums:
 const allAreDrums = (firstIndex) => {
   if (firstIndex.hasClass('drums')) {
-    console.log('you have a drumset');
+    // console.log('you have a drumset');
     let image = $('#drums').children(0)
     if (image.hasClass('drums')) {
       // alert('You got another drumset! You only need one, so you can sell this one for $100!')
@@ -393,6 +394,7 @@ setTimeout(replaceMatch, 2050);
 //   console.log('this also worked');
 // }
 CheckAllColumnsAndRows = () => {
+  console.log('checking all columns and rows');
   checkForFullInventory();
   checkColumnorRow(column1);
   checkColumnorRow(column2);
@@ -475,7 +477,6 @@ const checkSingleArrayForNeighbors = (array) => {
         // console.log('this is working');
         // find class and source of next image:
         // $downOne = $(event.currentTarget);
-        console.log($downOne);
         let downOneClass = $(downOne).attr('class');
         let downOneSrc = $(downOne).attr('src');
         console.log(downOneClass);
@@ -594,37 +595,59 @@ const clearInventory = () => {
 }
 // =======================RELOAD GRID FOR NEW PLAYER FUNCTION========
 const reloadGridAndInventory = () => {
+  $('img').removeClass();
+  $('img').removeAttr('src');
   assignRandomIconAndClass();
   clearInventory();
 }
 
 const restartGame = () => {
-    // $('img').remove();
-    // $('.square').append('<img>');
-
-    // column1 = [$('img').eq(0), $('img').eq(1), $('img').eq(2), $('img').eq(3), $('img').eq(4), $('img').eq(5), $('img').eq(6), $('img').eq(7)];
-    // // ====================COLUMN 2===============================
-    // column2 = [$('img').eq(8), $('img').eq(9), $('img').eq(10), $('img').eq(11), $('img').eq(12), $('img').eq(13), $('img').eq(14), $('img').eq(15)];
-    // // ===================COLUMN 3===============================
-    // column3 = [$('img').eq(16), $('img').eq(17), $('img').eq(18), $('img').eq(19), $('img').eq(20), $('img').eq(21), $('img').eq(22), $('img').eq(23)];
-    // // ==================Column 4================================
-    // column4 = [$('img').eq(24), $('img').eq(25), $('img').eq(26), $('img').eq(27), $('img').eq(28), $('img').eq(29), $('img').eq(30), $('img').eq(31)];
-    // // ==================Column 5================================
-    // column5 = [$('img').eq(32), $('img').eq(33), $('img').eq(34), $('img').eq(35), $('img').eq(36), $('img').eq(37), $('img').eq(38), $('img').eq(39)];
-    // // ====================COLUMN 6=================================
-    // column6 = [$('img').eq(40), $('img').eq(41), $('img').eq(42), $('img').eq(43), $('img').eq(44), $('img').eq(45), $('img').eq(46), $('img').eq(47)];
-    // // =======================Column 7=============================
-    // column7 = [$('img').eq(48), $('img').eq(49), $('img').eq(50), $('img').eq(51), $('img').eq(52), $('img').eq(53), $('img').eq(54), $('img').eq(55)];
-    // // ====================COLUMN 8==============================
-    // column8 = [$('img').eq(56), $('img').eq(57), $('img').eq(58), $('img').eq(59), $('img').eq(60), $('img').eq(61), $('img').eq(62), $('img').eq(63)];
-  // CheckAllColumnsAndRows();
   reloadGridAndInventory();
   makeNeighborsClickable();
+  console.log('restart game function called');
   setTimeout(CheckAllColumnsAndRows, 3000);
 }
 
 
 // ==============================WIN FUNCTION ===========================
+let player1Minutes = 0;
+let player1Seconds = 0;
+let player2Minutes = 0;
+let player2Seconds = 0;
+
+const $modal3 = $('#modal3');
+const openModal3 = () => {
+    $modal3.show('slow');
+}
+const winnerFunction = () => {
+  minutes = 0;
+  seconds = 0;
+  if (player1Minutes < player2Minutes) {
+    console.log('player one wins');
+    $('#modal3Text').text('Player one Wins! Great job, enjoy your fame and fortune. Want to try again?')
+  }
+  else if (player1Minutes > player2Minutes) {
+    console.log('player two wins');
+    $('#modal3Text').text('Player two Wins!Great job, enjoy your fame and fortune. Want to try again?')
+  }
+  else if (player1Minutes === player2Minutes) {
+    if (player1Seconds < player2Seconds) {
+      console.log('player one wins');
+      $('#modal3Text').text('Player one Wins!Great job, enjoy your fame and fortune. Want to try again?')
+    }
+    else if (player1Seconds > player2Seconds) {
+      console.log('player two wins');
+      $('#modal3Text').text('Player two Wins!Great job, enjoy your fame and fortune. Want to try again?')
+    }
+    else if (player1Seconds === player2Seconds) {
+      console.log('it is a tie');
+      $('#modal3Text').text('It is a tie! Want to try again?')
+    }
+  };
+openModal3();
+
+}
+
 const checkForFullInventory = () => {
   let guitarInventory = $('#guitar').children(0);
   let micInventory = $('#mic').children(0);
@@ -635,9 +658,13 @@ const checkForFullInventory = () => {
     let player1Time = $('.player-time').eq(0);
     let player2Time = $('.player-time').eq(1);
     if ($(player1Time).text()=== '') {
+      // log player one seconds and minutes into variable for comparison
+      player1Minutes = minutes;
+      player1Seconds = seconds;
+      // console.log(player1Minutes, player1Seconds);
     $(player1Time).text(minutes + ':' + seconds);
-    seconds = 0;
-    minutes = 0;
+    // seconds = 0;
+    // minutes = 0;
     $(secondsInfo).text(seconds);
     $(minutesInfo).text(minutes);
     restartGame();
@@ -648,11 +675,18 @@ const checkForFullInventory = () => {
   }
   else {
     $(player2Time).text(minutes + ':' + seconds);
-
+    // log player two seconds and minutes into variable for comparison
+    player2Minutes = minutes;
+    player2Seconds = seconds;
+    // console.log(player2Minutes, player2Seconds);
+    // console.log(player1Minutes, player1Seconds);
+    winnerFunction();
   }
   }
 }
-
+const resetPage = () => {
+  document.reset();
+}
 
 // MODAL Functions:
 // Code to move input box values into player 1 and player 2 divs:
@@ -663,23 +697,42 @@ const $playerOneName = $inputBox1.val();
 const $playerTwoName = $inputBox2.val();
 $('#player1').text($playerOneName);
 $('#player2').text($playerTwoName);
-closeModal();
+closeModal1();
 }
+
+
 // Modal itself:
-const $modal = $('#modal');
-  const $closeBtn = $('#submit-btn');
+const $modal = $('#modal1');
+const $modal2 = $('#modal2');
+  const $closeBtn1 = $('#submit-btn');
+  const $closeBtn2 = $('#submit-btn2');
   // event handlers
   const openModal = () => {
     $modal.show('slow');
   }
-  const closeModal = () => {
-    $modal.hide('slow');
-    // include function CheckAllColumnsAndRows to start game, after 5 seconds:
-      setTimeout(CheckAllColumnsAndRows, 3000);
-      setTimeout(startTimer, 3000);
+  const openModal2 = () => {
+    $modal2.show('slow');
+    // $closeBtn2.on('click', openGame)
   }
+  const closeModal1 = () => {
+    $modal.hide('slow');
+    openModal2();
+  }
+  const closeModal2 = () => {
+    $modal2.hide('slow');
+    setTimeout(CheckAllColumnsAndRows, 3000);
+    setTimeout(startTimer, 3000);
+
+  }
+
+    // include function CheckAllColumnsAndRows to start game, after 5 seconds:
+      // setTimeout(CheckAllColumnsAndRows, 3000);
+      // setTimeout(startTimer, 3000);
+  // }
   // event listener for click on submit button
-  $closeBtn.on('click', clickSubmit);
+  $closeBtn1.on('click', clickSubmit);
+  $('#playButton').on('click', closeModal2);
+  $('#playAgainButton').on('click', resetPage);
   // close Modal
 
 
