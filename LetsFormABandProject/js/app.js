@@ -1,4 +1,6 @@
 $(()=> {
+
+  let isTimer = false;
   // make icon array representing both src and value (to match later)
 const icons = [
 {src: 'images/bass-guitar-pic.png', value: 'bass'},
@@ -120,7 +122,7 @@ const allAreGuitars = (firstIndex) => {
       // $('#amount').text(currentCash)
     }
     else {
-    let newImage = $('<img>').addClass('guitar').attr('src', 'images/guitar.jpg');
+    let newImage = $('<img>').addClass('guitar').attr('src', 'images/guitar.jpg').attr('id', 'guitarImage');
     $('#guitar').append(newImage);}
 }
 }
@@ -128,14 +130,14 @@ const allAreGuitars = (firstIndex) => {
 const allAreBass = (firstIndex) => {
   if (firstIndex.hasClass('bass')) {
     // console.log('you have a bass');
-    let image = $('#bass').children(0)
+    let image = $('#bass').children(0);
     if (image.hasClass('bass')) {
       // alert('You got another bass guitar! You only need one, so you can sell this one for $100!')
       // currentCash+=100;
       // $('#amount').text(currentCash)
     }
     else {
-    let newImage = $('<img>').addClass('bass').attr('src', 'images/bass-guitar-pic.png');
+    let newImage = $('<img>').addClass('bass').attr('src', 'images/bass-guitar-pic.png').attr('id', 'bassImage');
     $('#bass').append(newImage);}
   }
 }
@@ -150,7 +152,7 @@ const allAreKeys = (firstIndex) => {
       // $('#amount').text(currentCash)
     }
     else {
-    let newImage = $('<img>').addClass('keys').attr('src', 'images/keys-icon.png');
+    let newImage = $('<img>').addClass('keys').attr('src', 'images/keys-icon.png').attr('id', 'keysImage');
     $('#keys').append(newImage);}
   }
 }
@@ -165,7 +167,7 @@ const allAreMic = (firstIndex) => {
       // $('#amount').text(currentCash)
     }
     else {
-    let newImage = $('<img>').addClass('mic').attr('src', 'images/mic-pic.png');
+    let newImage = $('<img>').addClass('mic').attr('src', 'images/mic-pic.png').attr('id', 'micImage');
     $('#mic').append(newImage);}
   }
 }
@@ -180,7 +182,7 @@ const allAreDrums = (firstIndex) => {
       // $('#amount').text(currentCash)
     }
     else {
-    let newImage = $('<img>').addClass('drums').attr('src', 'images/drums.jpg');
+    let newImage = $('<img>').addClass('drums').attr('src', 'images/drums.jpg').attr('id', 'drumsImage');
     $('#drums').append(newImage);}
   }
 }
@@ -580,16 +582,21 @@ const checkSingleArrayForNeighbors = (array) => {
   // }
 }
 const clearInventory = () => {
-  let guitarImage = $('#guitar').children(0);
-  let keysImage = $('#keys').children(0);
-  let drumsImage = $('#drums').children(0);
-  let micImage = $('#mic').children(0);
-  let bassImage = $('#bass').children(0);
-  $(guitarImage).remove();
-  $(keysImage).remove();
-  $(drumsImage).remove();
-  $(micImage).remove();
-  $(bassImage).remove();
+  // let guitarImage = $('#guitar').children(1);
+  // let keysImage = $('#keys').children(1);
+  // let drumsImage = $('#drums').children(1);
+  // let micImage = $('#mic').children(1);
+  // let bassImage = $('#bass').children(1);
+  // $(guitarImage).remove();
+  // $(keysImage).remove();
+  // $(drumsImage).remove();
+  // $(micImage).remove();
+  // $(bassImage).remove();
+  $('#guitarImage').remove();
+  $('#bassImage').remove();
+  $('#keysImage').remove();
+  $('#drumsImage').remove();
+  $('#micImage').remove();
   currentCash = 0;
   $('#amount').text(currentCash);
 }
@@ -608,11 +615,11 @@ const restartGame = () => {
   reloadGridAndInventory();
   makeNeighborsClickable();
   console.log('restart game function called');
-  setTimeout(CheckAllColumnsAndRows, 3000);
+  // setTimeout(CheckAllColumnsAndRows, 3000);
 }
 
 
-// ==============================WIN FUNCTION ===========================
+// ====================WIN FUNCTION========================
 let player1Minutes = 0;
 let player1Seconds = 0;
 let player2Minutes = 0;
@@ -621,6 +628,8 @@ let player2Seconds = 0;
 const $modal3 = $('#modal3');
 const openModal3 = () => {
     $modal3.show('slow');
+    seconds = 0;
+    minutes = 0;
 }
 const winnerFunction = () => {
   minutes = 0;
@@ -647,6 +656,7 @@ const winnerFunction = () => {
       $('#modal3Text').text('It is a tie! Want to try again?')
     }
   };
+  isTimer = false;
 openModal3();
 // $('.player-time').eq(0).text('');
 // $('.player-time').eq(1).text('');
@@ -667,8 +677,8 @@ const checkForFullInventory = () => {
       player1Seconds = seconds;
       // console.log(player1Minutes, player1Seconds);
     $(player1Time).text(minutes + ':' + seconds);
-    // seconds = 0;
-    // minutes = 0;
+    seconds = 0;
+    minutes = 0;
     $(secondsInfo).text(seconds);
     $(minutesInfo).text(minutes);
     restartGame();
@@ -689,6 +699,7 @@ const checkForFullInventory = () => {
   }
 }
 const resetPage = () => {
+  // clearInterval(addSeconds);
   $('#modal3').hide('slow');
   minutes = 0;
   seconds = 0;
@@ -701,6 +712,8 @@ const resetPage = () => {
   // setTimeout(CheckAllColumnsAndRows, 3000);
   // setTimeout(startTimer, 3000);
   restartGame();
+  $('#p1TimerMinutes').empty();
+  $('#p1TimerSeconds').empty();
   openModal();
 
 }
@@ -737,7 +750,9 @@ const $modal2 = $('#modal2');
   }
   const closeModal2 = () => {
     $modal2.hide('slow');
+
     setTimeout(CheckAllColumnsAndRows, 3000);
+    isTimer = true;
     setTimeout(startTimer, 3000);
 
   }
@@ -775,9 +790,12 @@ if (seconds === 60) {
 }
 }
 // ============================Timer Function==============================
-const startTimer = () => {
-window.setInterval(addSeconds, 1000);
+let startTimer = () => {
+  if (isTimer === true) {
+setInterval(addSeconds, 1000);}
 }
+// let timerControl = setInterval(addSeconds, 1000);
+// clearInterval(addSeconds);
 
 // ============================Start Game Flow===============================
 // openModal();
