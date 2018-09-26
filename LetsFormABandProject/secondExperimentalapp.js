@@ -84,28 +84,6 @@ let column8 = [$('img').eq(56), $('img').eq(57), $('img').eq(58), $('img').eq(59
 
 
 
-
-// FUNCTION FOR CALCULATING NEIGHBOR OF EACH IMG/VAL:
-// const makeNeighborsClickable = () => {
-//   // call other function on every row and column
-//   checkSingleArrayForNeighbors(column1);
-//   checkSingleArrayForNeighbors(column2);
-//   checkSingleArrayForNeighbors(column3);
-//   checkSingleArrayForNeighbors(column4);
-//   checkSingleArrayForNeighbors(column5);
-//   checkSingleArrayForNeighbors(column6);
-//   checkSingleArrayForNeighbors(column7);
-//   checkSingleArrayForNeighbors(column8);
-//   checkSingleArrayForNeighbors(row1);
-//   checkSingleArrayForNeighbors(row2);
-//   checkSingleArrayForNeighbors(row3);
-//   checkSingleArrayForNeighbors(row4);
-//   checkSingleArrayForNeighbors(row5);
-//   checkSingleArrayForNeighbors(row6);
-//   checkSingleArrayForNeighbors(row7);
-//   checkSingleArrayForNeighbors(row8);
-// }
-
 // make function for checking single column or row for neighbors:
 let columnArray = [column1, column2, column3, column4, column5, column6, column7, column8];
 
@@ -113,20 +91,15 @@ let elementWithSwap = document.getElementsByClassName('image-swap');
 let elementWithNext = document.getElementsByClassName('next-image');
 console.log(elementWithSwap.length);
 console.log(elementWithNext.length);
-// debugger;
-// const checkSingleColumnForNeighbors = (columnarray) => {
-//   for (column of columnarray) {
-//     // if ($('.square').children().hasClass('image-swap')) {
-//     //   console.log('item has image swap still');
-//     // }
-//     for (item of column) {
-      elementWithSwap = document.getElementsByClassName('image-swap');
-      elementWithNext = document.getElementsByClassName('next-image');
+
+      elementWithSwap = $('.image-swap');
+      elementWithNext = $('.next-image');
       console.log(elementWithSwap.length);
       console.log(elementWithNext.length);
       // debugger;
       let $current;
       // console.log('this is working');
+
       if (elementWithSwap.length === 0 && elementWithNext.length === 0) {
       $('img').on('click', (event) => {
         $current = $(event.currentTarget);
@@ -134,25 +107,17 @@ console.log(elementWithNext.length);
         // console.log($current.attr('class'));
         let currentItemClass = $current.attr('class');
         let currentItemSrc = $current.attr('src');
-        // $current.addClass('image-swap');
-        // console.log(currentItemClass);
-        // let $allImages = $('.square').children()
-        // for (each of $allImages) {
-        //   // console.log(each);
-        //   if ($allImages.hasClass('next-image')) { }
-        //   else if ($(each).attr('class') !== $current.attr('class')) {
-            // $currentImageClass = $current.attr('class')
-            // console.log($currentImageClass);
             $current.addClass('image-swap')
-            elementWithSwap = document.getElementsByClassName('image-swap')
+            elementWithSwap = $('.image-swap')
             console.log(elementWithSwap.length)
             debugger;
-
                   })
-                  elementWithSwap = document.getElementsByClassName('image-swap')
+                  // elementWithSwap = $('.image-swap')
               }
               // elementWithSwap = document.getElementsByClassName('image-swap')
-          else if (elementWithSwap.length > 0) {
+          elementWithSwap = $('.image-swap')
+           if (elementWithSwap.length > 0) {
+             console.log(elementWithSwap.length);
             $('img').off('click');
             $('img').on('click', () => {
            console.log('next clicked');
@@ -162,70 +127,6 @@ console.log(elementWithNext.length);
            // $(next).off('click');
          }
        )}
-          // })
-        //   }
-    //     }
-    // )}
-  // }}}
-
-//     if (elementWithSwap > 0) {
-//               $(item).off('click');
-//               $(item).one('click', () => {
-//                 console.log('next clicked');
-//                 debugger;
-//                 // console.log($current.attr('class'));
-//                 $(item).addClass('next-image');
-//                 console.log($(item).attr('class'));
-//                 // $(next).off('click');
-//
-//
-// })
-
-// checkSingleColumnForNeighbors(columnArray)
-
-
-// let $allImages = $('.square').children();
-// console.log($allImages);
-// if ($allImages.hasClass('image-swap')) {
-//   console.log('you cant click now');
-// }
-// else if (!$allImages.hasClass('image-swap')) {
-//   console.log('you can click on first image now');
-// for (each of $allImages) {
-// $(each).on('click', (event) => {
-//   let $current = $(event.target);
-//   $current.addClass('image-swap');
-// }
-// )}};
-// let elementWithSwap = document.getElementsByClassName('image-swap');
-// // console.log(elementWithSwap);
-// // if (elementWithSwap.length > 0 ) {
-// //   console.log('one of them has the image swap');
-// // }
-// // else {
-// //   console.log('none of them have the class');
-// // }
-// let $allImagesForNext = $('.square').children();
-// if (elementWithSwap.length === 0) {
-//   console.log('you cant click second now');
-//   for (every of $allImagesForNext) {
-//     // if (!$allImagesForNext.hasClass('image-swap')) {}
-//     if (elementWithSwap.length === 0) {
-//       $(every).on('click', () => {
-//       console.log('something has swap class');
-//       })
-//     }
-//   }
-// }
-// if (!$allImages.hasClass('image-swap')) {
-//   console.log('you can click on first image now');
-// }
-
-
-
-
-
-// checkSingleColumnForNeighbors(columnArray);
 
 
 })
