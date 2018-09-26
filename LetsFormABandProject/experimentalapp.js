@@ -115,10 +115,10 @@ const checkSingleColumnforNeighbors = (columnarray) => {
 // find which column it is, index 0-7
     const columnIndex = columnarray.indexOf(column);
     // find column right before it in columnarray
-    const columnBefore = columnarray[columnIndex-1];
-    console.log(columnBefore);
-    const columnAfter = columnarray[columnIndex+1];
-    console.log(columnAfter);
+    let columnBefore = columnarray[columnIndex-1];
+    // console.log(columnBefore);
+    let columnAfter = columnarray[columnIndex+1];
+    // console.log(columnAfter);
     // console.log(columnIndex);
     // call out individual images in columns:
     for (image of column) {
@@ -129,11 +129,16 @@ const checkSingleColumnforNeighbors = (columnarray) => {
       // find next image in column
       let nextImage = column[imageIndex + 1];
       // Find image with same index but in previous column:
+      if (columnBefore) {
+        console.log(columnBefore);
       let previousColumnImage = columnBefore[imageIndex];
-      console.log(previousColumnImage);
+    }
+      // console.log(previousColumnImage);}
       // find image with same index but in next column:
+      if (columnAfter) {
       let nextColumnImage = columnAfter[imageIndex];
-      console.log(nextColumnImage);
+      // console.log(nextColumnImage);
+    }
 
       // console.log(previousImage);
       // console.log(nextImage);
@@ -142,6 +147,8 @@ const checkSingleColumnforNeighbors = (columnarray) => {
       // let $current;
       let $current;
       $(image).on('click', (event) => {
+        console.log(imageIndex);
+        // console.log($(nextColumnImage).attr('class'));
         $current = $(event.currentTarget);
         // console.log($current);
         // debugger;
@@ -181,7 +188,8 @@ const checkSingleColumnforNeighbors = (columnarray) => {
         // console.log($current.attr('class'));
         // console.log($current.attr('src'));
         // CheckAllColumnsAndRows();
-        })}
+        })
+          }
         if ($(previousImage).attr('class') === 'boss' || $(previousImage).attr('class') === 'bandmate' || $current.attr('class') === 'boss' || $current.attr('class') === 'bandmate')
         { console.log('this is a boss or bandmate');
         }
@@ -214,8 +222,41 @@ const checkSingleColumnforNeighbors = (columnarray) => {
         // console.log($current.attr('class'));
         // console.log($current.attr('src'));
         // CheckAllColumnsAndRows();
+        })
+        }
+        if ($(nextColumnImage).attr('class') === 'boss' || $(nextColumnImage).attr('class') === 'bandmate' || $current.attr('class') === 'boss' || $current.attr('class') === 'bandmate')
+        { console.log('this is a boss or bandmate');
+        }
+        else {
+        $(nextColumnImage).off('click');
+        $(nextColumnImage).on('click', ()=> {
+          // console.log(previousImage);
+          let nextColumnImageClass = $(nextColumnImage).attr('class');
+          let nextColumnImageSrc = $(nextColumnImage).attr('src');
+          // console.log(previousColumnClass);
+          // console.log(previousColumnSrc);
+          // debugger;
+          $(nextColumnImage).removeClass();
+          $(nextColumnImage).removeAttr('src');
+            // debugger;
+          // give DownOne the image and src of class of current
+          $(nextColumnImage).addClass(currentClass);
+          $(nextColumnImage).attr('src', currentSrc);
+          // debugger;
+          let newNextColumnImageClass = $(nextColumnImage).attr('class');
+          let newNextColumnImageSrc = $(nextColumnImage).attr('src');
+        // console.log(newpreviousImageClass);
+        // console.log(newpreviousImageSrc);
+          // debugger;
+        // remove current class and image
+        $current.removeClass();
+        $current.removeAttr('src');
+        $current.addClass(nextColumnImageClass);
+        $current.attr('src', nextColumnImageSrc);
+        // console.log($current.attr('class'));
+        // console.log($current.attr('src'));
+        // CheckAllColumnsAndRows();
         })}
-
 
     })
 
