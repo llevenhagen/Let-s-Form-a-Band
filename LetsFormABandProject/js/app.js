@@ -582,16 +582,6 @@ const checkSingleArrayForNeighbors = (array) => {
   // }
 }
 const clearInventory = () => {
-  // let guitarImage = $('#guitar').children(1);
-  // let keysImage = $('#keys').children(1);
-  // let drumsImage = $('#drums').children(1);
-  // let micImage = $('#mic').children(1);
-  // let bassImage = $('#bass').children(1);
-  // $(guitarImage).remove();
-  // $(keysImage).remove();
-  // $(drumsImage).remove();
-  // $(micImage).remove();
-  // $(bassImage).remove();
   $('#guitarImage').remove();
   $('#bassImage').remove();
   $('#keysImage').remove();
@@ -628,12 +618,13 @@ let player2Seconds = 0;
 const $modal3 = $('#modal3');
 const openModal3 = () => {
     $modal3.show('slow');
+    // isTimer = false;
     seconds = 0;
     minutes = 0;
 }
 const winnerFunction = () => {
-  minutes = 0;
-  seconds = 0;
+  // minutes = 0;
+  // seconds = 0;
   if (player1Minutes < player2Minutes) {
     console.log('player one wins');
     $('#modal3Text').text('Player one Wins! Great job, enjoy your fame and fortune. Want to try again?')
@@ -656,7 +647,6 @@ const winnerFunction = () => {
       $('#modal3Text').text('It is a tie! Want to try again?')
     }
   };
-  isTimer = false;
 openModal3();
 // $('.player-time').eq(0).text('');
 // $('.player-time').eq(1).text('');
