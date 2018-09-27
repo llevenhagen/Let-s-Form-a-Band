@@ -182,13 +182,13 @@ $(() => {
 
   let $elementWithSwap = document.getElementsByClassName('image-swap');
   let $elementWithNext = document.getElementsByClassName('next-image');
-  console.log($elementWithSwap.length);
-  console.log($elementWithNext.length);
+  // console.log($elementWithSwap.length);
+  // console.log($elementWithNext.length);
 
   $elementWithSwap = $('.image-swap');
   $elementWithNext = $('.next-image');
-  console.log($elementWithSwap.length);
-  console.log($elementWithNext.length);
+  // console.log($elementWithSwap.length);
+  // console.log($elementWithNext.length);
   // debugger;
   // let $current;
   // console.log('this is working');
@@ -229,6 +229,7 @@ $(() => {
       // console.log($rightParent);
       // find image assigned to Right Square, for right image:
       $rightImg = $($rightParent).children(0);
+      $rightImg.attr('id', 'right')
       // $rightImgClass = $(rightImg).attr('class');
       // console.log($($rightImg).attr('class'));
       // find ID of square to the left, ID - 8
@@ -236,18 +237,21 @@ $(() => {
       // console.log($leftParent);
       // find image assigned to Left Square
       $leftImg = $($leftParent).children(0);
+      $leftImg.attr('id', 'left');
       // console.log($leftImg);
       // find ID of square top, ID -1
       $topParent = $('.square').eq($parentIdNumber - 1);
       // console.log($topParent);
       // find image assigned to top Parent:
       $topImage = $($topParent).children(0);
+      $topImage.attr('id', 'top');
       // console.log($topImage);
       // find ID of square bottom, ID+1
       $bottomParent = $('.square').eq($parentIdNumber + 1);
       // console.log($topParent);
       // find image assigned to the square $bottom
       $bottomImg = $($bottomParent).children(0);
+      $bottomImg.attr('id', 'bottom');
       // console.log($bottomImg);
       // console.log($($rightImg).attr('class'));
       // console.log('you clicked this item');
@@ -257,26 +261,33 @@ $(() => {
       $current.addClass('image-swap');
       $newCurrentImageClass = $current.attr('class');
 
-      $elementWithSwap = $('.image-swap')
+      $elementWithSwap = $('.image-swap');
       // console.log(elementWithSwap.length)
       // debugger;
       // console.log($($rightImg).attr('class'));
     } else if ($elementWithSwap.length === 1 && $elementWithNext.length === 0) {
       $next = $(event.currentTarget);
-      let $nextImageParent = $($next).parent();
+      let $nextImageParent = $next.parent();
       // console.log($nextImageParent);
       // console.log($rightParent);
+      console.log('next id is' + $next.attr('id'));
+      console.log('right id is' + $rightImg.attr('id'));
+      console.log($leftImg);
+      console.log($topImage);
+      console.log($bottomImg);
       // $nextImageClass = $next.attr('class');
       // $nextImageSrc = $next.attr('src');
-      console.log($($rightImg));
-      console.log($($next));
-      if ($nextImageParent == $rightParent || $nextImageParent == $leftParent || $nextImageParent == $topParent || $nextImageParent == $bottomParent) {
+      // console.log($rightImg.children());
+      // console.log($rightImg.attr('class'));
+      // console.log($next.children());
+      // console.log($next.attr('class'));
+      if ($next.attr('id', 'right') || $next.attr('id', 'left') || $next.attr('id', 'top') || $next.attr('id', 'bottom')) {
         $nextImageClass = $next.attr('class');
         $nextImageSrc = $next.attr('src');
         // console.log($newCurrentImageClass);
         // console.log($nextImageClass);
         // console.log($nextImageSrc);
-        $next.addClass('next-image')
+        $next.addClass('next-image');
         $elementWithNext = $('.next-image');
         $newNextImageClass = $next.attr('class');
         // console.log($newNextImageClass);
@@ -287,13 +298,16 @@ $(() => {
         $next.removeClass().removeAttr('src');
         $next.addClass($currentImageClass);
         $next.attr('src', $currentImageSrc);
-        $elementWithSwap = $('.image-swap')
-        $elementWithNext = $('.next-image')
+        $elementWithSwap = $('.image-swap');
+        $elementWithNext = $('.next-image');
+        // $('image').removeAttr('id');
       }
     } else {
       // console.log($next);
       $next = 0;
+      console.log($next);
     }
+    $('image').removeAttr('id');
   })
 
   // })

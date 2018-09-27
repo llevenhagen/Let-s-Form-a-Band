@@ -1,183 +1,187 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Monoton|Playfair+Display|Russo+One" rel="stylesheet">
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Monoton|Playfair+Display|Russo+One" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="experimentaljs3.js" charset="utf-8"></script>
-    <meta charset="utf-8">
-    <title>Let's Form a Band!</title>
-  </head>
-  <body>
-    <header>
-      <h1>Rock On!</h1>
-      <h2>Who will top the charts first??</h2>
-    </header>
-    <div id="grid-container">
-      <aside id ="winner-loser">
-        <h3 id="player1"></h3><h3 class="time-text">Time:</h3>
-        <h3 class="player-time"></h3>
-        <div></div>
-        <h3 id="player2"></h3><h3 class="time-text">Time:</h3>
-        <h3 class="player-time"></h3>
-  <!-- push divs in here with winner/loser info  -->
-      </aside>
-      <div id="stopWatch">
-        <span id="p1TimerMinutes"></span><span>:</span><span id="p1TimerSeconds"></span>
+  <meta charset="utf-8">
+  <title>Let's Form a Band!</title>
+</head>
+
+<body>
+  <header>
+    <h1>Rock On!</h1>
+    <h2>Who will top the charts first??</h2>
+  </header>
+  <div id="grid-container">
+    <aside id="winner-loser">
+      <h3 id="player1"></h3>
+      <h3 class="time-text">Time:</h3>
+      <h3 class="player-time"></h3>
+      <div></div>
+      <h3 id="player2"></h3>
+      <h3 class="time-text">Time:</h3>
+      <h3 class="player-time"></h3>
+      <!-- push divs in here with winner/loser info  -->
+    </aside>
+    <div id="stopWatch">
+      <span id="p1TimerMinutes"></span><span>:</span><span id="p1TimerSeconds"></span>
+    </div>
+    <div id="grid">
+      <column class="column">
+        <div class="square" id="0"></div>
+        <div class="square" id="1"></div>
+        <div class="square" id="2"></div>
+        <div class="square" id="3"></div>
+        <div class="square" id="4"></div>
+        <div class="square" id="5"></div>
+        <div class="square" id="6"></div>
+        <div class="square" id="7"></div>
+      </column>
+      <column class="column">
+        <div class="square" id="8"></div>
+        <div class="square" id="9"></div>
+        <div class="square" id="10"></div>
+        <div class="square" id="11"></div>
+        <div class="square" id="12"></div>
+        <div class="square" id="13"></div>
+        <div class="square" id="14"></div>
+        <div class="square" id="15"></div>
+      </column>
+      <column class="column">
+        <div class="square" id="16"></div>
+        <div class="square" id="17"></div>
+        <div class="square" id="18"></div>
+        <div class="square" id="19"></div>
+        <div class="square" id="20"></div>
+        <div class="square" id="21"></div>
+        <div class="square" id="22"></div>
+        <div class="square" id="23"></div>
+      </column>
+      <column class="column">
+        <div class="square" id="24"></div>
+        <div class="square" id="25"></div>
+        <div class="square" id="26"></div>
+        <div class="square" id="27"></div>
+        <div class="square" id="28"></div>
+        <div class="square" id="29"></div>
+        <div class="square" id="30"></div>
+        <div class="square" id="31"></div>
+      </column>
+      <column class="column">
+        <div class="square" id="32"></div>
+        <div class="square" id="33"></div>
+        <div class="square" id="34"></div>
+        <div class="square" id="35"></div>
+        <div class="square" id="36"></div>
+        <div class="square" id="37"></div>
+        <div class="square" id="38"></div>
+        <div class="square" id="39"></div>
+      </column>
+      <column class="column">
+        <div class="square" id="40"></div>
+        <div class="square" id="41"></div>
+        <div class="square" id="42"></div>
+        <div class="square" id="43"></div>
+        <div class="square" id="44"></div>
+        <div class="square" id="45"></div>
+        <div class="square" id="46"></div>
+        <div class="square" id="47"></div>
+      </column>
+      <column class="column">
+        <div class="square" id="48"></div>
+        <div class="square" id="49"></div>
+        <div class="square" id="50"></div>
+        <div class="square" id="51"></div>
+        <div class="square" id="52"></div>
+        <div class="square" id="53"></div>
+        <div class="square" id="54"></div>
+        <div class="square" id="55"></div>
+      </column>
+      <column class="column">
+        <div class="square" id="56"></div>
+        <div class="square" id="57"></div>
+        <div class="square" id="58"></div>
+        <div class="square" id="59"></div>
+        <div class="square" id="60"></div>
+        <div class="square" id="61"></div>
+        <div class="square" id="62"></div>
+        <div class="square" id="63"></div>
+      </column>
+    </div>
+  </div>
+  <div id="inventory">
+    <div id="instruments">
+      <div id="guitar" class="instrument">
+        <h2>Guitar</h2>
       </div>
-      <div id="grid">
-        <column class="column">
-          <div class="square" id="0"></div>
-          <div class="square" id="1"></div>
-          <div class="square" id="2"></div>
-          <div class="square" id="3"></div>
-          <div class="square" id="4"></div>
-          <div class="square" id="5"></div>
-          <div class="square" id="6"></div>
-          <div class="square" id="7"></div>
-        </column>
-        <column class="column">
-          <div class="square" id="8"></div>
-          <div class="square" id="9"></div>
-          <div class="square" id="10"></div>
-          <div class="square" id="11"></div>
-          <div class="square" id="12"></div>
-          <div class="square" id="13"></div>
-          <div class="square" id="14"></div>
-          <div class="square" id="15"></div>
-        </column>
-        <column class="column">
-          <div class="square" id="16"></div>
-          <div class="square" id="17"></div>
-          <div class="square" id="18"></div>
-          <div class="square" id="19"></div>
-          <div class="square" id="20"></div>
-          <div class="square" id="21"></div>
-          <div class="square" id="22"></div>
-          <div class="square" id="23"></div>
-        </column>
-        <column class="column">
-          <div class="square" id="24"></div>
-          <div class="square" id="25"></div>
-          <div class="square" id="26"></div>
-          <div class="square" id="27"></div>
-          <div class="square" id="28"></div>
-          <div class="square" id="29"></div>
-          <div class="square" id="30"></div>
-          <div class="square" id="31"></div>
-        </column>
-        <column class="column">
-          <div class="square" id="32"></div>
-          <div class="square" id="33"></div>
-          <div class="square" id="34"></div>
-          <div class="square" id="35"></div>
-          <div class="square" id="36"></div>
-          <div class="square" id="37"></div>
-          <div class="square" id="38"></div>
-          <div class="square" id="39"></div>
-        </column>
-        <column class="column">
-          <div class="square" id="40"></div>
-          <div class="square" id="41"></div>
-          <div class="square" id="42"></div>
-          <div class="square" id="43"></div>
-          <div class="square" id="44"></div>
-          <div class="square" id="45"></div>
-          <div class="square" id="46"></div>
-          <div class="square" id="47"></div>
-        </column>
-        <column class="column">
-          <div class="square" id="48"></div>
-          <div class="square" id="49"></div>
-          <div class="square" id="50"></div>
-          <div class="square" id="51"></div>
-          <div class="square" id="52"></div>
-          <div class="square" id="53"></div>
-          <div class="square" id="54"></div>
-          <div class="square" id="55"></div>
-        </column>
-        <column class="column">
-          <div class="square" id="56"></div>
-          <div class="square" id="57"></div>
-          <div class="square" id="58"></div>
-          <div class="square" id="59"></div>
-          <div class="square" id="60"></div>
-          <div class="square" id="61"></div>
-          <div class="square" id="62"></div>
-          <div class="square" id="63"></div>
-        </column>
+      <div id="keys" class="instrument">
+        <h2>Keys</h2>
+      </div>
+      <div id="drums" class="instrument">
+        <h2>Drums</h2>
+      </div>
+      <div id="mic" class="instrument">
+        <h2>Mic</h2>
+      </div>
+      <div id="bass" class="instrument">
+        <h2>Bass</h2>
+      </div>
+      <div id="money">
+        <h2>$</h2>
+        <h1 id="amount"></h1>
       </div>
     </div>
-    <div id="inventory">
-      <div id="instruments">
-        <div id="guitar" class="instrument">
-          <h2>Guitar</h2>
-        </div>
-        <div id="keys" class="instrument">
-          <h2>Keys</h2>
-        </div>
-        <div id="drums" class="instrument">
-          <h2>Drums</h2>
-        </div>
-        <div id="mic" class="instrument">
-          <h2>Mic</h2>
-        </div>
-        <div id="bass" class="instrument">
-          <h2>Bass</h2>
-        </div>
-        <div id="money">
-          <h2>$</h2>
-          <h1 id="amount"></h1>
-        </div>
-      </div>
-    </div>
-    <!-- <aside id ="winner-loser">
+  </div>
+  <!-- <aside id ="winner-loser">
       <h3>Player 1</h3>
       <h3>Player 2</h3>
 <! push divs in here with winner/loser info  -->
-    <!-- </aside> --> -->
-    <footer>
-      <p><a href="https://www.freepik.com/free-photos-vectors/music">Music vector created by Freepik</a></p>
-    </footer>
-    <div id = "modal1">
-      <div id = "modal-textbox1">
-        <!--==== ALERT ====-->
-        <p>Are you ready to achieve all your dreams, tour the world rocking out for your adoring fans, and roll around in piles of cash!? All you need is instruments for yourself and your four bandmates, and $1,000.00 for recording your first big hit!<br> But wait! You've got an up-and-coming rival trying to top the charts before you! Whoever gathers all the necessary goods first wins the glory and the record deal!</p>
+  <!-- </aside> --> -->
+  <footer>
+    <p><a href="https://www.freepik.com/free-photos-vectors/music">Music vector created by Freepik</a></p>
+  </footer>
+  <div id="modal1">
+    <div id="modal-textbox1">
+      <!--==== ALERT ====-->
+      <p>Are you ready to achieve all your dreams, tour the world rocking out for your adoring fans, and roll around in piles of cash!? All you need is instruments for yourself and your four bandmates, and $1,000.00 for recording your first big hit!<br>
+        But wait! You've got an up-and-coming rival trying to top the charts before you! Whoever gathers all the necessary goods first wins the glory and the record deal!</p>
 
-        <!--==== CLOSE BUTTON ====-->
-        <div id = "modal-footer">
-          <div class="role-call">
-              <h3 class="input-text">Player One:</h3>
-              <h3 class="input-text2">Player Two:</h3>
-          </div>
-          <div class="input">
+      <!--==== CLOSE BUTTON ====-->
+      <div id="modal-footer">
+        <div class="role-call">
+          <h3 class="input-text">Player One:</h3>
+          <h3 class="input-text2">Player Two:</h3>
+        </div>
+        <div class="input">
           <form>
-            <input type="text" id="input-box"/>
-            <input type="text" id="input-box2"/>
+            <input type="text" id="input-box" />
+            <input type="text" id="input-box2" />
             <!-- <input type="submit" id="submit-btn"/> -->
           </form>
-          <input type="submit" id="submit-btn"/>
-          </div>
+          <input type="submit" id="submit-btn" />
         </div>
       </div>
     </div>
-    <div id = "modal2">
-    <div id = "modal-textbox2">
-            <!--==== ALERT ====-->
-      <p>To play this game, you must match 3 of each item to acquire it in your inventory. You may click any item and its neighbor to make them switch places, in order to cause matches. You cannot click the 'lazy bandmate' or the 'demanding boss', because they just get in the way! Welcome to the life of a musician. After player one has won the game, his or her time will be logged on the right side of the page, and player 2 will have a chance to beat player one's time. Good luck!</p>
-      <button type="button" id="playButton">Let's Rock!</button>
-      </div>
   </div>
-  <div id = "modal3">
-  <div id = "modal-textbox3">
-          <!--==== ALERT ====-->
-    <p id="modal3Text"></p>
-    <button type="button" id="playAgainButton">Play Again</button>
+  <div id="modal2">
+    <div id="modal-textbox2">
+      <!--==== ALERT ====-->
+      <p>To play this game, you must match 3 of each item to acquire it in your inventory. You may click any item and its neighbor to make them switch places, in order to cause matches. You cannot click the 'lazy bandmate' or the 'demanding boss',
+        because they just get in the way! Welcome to the life of a musician. After player one has won the game, his or her time will be logged on the right side of the page, and player 2 will have a chance to beat player one's time. Good luck!</p>
+      <button type="button" id="playButton">Let's Rock!</button>
     </div>
-</div>
+  </div>
+  <div id="modal3">
+    <div id="modal-textbox3">
+      <!--==== ALERT ====-->
+      <p id="modal3Text"></p>
+      <button type="button" id="playAgainButton">Play Again</button>
+    </div>
+  </div>
 
-  </body>
+</body>
+
 </html>
