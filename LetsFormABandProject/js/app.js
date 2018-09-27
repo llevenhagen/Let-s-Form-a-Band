@@ -199,7 +199,7 @@ $(() => {
     if (firstIndex.hasClass('cash')) {
       currentCash += 25;
       // console.log(currentCash);
-      $('#amount').text(currentCash)
+      $('#amount').text('$' + currentCash)
     }
   }
   // all are Guitars:
@@ -510,157 +510,302 @@ $(() => {
 
 
   // FUNCTION FOR CALCULATING NEIGHBOR OF EACH IMG/VAL:
-  const makeNeighborsClickable = () => {
-    // call other function on every row and column
-    checkSingleArrayForNeighbors(column1);
-    checkSingleArrayForNeighbors(column2);
-    checkSingleArrayForNeighbors(column3);
-    checkSingleArrayForNeighbors(column4);
-    checkSingleArrayForNeighbors(column5);
-    checkSingleArrayForNeighbors(column6);
-    checkSingleArrayForNeighbors(column7);
-    checkSingleArrayForNeighbors(column8);
-    checkSingleArrayForNeighbors(row1);
-    checkSingleArrayForNeighbors(row2);
-    checkSingleArrayForNeighbors(row3);
-    checkSingleArrayForNeighbors(row4);
-    checkSingleArrayForNeighbors(row5);
-    checkSingleArrayForNeighbors(row6);
-    checkSingleArrayForNeighbors(row7);
-    checkSingleArrayForNeighbors(row8);
-  }
+  let $elementWithSwap = document.getElementsByClassName('image-swap');
+  let $elementWithNext = document.getElementsByClassName('next-image');
+  // console.log($elementWithSwap.length);
+  // console.log($elementWithNext.length);
 
-  // make function for checking single column or row for neighbors:
+  $elementWithSwap = $('.image-swap');
+  $elementWithNext = $('.next-image');
+  // console.log($elementWithSwap.length);
+  // console.log($elementWithNext.length);
+  // debugger;
+  // let $current;
+  // console.log('this is working');
 
-  const checkSingleArrayForNeighbors = (array) => {
-    // use for loop to call our each img in array
-    for (item of array) {
-      // console.log(array);
-      // find index of item in array, in order to identify neighbors
-      let itemIndex = array.indexOf(item);
-      // when you click on a specific image in grid:
-      // const limitClickOnItems = () => {
-      $(item).on('click', (event) => {
-        // console.log(itemIndex);
-        // find class and source of current image:
-        let $current, $upOne, $downOne;
-        let downOne = array[itemIndex + 1];
-        $current = $(event.currentTarget);
-        // if ($current.attr('class') !== 'boss' && $current.attr('class') !== 'bandmate') {
-        //   $current.addClass('click-border-red');}
-        let upOne = array[itemIndex - 1];
-        let currentClass = $current.attr('class');
-        let currentSrc = $current.attr('src');
-        console.log(currentClass);
-        console.log(currentSrc);
-        // debugger;
-        // find image right after current image:
-        // let downOne = array[itemIndex +1]
-        // console.log(downOne);
-        // debugger;
-        // when you've clicked on first image, and then click on next image:
-        // but not if it's bandmate or boss
-        if ($(downOne).attr('class') === 'boss' || $(downOne).attr('class') === 'bandmate' || $current.attr('class') === 'boss' || $current.attr('class') === 'bandmate') {
-          console.log('this is a boss or bandmate');
-        } else {
-          $(downOne).off('click');
-          $(downOne).on('click', () => {
-            // $current.removeClass('click-border-red');
-            // if ($(downOne).attr('class') !== 'boss' && $(downOne).attr('class') !== 'bandmate') {
-            //   $(downOne).addClass('click-border-blue');}
-            // console.log('this is working');
-            // find class and source of next image:
-            // $downOne = $(event.currentTarget);
-            let downOneClass = $(downOne).attr('class');
-            let downOneSrc = $(downOne).attr('src');
-            console.log(downOneClass);
-            console.log(downOneSrc);
-            // debugger;
-            // remove downOnes class and image
-            $(downOne).removeClass();
-            $(downOne).removeAttr('src');
-            // debugger;
-            // give DownOne the image and src of class of current
-            $(downOne).addClass(currentClass);
-            $(downOne).attr('src', currentSrc);
-            // debugger;
-            let newDownOneClass = $(downOne).attr('class');
-            let newDownOneSrc = $(downOne).attr('src');
-            console.log(newDownOneClass);
-            console.log(newDownOneSrc);
-            // debugger;
-            // remove current class and image
-            $current.removeClass();
-            $current.removeAttr('src');
-            // debugger;
-            // give current the image and src of next
-            $current.addClass(downOneClass);
-            $current.attr('src', downOneSrc);
-            // debugger;
-            // $(downOne).off('click');
-            // $(upOne).off('click');
+  // if (elementWithSwap.length === 0 && elementWithNext.length === 0) {
+  let $current;
+  let $right;
+  let currentItemClass;
+  let currentItemSrc;
+  let $rightImageClass;
+  let $rightImageSrc;
+  let $newCurrentImageClass;
+  let $newCurrentImageSrc;
+  let $newrightImageClass;
+  let $newrightImageSrc;
+  let $imgParent;
+  let $parentId;
+  let $parentIdNumber;
+  let $rightParent;
+  let $rightImg;
+  let $leftParent;
+  let $leftImg;
+  let $topParent;
+  let $topImg;
+  let $bottomParent;
+  let $bottomImg;
+
+  $('img').on('click', (event) => {
+      if ($(event.currentTarget).attr('class') === 'boss' || $(event.currentTarget).attr('class') === 'bandmate') {}
+      else {
+        if ($elementWithSwap.length === 0 && $elementWithNext.length === 0) {
+          $current = $(event.currentTarget);
+          $imgParent = $(event.currentTarget).parent();
+          // console.log($imgParent);
+          $parentId = $imgParent.attr('id');
+          $parentIdNumber = Number($parentId);
+          // console.log($parentIdNumber);
+          // find ID of square to the right, ID + 8
+          $rightParent = $('.square').eq($parentIdNumber + 8);
+          // console.log($rightParent);
+          // find image assigned to Right Square, for right image:
+          $rightImg = $($rightParent).children(0);
+          $rightImg.attr('id', 'right')
+          // $rightImgClass = $(rightImg).attr('class');
+          // console.log($($rightImg).attr('class'));
+          // find ID of square to the left, ID - 8
+          $leftParent = $('.square').eq($parentIdNumber - 8);
+          // console.log($leftParent);
+          // find image assigned to Left Square
+          $leftImg = $($leftParent).children(0);
+          $leftImg.attr('id', 'left');
+          // console.log($leftImg);
+          // find ID of square top, ID -1
+          $topParent = $('.square').eq($parentIdNumber - 1);
+          // console.log($topParent);
+          // find image assigned to top Parent:
+          $topImage = $($topParent).children(0);
+          $topImage.attr('id', 'top');
+          // console.log($topImage);
+          // find ID of square bottom, ID+1
+          $bottomParent = $('.square').eq($parentIdNumber + 1);
+          // console.log($topParent);
+          // find image assigned to the square $bottom
+          $bottomImg = $($bottomParent).children(0);
+          $bottomImg.attr('id', 'bottom');
+          // console.log($bottomImg);
+          // console.log($($rightImg).attr('class'));
+          // console.log('you clicked this item');
+          // console.log($current.attr('class'));
+          $currentImageClass = $current.attr('class');
+          $currentImageSrc = $current.attr('src');
+          $current.addClass('image-swap');
+          $newCurrentImageClass = $current.attr('class');
+
+          $elementWithSwap = $('.image-swap');
+          // console.log(elementWithSwap.length)
+          // debugger;
+          // console.log($($rightImg).attr('class'));
+        } else if ($elementWithSwap.length === 1 && $elementWithNext.length === 0) {
+          $next = $(event.currentTarget);
+          let $nextImageParent = $next.parent();
+          // console.log($nextImageParent);
+          // console.log($rightParent);
+          console.log('next id is' + $next.attr('id'));
+          console.log('left id is' + $leftImg.attr('id'));
+          console.log($leftImg);
+          console.log($topImage);
+          console.log($bottomImg);
+          // $nextImageClass = $next.attr('class');
+          // $nextImageSrc = $next.attr('src');
+          // console.log($rightImg.children());
+          // console.log($rightImg.attr('class'));
+          // console.log($next.children());
+          // console.log($next.attr('class'));
+          if ($next.attr('id', 'right') || $next.attr('id', 'left') || $next.attr('id', 'top') || $next.attr('id', 'bottom')) {
+            $rightImg.removeAttr('id');
+            $leftImg.removeAttr('id');
+            $topImage.removeAttr('id');
+            $bottomImg.removeAttr('id');
+            $nextImageClass = $next.attr('class');
+            $nextImageSrc = $next.attr('src');
+            // console.log($newCurrentImageClass);
+            // console.log($nextImageClass);
+            // console.log($nextImageSrc);
+            $next.addClass('next-image');
+            $elementWithNext = $('.next-image');
+            $newNextImageClass = $next.attr('class');
+            // console.log($newNextImageClass);
+            $current.removeClass().removeAttr('src');
+            $current.addClass($nextImageClass);
+            $current.attr('src', $nextImageSrc);
+            // console.log($current.attr('class'));
+            $next.removeClass().removeAttr('src');
+            $next.addClass($currentImageClass);
+            $next.attr('src', $currentImageSrc);
+            $elementWithSwap = $('.image-swap');
+            $elementWithNext = $('.next-image');
             CheckAllColumnsAndRows();
-            // debugger;
-          })
-        }
-        // let upOne = array[itemIndex -1];
-        if ($(upOne).attr('class') === 'boss' || $(upOne).attr('class') === 'bandmate' || $current.attr('class') === 'boss' || $current.attr('class') === 'bandmate') {
-          console.log('this is a boss or bandmate');
+            // $('image').removeAttr('id');
+          } else {
+            $('img').off('click');
+            return false;
+          }
         } else {
-          $(upOne).off('click');
-          $(upOne).on('click', () => {
-            // $current.removeClass('click-border-red');
-            // if ($(upOne).attr('class') !== 'boss' && $(upOne).attr('class') !== 'bandmate') {
-            //   $(upOne).addClass('click-border-green');
-            // }
-            // let upOne = event.currentTarget;
-            // console.log('this also works'+ upOne);
-            // find class and source of image right before current:
-            // $upOne = $(event.currentTarget);
-            let upOneClass = $(upOne).attr('class');
-            let upOneSrc = $(upOne).attr('src');
-            console.log(upOneClass);
-            console.log(upOneSrc);
-            // debugger;
-            // remove class and src of upOne
-            $(upOne).removeClass();
-            $(upOne).removeAttr('src');
-            // debugger;
-            // give upOne the image and src of class of current
-            $(upOne).addClass(currentClass);
-            $(upOne).attr('src', currentSrc);
-            //   upOneClass = $(upOne).attr('class');
-            // upOneSrc = $(upOne).attr('src');
-            //   console.log(upOneClass);
-            //   console.log(upOneSrc);
-            // debugger;
-            let newUpOneClass = $(upOne).attr('class');
-            let newUpOneSrc = $(upOne).attr('src');
-            console.log(newUpOneClass);
-            console.log(newUpOneSrc);
-            // debugger;
-            // remove current class and image
-            $current.removeClass();
-            $current.removeAttr('src');
-            // debugger;
-            // give current the image and src of next
-            $current.addClass(upOneClass);
-            $current.attr('src', upOneSrc);
-            let newCurrentClass = $current.attr('class');
-            let newCurrentSrc = $current.attr('src');
-            console.log(newCurrentClass);
-            console.log(newCurrentSrc);
-            // debugger;
-            // $(upOne).off('click');
-            // $(downOne).off('click');
-            // debugger;
-            // $(upOne).off('click');
-            CheckAllColumnsAndRows();
-          })
+          // console.log($next);
+          $next = null;
+          console.log($next);
         }
-        // CheckAllColumnsAndRows();
-      })
-    }
+      }
+    })
+
+
+
+
+
+  //
+  // const makeNeighborsClickable = () => {
+  //   // call other function on every row and column
+  //   checkSingleArrayForNeighbors(column1);
+  //   checkSingleArrayForNeighbors(column2);
+  //   checkSingleArrayForNeighbors(column3);
+  //   checkSingleArrayForNeighbors(column4);
+  //   checkSingleArrayForNeighbors(column5);
+  //   checkSingleArrayForNeighbors(column6);
+  //   checkSingleArrayForNeighbors(column7);
+  //   checkSingleArrayForNeighbors(column8);
+  //   checkSingleArrayForNeighbors(row1);
+  //   checkSingleArrayForNeighbors(row2);
+  //   checkSingleArrayForNeighbors(row3);
+  //   checkSingleArrayForNeighbors(row4);
+  //   checkSingleArrayForNeighbors(row5);
+  //   checkSingleArrayForNeighbors(row6);
+  //   checkSingleArrayForNeighbors(row7);
+  //   checkSingleArrayForNeighbors(row8);
+  // }
+  //
+  // // make function for checking single column or row for neighbors:
+  //
+  // const checkSingleArrayForNeighbors = (array) => {
+  //   // use for loop to call our each img in array
+  //   for (item of array) {
+  //     // console.log(array);
+  //     // find index of item in array, in order to identify neighbors
+  //     let itemIndex = array.indexOf(item);
+  //     // when you click on a specific image in grid:
+  //     // const limitClickOnItems = () => {
+  //     $(item).on('click', (event) => {
+  //       // console.log(itemIndex);
+  //       // find class and source of current image:
+  //       let $current, $upOne, $downOne;
+  //       let downOne = array[itemIndex + 1];
+  //       $current = $(event.currentTarget);
+  //       // if ($current.attr('class') !== 'boss' && $current.attr('class') !== 'bandmate') {
+  //       //   $current.addClass('click-border-red');}
+  //       let upOne = array[itemIndex - 1];
+  //       let currentClass = $current.attr('class');
+  //       let currentSrc = $current.attr('src');
+  //       console.log(currentClass);
+  //       console.log(currentSrc);
+  //       // debugger;
+  //       // find image right after current image:
+  //       // let downOne = array[itemIndex +1]
+  //       // console.log(downOne);
+  //       // debugger;
+  //       // when you've clicked on first image, and then click on next image:
+  //       // but not if it's bandmate or boss
+  //       if ($(downOne).attr('class') === 'boss' || $(downOne).attr('class') === 'bandmate' || $current.attr('class') === 'boss' || $current.attr('class') === 'bandmate') {
+  //         console.log('this is a boss or bandmate');
+  //       } else {
+  //         $(downOne).off('click');
+  //         $(downOne).on('click', () => {
+  //           // $current.removeClass('click-border-red');
+  //           // if ($(downOne).attr('class') !== 'boss' && $(downOne).attr('class') !== 'bandmate') {
+  //           //   $(downOne).addClass('click-border-blue');}
+  //           // console.log('this is working');
+  //           // find class and source of next image:
+  //           // $downOne = $(event.currentTarget);
+  //           let downOneClass = $(downOne).attr('class');
+  //           let downOneSrc = $(downOne).attr('src');
+  //           console.log(downOneClass);
+  //           console.log(downOneSrc);
+  //           // debugger;
+  //           // remove downOnes class and image
+  //           $(downOne).removeClass();
+  //           $(downOne).removeAttr('src');
+  //           // debugger;
+  //           // give DownOne the image and src of class of current
+  //           $(downOne).addClass(currentClass);
+  //           $(downOne).attr('src', currentSrc);
+  //           // debugger;
+  //           let newDownOneClass = $(downOne).attr('class');
+  //           let newDownOneSrc = $(downOne).attr('src');
+  //           console.log(newDownOneClass);
+  //           console.log(newDownOneSrc);
+  //           // debugger;
+  //           // remove current class and image
+  //           $current.removeClass();
+  //           $current.removeAttr('src');
+  //           // debugger;
+  //           // give current the image and src of next
+  //           $current.addClass(downOneClass);
+  //           $current.attr('src', downOneSrc);
+  //           // debugger;
+  //           // $(downOne).off('click');
+  //           // $(upOne).off('click');
+  //           CheckAllColumnsAndRows();
+  //           // debugger;
+  //         })
+  //       }
+  //       // let upOne = array[itemIndex -1];
+  //       if ($(upOne).attr('class') === 'boss' || $(upOne).attr('class') === 'bandmate' || $current.attr('class') === 'boss' || $current.attr('class') === 'bandmate') {
+  //         console.log('this is a boss or bandmate');
+  //       } else {
+  //         $(upOne).off('click');
+  //         $(upOne).on('click', () => {
+  //           // $current.removeClass('click-border-red');
+  //           // if ($(upOne).attr('class') !== 'boss' && $(upOne).attr('class') !== 'bandmate') {
+  //           //   $(upOne).addClass('click-border-green');
+  //           // }
+  //           // let upOne = event.currentTarget;
+  //           // console.log('this also works'+ upOne);
+  //           // find class and source of image right before current:
+  //           // $upOne = $(event.currentTarget);
+  //           let upOneClass = $(upOne).attr('class');
+  //           let upOneSrc = $(upOne).attr('src');
+  //           console.log(upOneClass);
+  //           console.log(upOneSrc);
+  //           // debugger;
+  //           // remove class and src of upOne
+  //           $(upOne).removeClass();
+  //           $(upOne).removeAttr('src');
+  //           // debugger;
+  //           // give upOne the image and src of class of current
+  //           $(upOne).addClass(currentClass);
+  //           $(upOne).attr('src', currentSrc);
+  //           //   upOneClass = $(upOne).attr('class');
+  //           // upOneSrc = $(upOne).attr('src');
+  //           //   console.log(upOneClass);
+  //           //   console.log(upOneSrc);
+  //           // debugger;
+  //           let newUpOneClass = $(upOne).attr('class');
+  //           let newUpOneSrc = $(upOne).attr('src');
+  //           console.log(newUpOneClass);
+  //           console.log(newUpOneSrc);
+  //           // debugger;
+  //           // remove current class and image
+  //           $current.removeClass();
+  //           $current.removeAttr('src');
+  //           // debugger;
+  //           // give current the image and src of next
+  //           $current.addClass(upOneClass);
+  //           $current.attr('src', upOneSrc);
+  //           let newCurrentClass = $current.attr('class');
+  //           let newCurrentSrc = $current.attr('src');
+  //           console.log(newCurrentClass);
+  //           console.log(newCurrentSrc);
+  //           // debugger;
+  //           // $(upOne).off('click');
+  //           // $(downOne).off('click');
+  //           // debugger;
+  //           // $(upOne).off('click');
+  //           CheckAllColumnsAndRows();
+  //         })
+  //       }
+  //       // CheckAllColumnsAndRows();
+  //     })
+  //   }
 
     // limitClickOnItems(item);
     // limitClickOnItems(item);
@@ -671,7 +816,7 @@ $(() => {
     // limitClickOnItems(item);
     // limitClickOnItems(item);
     // }
-  }
+  // }
   const clearInventory = () => {
     $('#guitarImage').remove();
     $('#bassImage').remove();
@@ -694,7 +839,7 @@ $(() => {
     minutes = 0;
     // $('.player-time').text('');
     reloadGridAndInventory();
-    makeNeighborsClickable();
+    // makeNeighborsClickable();
     console.log('restart game function called');
     // setTimeout(CheckAllColumnsAndRows, 3000);
   }
@@ -880,7 +1025,6 @@ $(() => {
   const startGame = () => {
     openModal();
     assignRandomIconAndClass();
-    makeNeighborsClickable();
   }
   startGame();
   // CheckAllColumnsAndRows();
