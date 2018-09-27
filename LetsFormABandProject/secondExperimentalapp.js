@@ -281,7 +281,7 @@ $(() => {
           // console.log($rightImg.attr('class'));
           // console.log($next.children());
           // console.log($next.attr('class'));
-          if ($next.attr('id', 'right') || $next.attr('id', 'left') || $next.attr('id', 'top') || $next.attr('id', 'bottom')) {
+          if ($next.attr('id') === $rightImg.attr('id') || $next.attr('id') === $leftImg.attr('id') || $next.attr('id') === $topImage.attr('id') || $next.attr('id') === $bottomImg.attr('id')) {
             $rightImg.removeAttr('id');
             $leftImg.removeAttr('id');
             $topImage.removeAttr('id');
@@ -307,7 +307,7 @@ $(() => {
             // CheckAllColumnsAndRows();
             // $('image').removeAttr('id');
           } else {
-            $('img').off('click');
+            // $('img').off('click');
             return false;
           }
         } else {

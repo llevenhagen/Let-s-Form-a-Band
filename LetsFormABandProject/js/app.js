@@ -1,6 +1,9 @@
 $(() => {
-
-  let isTimer = false;
+  let myTimer;
+  let startTimer = () => {
+    myTimer = setInterval(addSeconds, 1000);
+    }
+  // let isTimer = false;
   // make icon array representing both src and value (to match later)
   const icons = [{
       src: 'images/bass-guitar-pic.png',
@@ -613,7 +616,7 @@ $(() => {
           // console.log($rightImg.attr('class'));
           // console.log($next.children());
           // console.log($next.attr('class'));
-          if ($next.attr('id', 'right') || $next.attr('id', 'left') || $next.attr('id', 'top') || $next.attr('id', 'bottom')) {
+          if ($next.attr('id') === $rightImg.attr('id') || $next.attr('id') === $leftImg.attr('id') || $next.attr('id') === $topImage.attr('id') || $next.attr('id') === $bottomImg.attr('id')) {
             $rightImg.removeAttr('id');
             $leftImg.removeAttr('id');
             $topImage.removeAttr('id');
@@ -639,7 +642,7 @@ $(() => {
             CheckAllColumnsAndRows();
             // $('image').removeAttr('id');
           } else {
-            $('img').off('click');
+            // $('img').off('click');
             return false;
           }
         } else {
@@ -649,7 +652,6 @@ $(() => {
         }
       }
     })
-
 
 
 
@@ -824,7 +826,7 @@ $(() => {
     $('#drumsImage').remove();
     $('#micImage').remove();
     currentCash = 0;
-    $('#amount').text(currentCash);
+    $('#amount').text('$' + currentCash);
   }
   // =======================RELOAD GRID FOR NEW PLAYER FUNCTION========
   const reloadGridAndInventory = () => {
@@ -854,13 +856,11 @@ $(() => {
   const $modal3 = $('#modal3');
   const openModal3 = () => {
     $modal3.show('slow');
-    // isTimer = false;
     seconds = 0;
     minutes = 0;
   }
   const winnerFunction = () => {
-    // minutes = 0;
-    // seconds = 0;
+  clearInterval(myTimer);
     if (player1Minutes < player2Minutes) {
       console.log('player one wins');
       $('#modal3Text').text('Player one Wins! Great job, enjoy your fame and fortune. Want to try again?')
@@ -973,8 +973,8 @@ $(() => {
     $modal2.hide('slow');
 
     setTimeout(CheckAllColumnsAndRows, 3000);
-    isTimer = true;
-    setTimeout(startTimer, 3000);
+
+    setTimeout(startTimer, 2000);
 
   }
 
@@ -1011,11 +1011,10 @@ $(() => {
     }
   }
   // ============================Timer Function===============
-  let startTimer = () => {
-    if (isTimer === true) {
-      setInterval(addSeconds, 1000);
-    }
-  }
+  // let myTimer;
+  // let startTimer = () => {
+  //   myTimer = setInterval(addSeconds, 1000);
+  //   }
   // let timerControl = setInterval(addSeconds, 1000);
   // clearInterval(addSeconds);
 
