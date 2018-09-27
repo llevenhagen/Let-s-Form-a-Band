@@ -1,1 +1,41 @@
 # llevenhagen.github.io
+
+                                 Ready Me :
+
+Live site link: https://llevenhagen.github.io/LetsFormABandProject/
+
+
+Technologies used:
+HTML, CSS, JS, and Jquery.
+
+Approach Taken:
+
+I started with the HTML, outlining the grid and the inventory first. I decided how to make the grid by considering the goal functionality of the game. I would need to be able to move images between squares on an 8 x 8 grid, so although I knew I could make the process more efficient by creating the grid with jQuery, I wanted to have the HTML hard coded in front of me so I could conceptualize it better when writing functions that would influence it. I decided to hardcode the 64 squares, organized into columns of 8.
+
+My first move in JS was to make a function to take the 8 images I had gathered and randomize them to fill out the grid. I made sure that each image was an object which included a source image as well as a class, so the two would never become separated. Therefore, the guitar image source always had a class of guitar. This was so that the computer could look for matches in the next function.
+
+I then formed a function to look for matches of three. I knew I needed to look for matches not only in the column (y) axis, but also the row (x) axis, so I made 16 arrays - 8 arrays for each column and 8 arrays for each row. In each array, I listed the <img> div for indexes 0 - 8. Then I had the checkForMatches function examine each column or row's index[0], index[1], and index[2]. It would also compare index[1] with index[2] and index[3]. I had the computer continue with this all the way until index[5], index[6], and index[7]. That way, the computer had checked each item in the row or column with the two before and after it.
+
+  Once a match was found, I called a function which checked to see if those matches were all either: cash, guitar, bass, keys, drums, or mics. If the matches were all cash, the money inventory would add 25 dollars to currentCash. If all the matches were an instrument, I would append the src associated with that match to the instrument inventory.
+
+  The hardest part of writing this code was figuring out how to make it possible for a player to click an image and switch it with one next to it. I spent hours upon hours, days upon days, trying to make the code work. I originally used the column arrays and row arrays to run the checkForNeighbors function. This function would run through each row and column and identify it's closest neighbor, and so when you clicked on the first item, the computer would have identified the image to the left, right, top, and bottom. Unfortunately, there were a ton of bugs, seemingly endless amounts of bugs. I had written the function as one click event with another click event nested into it. I intended for that to register as click one and click two. Unfortunately, click two was registering as not only click two, but also as another click one. Also, if you clicked the first item, and then your second click was on the one of the neighbors in the row axis, the click events set off on the top and bottom would remain, and later when you clicked on them as either a first click or a second click for a different click cycle, it would set off the click event that had remained from the previous click cycle, and things would switch that you didn't intend. It was a giant mess.
+
+  I talked to Matt about what to do, and he was worried that if I focused on this click event problem too long, my game wouldn't get finished. He told me to scale back and work on a new function to make it so that the player could switch any two images, rather than just neighbors. I really didn't want to do this, since I felt it would make the game pointless. Any player could win in seconds! My time was running out, however, so two days before the deadline, I started working on a new function to accomplish this.
+
+  With the next click events I was writing, I decided to try leaving it out of a function, and try not to next multiple click functions inside each other. I wrote one click function on every image on the grid. I also knew remembered how much of a mess it had been when click two kept registering as another click one, so in order to avoid that from the start, I created a class that would get assigned to the first click. Then, within the click event, I created an if/else statement that determined: if any image on the grid currently had the class 'image-swap', meaning it had been clicked, then the click event would cause the 'second click' parameters instead of the first click parameters. I switched the two images' sources and classes so that they would retain their source/class match, but visually they would switch.
+
+  Once I finished the click event that would cause any two images you clicked to switch, I saw that I might still be able to take this same click event and make the second click only applicable to the first click's neighbors. In order to do this, I wrote parameters into the first click that would identify the ID of the parent'.square' of that image, find it's neighboring squares and their children (the images next door), and then make the second click only possible on those images, rather than all the images. I was able to do it!
+
+  At this point, I programmed a modal to introduce the concept for the game and offer an input so that the two players could enter their names, which would be sent to the aside to log each player's time once they had completed the game. I programmed a second modal once the first modal closes to explain the instructions on how the game was played.
+
+  Next, I worked on a timer function so that I could log the first player's time, the second player's time, and compare to see who won the game. I researched how to make a timer, but I'm afraid the logic to make a legitimate timer with zeros and everything was a bit above my head at this point, so I decided to do it my own way, and I made a timer by using a setInterval on a function that added one second every second, and once the seconds got to 60, the seconds would go back to zero and the minute would go up.
+
+  Once I had the timer done, I used JS to log player one's time into the aside once they had filled their inventory, and then I reset the grid, the inventory, and the timer for player two's turn. Once player two had played, I programmed the computer to compare the two players' times and choose a winner. I programmed a third modal to announce the winner and ask if they would like to play again. If the players chose to play again, the play again button would reset the game and bring everything back to the start with the first Modal.
+
+
+  Unsolved problems:
+  It seems that when a player clicks one item, they need to click a neighbor before they can click anywhere else. I would like to find a way to program it so that if you don't click a neighbor but click somewhere else, the click event starts over on click one and just forgets about the last click event even though it wasn't fulfilled. I didn't have enough time to consider how to do this, but hopefully in the future I can come back and do it. Currently, player's two time in the aside on the right turns to 0:0 at the end of the game, though player one's time stays the way it was. Fortunately, the computer is still comparing player one's time with player two's actual time when they completed the game - not the 0:0 that shows. I would like to fix this, and I think I could fix it pretty easily if I had more time.
+
+  Things I wish I could add/change:
+
+  I would like to be able to add another modal after the first player is done, announcing that it is the second player's turn. I definitely could do this, but unfortunately didn't have enough time. I would also like to make it so that when you get a guitar (or any instrument) but already have a guitar (or that particular instrument, if not a guitar) in your inventory, you can 'sell' the extra guitar for money added to your inventory. I tried this but couldn't get it quite right in the amount of time I had. I would also like to make it so that when three 'bosses' or 'lazy bandmates' line up, they detract money (in the boss' case) or instruments from your inventory (in the case of the lazy bandmate).

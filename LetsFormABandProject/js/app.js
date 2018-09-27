@@ -129,6 +129,18 @@ $(() => {
     {
       src: 'images/demanding-boss.jpg',
       value: 'boss'
+    },
+    {
+      src: 'images/lazybandmate.png',
+      value: 'bandmate'
+    },
+    {
+      src: 'images/demanding-boss.jpg',
+      value: 'boss'
+    },
+    {
+      src: 'images/demanding-boss.jpg',
+      value: 'boss'
     }
   ];
   // loop randomly through array to populate grid with images paired with class.
@@ -890,7 +902,7 @@ $(() => {
     let keysInventory = $('#keys').children(0);
     let bassInventory = $('#bass').children(0);
     let drumsInventory = $('#drums').children(0);
-    if (guitarInventory.hasClass('guitar') && micInventory.hasClass('mic') && keysInventory.hasClass('keys') && bassInventory.hasClass('bass') && drumsInventory.hasClass('drums') && currentCash >= 100) {
+    if (guitarInventory.hasClass('guitar') && micInventory.hasClass('mic') && keysInventory.hasClass('keys') && bassInventory.hasClass('bass') && drumsInventory.hasClass('drums') && currentCash >= 1000) {
       let player1Time = $('.player-time').eq(0);
       let player2Time = $('.player-time').eq(1);
       if ($(player1Time).text() === '') {
