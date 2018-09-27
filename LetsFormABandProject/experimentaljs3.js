@@ -217,37 +217,39 @@ $(() => {
   let $bottomImg;
 
   $('img').on('click', (event) => {
-    $imgParent = $(event.currentTarget).parent();
-    console.log($imgParent);
-    $parentId = $imgParent.attr('id');
-    $parentIdNumber = Number($parentId);
-    // console.log($parentIdNumber);
-    // find ID of square to the right, ID + 8
-    $rightParent = $('.square').eq($parentIdNumber + 8);
-    // console.log($rightParent);
-    // find image assigned to Right Square, for right image:
-    $rightImg = $($rightParent).children(0);
-    // console.log($($rightImg).attr('class'));
-    // find ID of square to the left, ID - 8
-    $leftParent = $('.square').eq($parentIdNumber - 8);
-    // console.log($leftParent);
-    // find image assigned to Left Square
-    $leftImg = $($leftParent).children(0);
-    // console.log($leftImg);
-    // find ID of square top, ID -1
-    $topParent = $('.square').eq($parentIdNumber - 1);
-    // console.log($topParent);
-    // find image assigned to top Parent:
-    $topImage = $($topParent).children(0);
-    // console.log($topImage);
-    // find ID of square bottom, ID+1
-    $bottomParent = $('.square').eq($parentIdNumber + 1);
-    // console.log($topParent);
-    // find image assigned to the square $bottom
-    $bottomImg = $($bottomParent).children(0);
-    // console.log($bottomImg);
     if ($elementWithSwap.length === 0 && $elementWithNext.length === 0) {
       $current = $(event.currentTarget);
+      $imgParent = $(event.currentTarget).parent();
+      // console.log($imgParent);
+      $parentId = $imgParent.attr('id');
+      $parentIdNumber = Number($parentId);
+      // console.log($parentIdNumber);
+      // find ID of square to the right, ID + 8
+      $rightParent = $('.square').eq($parentIdNumber + 8);
+      // console.log($rightParent);
+      // find image assigned to Right Square, for right image:
+      $rightImg = $($rightParent).children(0);
+      // $rightImgClass = $(rightImg).attr('class');
+      // console.log($($rightImg).attr('class'));
+      // find ID of square to the left, ID - 8
+      $leftParent = $('.square').eq($parentIdNumber - 8);
+      // console.log($leftParent);
+      // find image assigned to Left Square
+      $leftImg = $($leftParent).children(0);
+      // console.log($leftImg);
+      // find ID of square top, ID -1
+      $topParent = $('.square').eq($parentIdNumber - 1);
+      // console.log($topParent);
+      // find image assigned to top Parent:
+      $topImage = $($topParent).children(0);
+      // console.log($topImage);
+      // find ID of square bottom, ID+1
+      $bottomParent = $('.square').eq($parentIdNumber + 1);
+      // console.log($topParent);
+      // find image assigned to the square $bottom
+      $bottomImg = $($bottomParent).children(0);
+      // console.log($bottomImg);
+      // console.log($($rightImg).attr('class'));
       // console.log('you clicked this item');
       // console.log($current.attr('class'));
       $currentImageClass = $current.attr('class');
@@ -258,35 +260,40 @@ $(() => {
       $elementWithSwap = $('.image-swap')
       // console.log(elementWithSwap.length)
       // debugger;
-
+      // console.log($($rightImg).attr('class'));
     } else if ($elementWithSwap.length === 1 && $elementWithNext.length === 0) {
       $next = $(event.currentTarget);
-      console.log($rightImg);
-      // if ($next ===$rightImg || $next === $leftImg || $next === $topImg || $next === $bottomImg) {
-      $nextImageClass = $next.attr('class');
-      $nextImageSrc = $next.attr('src');
-      // console.log($newCurrentImageClass);
-      // console.log($nextImageClass);
-      // console.log($nextImageSrc);
-      $next.addClass('next-image')
-      $elementWithNext = $('.next-image');
-      $newNextImageClass = $next.attr('class');
-      // console.log($newNextImageClass);
-      $current.removeClass().removeAttr('src');
-      $current.addClass($nextImageClass);
-      $current.attr('src', $nextImageSrc);
-      // console.log($current.attr('class'));
-      $next.removeClass().removeAttr('src');
-      $next.addClass($currentImageClass);
-      $next.attr('src', $currentImageSrc);
-      $elementWithSwap = $('.image-swap')
-      $elementWithNext = $('.next-image');
-    }
-    else {
-      console.log($next);
+      let $nextImageParent = $($next).parent();
+      // console.log($nextImageParent);
+      // console.log($rightParent);
+      // $nextImageClass = $next.attr('class');
+      // $nextImageSrc = $next.attr('src');
+      console.log($($rightImg));
+      console.log($($next));
+      if ($nextImageParent == $rightParent || $nextImageParent == $leftParent || $nextImageParent == $topParent || $nextImageParent == $bottomParent) {
+        $nextImageClass = $next.attr('class');
+        $nextImageSrc = $next.attr('src');
+        // console.log($newCurrentImageClass);
+        // console.log($nextImageClass);
+        // console.log($nextImageSrc);
+        $next.addClass('next-image')
+        $elementWithNext = $('.next-image');
+        $newNextImageClass = $next.attr('class');
+        // console.log($newNextImageClass);
+        $current.removeClass().removeAttr('src');
+        $current.addClass($nextImageClass);
+        $current.attr('src', $nextImageSrc);
+        // console.log($current.attr('class'));
+        $next.removeClass().removeAttr('src');
+        $next.addClass($currentImageClass);
+        $next.attr('src', $currentImageSrc);
+        $elementWithSwap = $('.image-swap')
+        $elementWithNext = $('.next-image')
+      }
+    } else {
+      // console.log($next);
       $next = 0;
     }
-  }
   })
 
   // })
@@ -337,7 +344,7 @@ $(() => {
   //     $elementWithNext = $('.next-image');
   //   }
   // })
-
+  //
 
 
 
