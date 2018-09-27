@@ -339,15 +339,6 @@ form {
   background-color: #D73893;
 }
 /* Interactive CSS */
-/* #right {
-  border: 2px solid red; */
-/* } */
-/* #left {
-  border: 4px solid blue;
+#right, #left, #top, #bottom {
+  border: 2px solid #06A1ED;
 }
-#top {
-  border: 4px solid green;
-}
-#bottom {
-  border: 4px solid purple;
-} */
