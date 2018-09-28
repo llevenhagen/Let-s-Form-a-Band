@@ -326,9 +326,9 @@ $(() => {
         secondMatch.addClass('animation');
         thirdMatch.addClass('animation');
         setTimeout(matchRemoveClass = () => {
-        firstMatch.removeClass('animation');
-        secondMatch.removeClass('animation');
-        thirdMatch.removeClass('animation');
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
         }, 1500);
         setTimeout(CheckAllColumnsAndRows, 3000);
       }
@@ -365,9 +365,9 @@ $(() => {
         secondMatch.addClass('animation');
         thirdMatch.addClass('animation');
         setTimeout(matchRemoveClass = () => {
-        firstMatch.removeClass('animation');
-        secondMatch.removeClass('animation');
-        thirdMatch.removeClass('animation');
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
         }, 1500);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
@@ -406,9 +406,9 @@ $(() => {
         secondMatch.addClass('animation');
         thirdMatch.addClass('animation');
         setTimeout(matchRemoveClass = () => {
-        firstMatch.removeClass('animation');
-        secondMatch.removeClass('animation');
-        thirdMatch.removeClass('animation');
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
         }, 1500);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
@@ -447,9 +447,9 @@ $(() => {
         secondMatch.addClass('animation');
         thirdMatch.addClass('animation');
         setTimeout(matchRemoveClass = () => {
-        firstMatch.removeClass('animation');
-        secondMatch.removeClass('animation');
-        thirdMatch.removeClass('animation');
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
         }, 1500);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
@@ -488,9 +488,9 @@ $(() => {
         secondMatch.addClass('animation');
         thirdMatch.addClass('animation');
         setTimeout(matchRemoveClass = () => {
-        firstMatch.removeClass('animation');
-        secondMatch.removeClass('animation');
-        thirdMatch.removeClass('animation');
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
         }, 1500);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
@@ -529,9 +529,9 @@ $(() => {
         secondMatch.addClass('animation');
         thirdMatch.addClass('animation');
         setTimeout(matchRemoveClass = () => {
-        firstMatch.removeClass('animation');
-        secondMatch.removeClass('animation');
-        thirdMatch.removeClass('animation');
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
         }, 1500);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
@@ -956,7 +956,7 @@ $(() => {
     let keysInventory = $('#keys').children(0);
     let bassInventory = $('#bass').children(0);
     let drumsInventory = $('#drums').children(0);
-    if (guitarInventory.hasClass('guitar') && micInventory.hasClass('mic') && keysInventory.hasClass('keys') && bassInventory.hasClass('bass') && drumsInventory.hasClass('drums') && currentCash >= 500) {
+    if (guitarInventory.hasClass('guitar') && micInventory.hasClass('mic') && keysInventory.hasClass('keys') && bassInventory.hasClass('bass') && drumsInventory.hasClass('drums') && currentCash >= 1000) {
       let player1Time = $('.player-time').eq(0);
       let player2Time = $('.player-time').eq(1);
       if ($(player1Time).text() === '') {
@@ -1005,8 +1005,8 @@ $(() => {
 
   }
 
-let $playerOneName;
-let $playerTwoName;
+  let $playerOneName;
+  let $playerTwoName;
   // MODAL Functions:
   // Code to move input box values into player 1 and player 2 divs:
   const clickSubmit = () => {
