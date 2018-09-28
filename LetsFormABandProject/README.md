@@ -54,10 +54,13 @@ Live site link: https://llevenhagen.github.io/LetsFormABandProject/
   - I originally used the *makeNeighborsClickable* function. (lines 723 - 884). This function would run through each row and column and identify it's closest neighbor, and so when you clicked on the first item, the program identified the image to the left, right, top, and bottom.
 
   **There were a ton of bugs- seemingly endless amounts of bugs**
+
 ######I had written the function as one click event with another click event nested into it.
-  I intended for that to register as click one and click two.         
+  - *I intended for that to register as click one and click two.*      
   - Unfortunately, click two was registering as not only click two, but also as another click one.
-  - Also, if you clicked the first item, and then your second click was on the one of the neighbors in the row axis, the click events set on the column axis would remain, and cause complete chaos when you clicked it later on. Images randomly changed and nothing worked correctly.
+
+####Using the rows AND columns to check neighbors was a mistake
+  - If you clicked the first item, and then your second click was on one of the neighbors in the row axis, the click events set on the column axis would remain, and cause complete chaos when you clicked it later on. Images randomly changed and nothing worked correctly.
 
 ####Matt told me to scale back
   - He told me to make a simpler function to make it so that the player could switch *any* two images, rather than only neighbors.
