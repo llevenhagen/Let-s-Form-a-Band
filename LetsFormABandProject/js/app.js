@@ -156,7 +156,7 @@ $(() => {
 
   // function to assign random image paired with class to <img> tags
   const assignRandomIconAndClass = () => {
-    for (i = 0; i < 64; i++) {
+    for (i = 0; i < 65; i++) {
       let $single = $('img').eq(i);
       // console.log($single);
       $single.addClass(randomIcon.value);
@@ -309,6 +309,7 @@ $(() => {
       const replaceMatch = () => {
         newRandomIcon();
         // console.log(firstMatch.attr('class'));
+
         firstMatch.removeClass().addClass(randomIcon.value)
         firstMatch.attr('src', randomIcon.src);
         newRandomIcon();
@@ -318,6 +319,14 @@ $(() => {
         thirdMatch.removeClass().addClass(randomIcon.value)
         thirdMatch.attr('src', randomIcon.src);
         newRandomIcon();
+        firstMatch.addClass('animation');
+        secondMatch.addClass('animation');
+        thirdMatch.addClass('animation');
+        setTimeout(matchRemoveClass = () => {
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
+        }, 2000);
         setTimeout(CheckAllColumnsAndRows, 3000);
       }
       let stockInventory = () => {
@@ -349,6 +358,14 @@ $(() => {
         thirdMatch.removeClass().addClass(randomIcon.value);
         thirdMatch.attr('src', randomIcon.src);
         newRandomIcon();
+        firstMatch.addClass('animation');
+        secondMatch.addClass('animation');
+        thirdMatch.addClass('animation');
+        setTimeout(matchRemoveClass = () => {
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
+        }, 2000);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
         // console.log(thirdMatch.attr('class'));
@@ -382,6 +399,14 @@ $(() => {
         thirdMatch.removeClass().addClass(randomIcon.value);
         thirdMatch.attr('src', randomIcon.src);
         newRandomIcon();
+        firstMatch.addClass('animation');
+        secondMatch.addClass('animation');
+        thirdMatch.addClass('animation');
+        setTimeout(matchRemoveClass = () => {
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
+        }, 2000);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
         // console.log(thirdMatch.attr('class'));
@@ -415,6 +440,14 @@ $(() => {
         thirdMatch.removeClass().addClass(randomIcon.value);
         thirdMatch.attr('src', randomIcon.src);
         newRandomIcon();
+        firstMatch.addClass('animation');
+        secondMatch.addClass('animation');
+        thirdMatch.addClass('animation');
+        setTimeout(matchRemoveClass = () => {
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
+        }, 2000);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
         // console.log(thirdMatch.attr('class'));
@@ -448,6 +481,14 @@ $(() => {
         thirdMatch.removeClass().addClass(randomIcon.value);
         thirdMatch.attr('src', randomIcon.src);
         newRandomIcon();
+        firstMatch.addClass('animation');
+        secondMatch.addClass('animation');
+        thirdMatch.addClass('animation');
+        setTimeout(matchRemoveClass = () => {
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
+        }, 2000);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
         // console.log(thirdMatch.attr('class'));
@@ -481,6 +522,14 @@ $(() => {
         thirdMatch.removeClass().addClass(randomIcon.value);
         thirdMatch.attr('src', randomIcon.src);
         newRandomIcon();
+        firstMatch.addClass('animation');
+        secondMatch.addClass('animation');
+        thirdMatch.addClass('animation');
+        setTimeout(matchRemoveClass = () => {
+          firstMatch.removeClass('animation');
+          secondMatch.removeClass('animation');
+          thirdMatch.removeClass('animation');
+        }, 2000);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
         // console.log(thirdMatch.attr('class'));
@@ -1038,6 +1087,8 @@ $(() => {
     assignRandomIconAndClass();
   }
   startGame();
+  let vinylImage = $('<img>').attr('src', 'images/vinyl-vector-music-disc-3.png').attr('class', 'vinyl');
+  $('header').append(vinylImage)
   // CheckAllColumnsAndRows();
   // --- onlye need this when modal is inactive
 
