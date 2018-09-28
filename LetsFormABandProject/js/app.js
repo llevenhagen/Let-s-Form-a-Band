@@ -109,26 +109,26 @@ $(() => {
       src: 'images/cash_pic.jpg',
       value: 'cash'
     },
-    {
-      src: 'images/cash_pic.jpg',
-      value: 'cash'
-    },
-    {
-      src: 'images/lazybandmate.png',
-      value: 'bandmate'
-    },
-    {
-      src: 'images/lazybandmate.png',
-      value: 'bandmate'
-    },
-    {
-      src: 'images/demanding-boss.jpg',
-      value: 'boss'
-    },
+    // {
+    //   src: 'images/cash_pic.jpg',
+    //   value: 'cash'
+    // },
+    // {
+    //   src: 'images/lazybandmate.png',
+    //   value: 'bandmate'
+    // },
     {
       src: 'images/lazybandmate.png',
       value: 'bandmate'
     },
+    // {
+    //   src: 'images/demanding-boss.jpg',
+    //   value: 'boss'
+    // },
+    // {
+    //   src: 'images/lazybandmate.png',
+    //   value: 'bandmate'
+    // },
     {
       src: 'images/demanding-boss.jpg',
       value: 'boss'
@@ -329,7 +329,7 @@ $(() => {
           firstMatch.removeClass('animation');
           secondMatch.removeClass('animation');
           thirdMatch.removeClass('animation');
-        }, 2000);
+        }, 1500);
         setTimeout(CheckAllColumnsAndRows, 3000);
       }
       let stockInventory = () => {
@@ -368,7 +368,7 @@ $(() => {
           firstMatch.removeClass('animation');
           secondMatch.removeClass('animation');
           thirdMatch.removeClass('animation');
-        }, 2000);
+        }, 1500);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
         // console.log(thirdMatch.attr('class'));
@@ -409,7 +409,7 @@ $(() => {
           firstMatch.removeClass('animation');
           secondMatch.removeClass('animation');
           thirdMatch.removeClass('animation');
-        }, 2000);
+        }, 1500);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
         // console.log(thirdMatch.attr('class'));
@@ -450,7 +450,7 @@ $(() => {
           firstMatch.removeClass('animation');
           secondMatch.removeClass('animation');
           thirdMatch.removeClass('animation');
-        }, 2000);
+        }, 1500);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
         // console.log(thirdMatch.attr('class'));
@@ -491,7 +491,7 @@ $(() => {
           firstMatch.removeClass('animation');
           secondMatch.removeClass('animation');
           thirdMatch.removeClass('animation');
-        }, 2000);
+        }, 1500);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
         // console.log(thirdMatch.attr('class'));
@@ -532,7 +532,7 @@ $(() => {
           firstMatch.removeClass('animation');
           secondMatch.removeClass('animation');
           thirdMatch.removeClass('animation');
-        }, 2000);
+        }, 1500);
         // console.log(firstMatch.attr('class'));
         // console.log(secondMatch.attr('class'));
         // console.log(thirdMatch.attr('class'));
@@ -929,17 +929,17 @@ $(() => {
     clearInterval(myTimer);
     if (player1Minutes < player2Minutes) {
       console.log('player one wins');
-      $('#modal3Text').text('Player one Wins! Great job, enjoy your fame and fortune. Want to try again?')
+      $('#modal3Text').text($playerOneName + ' wins! Great job, enjoy your fame and fortune. Want to try again?')
     } else if (player1Minutes > player2Minutes) {
       console.log('player two wins');
-      $('#modal3Text').text('Player two Wins!Great job, enjoy your fame and fortune. Want to try again?')
+      $('#modal3Text').text($playerTwoName + ' wins! Great job, enjoy your fame and fortune. Want to try again?')
     } else if (player1Minutes === player2Minutes) {
       if (player1Seconds < player2Seconds) {
         console.log('player one wins');
-        $('#modal3Text').text('Player one Wins!Great job, enjoy your fame and fortune. Want to try again?')
+        $('#modal3Text').text($playerOneName + ' wins! Great job, enjoy your fame and fortune. Want to try again?')
       } else if (player1Seconds > player2Seconds) {
         console.log('player two wins');
-        $('#modal3Text').text('Player two Wins!Great job, enjoy your fame and fortune. Want to try again?')
+        $('#modal3Text').text($playerTwoName + ' wins! Great job, enjoy your fame and fortune. Want to try again?')
       } else if (player1Seconds === player2Seconds) {
         console.log('it is a tie');
         $('#modal3Text').text('It is a tie! Want to try again?')
@@ -956,7 +956,7 @@ $(() => {
     let keysInventory = $('#keys').children(0);
     let bassInventory = $('#bass').children(0);
     let drumsInventory = $('#drums').children(0);
-    if (guitarInventory.hasClass('guitar') && micInventory.hasClass('mic') && keysInventory.hasClass('keys') && bassInventory.hasClass('bass') && drumsInventory.hasClass('drums') && currentCash >= 100) {
+    if (guitarInventory.hasClass('guitar') && micInventory.hasClass('mic') && keysInventory.hasClass('keys') && bassInventory.hasClass('bass') && drumsInventory.hasClass('drums') && currentCash >= 1000) {
       let player1Time = $('.player-time').eq(0);
       let player2Time = $('.player-time').eq(1);
       if ($(player1Time).text() === '') {
@@ -1005,13 +1005,15 @@ $(() => {
 
   }
 
+let $playerOneName;
+let $playerTwoName;
   // MODAL Functions:
   // Code to move input box values into player 1 and player 2 divs:
   const clickSubmit = () => {
     const $inputBox1 = $('#input-box');
     const $inputBox2 = $('#input-box2');
-    const $playerOneName = $inputBox1.val();
-    const $playerTwoName = $inputBox2.val();
+    $playerOneName = $inputBox1.val();
+    $playerTwoName = $inputBox2.val();
     $('#player1').text($playerOneName);
     $('#player2').text($playerTwoName);
     closeModal1();

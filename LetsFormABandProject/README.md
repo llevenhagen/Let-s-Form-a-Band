@@ -5,16 +5,16 @@
 Live site link: https://llevenhagen.github.io/LetsFormABandProject/
 
 
-Technologies used:
-HTML, CSS, JS, and Jquery.
+##Technologies used:
+  HTML, CSS, JS, and Jquery.
 
-Approach Taken:
+##Approach Taken:
 
-I started with the HTML, outlining the grid and the inventory first. I decided how to make the grid by considering the goal functionality of the game. I would need to be able to move images between squares on an 8 x 8 grid, so although I knew I could make the process more efficient by creating the grid with jQuery, I wanted to have the HTML hard coded in front of me so I could conceptualize it better when writing functions that would influence it. I decided to hardcode the 64 squares, organized into columns of 8.
+  I started with the HTML, outlining the grid and the inventory first. I decided how to make the grid by considering the goal functionality of the game. I would need to be able to move images between squares on an 8 x 8 grid, so although I knew I could make the process more efficient by creating the grid with jQuery, I wanted to have the HTML hard coded in front of me so I could conceptualize it better when writing functions that would influence it. I decided to hardcode the 64 squares, organized into columns of 8.
 
-My first move in JS was to make a function to take the 8 images I had gathered and randomize them to fill out the grid. I used jQuery to append an image tag to each to each square in the grid, and then made sure that each image assigned a source image as well as a class, which had been grouped together in an array of objects so that the source/class combination would never become separated. Therefore, the guitar image source always had a class of guitar. This was so that the computer could look for matches in the next function.
+  My first move in JS was to make a function to take the 8 images I had gathered and randomize them to fill out the grid. I used jQuery to append an image tag to each to each square in the grid, and then made sure that each image assigned a source image as well as a class, which had been grouped together in an array of objects so that the source/class combination would never become separated. Therefore, the guitar image source always had a class of guitar. This was so that the computer could look for matches in the next function.
 
-I then formed a function to look for matches of three. I knew I needed to look for matches not only in the column (y) axis, but also the row (x) axis, so I made 16 arrays - 8 arrays for each column and 8 arrays for each row. In each array, I listed the <img> div for indexes 0 - 8. Then I had the checkForMatches function examine each column or row's index[0], index[1], and index[2]. It would also compare index[1] with index[2] and index[3]. I had the computer continue with this all the way until index[5], index[6], and index[7]. That way, the computer had checked each item in the row or column with the two before and after it.
+  I then formed a function to look for matches of three. I knew I needed to look for matches not only in the column (y) axis, but also the row (x) axis, so I made 16 arrays - 8 arrays for each column and 8 arrays for each row. In each array, I listed the <img> div for indexes 0 - 8. Then I had the checkForMatches function examine each column or row's index[0], index[1], and index[2]. It would also compare index[1] with index[2] and index[3]. I had the computer continue with this all the way until index[5], index[6], and index[7]. That way, the computer had checked each item in the row or column with the two before and after it.
 
   Once a match was found, I called a function which checked to see if those matches were all either: cash, guitar, bass, keys, drums, or mics. If the matches were all cash, the money inventory would add 25 dollars to currentCash. If all the matches were an instrument, I would append the src associated with that match to the instrument inventory.
 
@@ -33,9 +33,10 @@ I then formed a function to look for matches of three. I knew I needed to look f
   Once I had the timer done, I used JS to log player one's time into the aside once they had filled their inventory, and then I reset the grid, the inventory, and the timer for player two's turn. Once player two had played, I programmed the computer to compare the two players' times and choose a winner. I programmed a third modal to announce the winner and ask if they would like to play again. If the players chose to play again, the play again button would reset the game and bring everything back to the start with the first Modal.
 
 
-  Unsolved problems:
+##Unsolved problems:
+
   It seems that when a player clicks one item, they need to click a neighbor before they can click anywhere else. I would like to find a way to program it so that if you don't click a neighbor but click somewhere else, the click event starts over on click one and just forgets about the last click event even though it wasn't fulfilled. I didn't have enough time to consider how to do this, but hopefully in the future I can come back and do it. Currently, player's two time in the aside on the right turns to 0:0 at the end of the game, though player one's time stays the way it was. Fortunately, the computer is still comparing player one's time with player two's actual time when they completed the game - not the 0:0 that shows. I would like to fix this, and I think I could fix it pretty easily if I had more time.
 
-  Things I wish I could add/change:
+##Things I wish I could add/change:
 
   I would like to be able to add another modal after the first player is done, announcing that it is the second player's turn. I definitely could do this, but unfortunately didn't have enough time. I would also like to make it so that when you get a guitar (or any instrument) but already have a guitar (or that particular instrument, if not a guitar) in your inventory, you can 'sell' the extra guitar for money added to your inventory. I tried this but couldn't get it quite right in the amount of time I had. I would also like to make it so that when three 'bosses' or 'lazy bandmates' line up, they detract money (in the boss' case) or instruments from your inventory (in the case of the lazy bandmate).

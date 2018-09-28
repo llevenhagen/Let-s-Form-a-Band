@@ -240,7 +240,7 @@ aside {
   color: white;
   float: right;
   width: 20vw;
-  height: 400px;
+  height: 440px;
   /* background-color: #F2CC5A; */
   background-color: #A8E5F5;
   border-radius: 20px 0 0 20px;
@@ -254,7 +254,7 @@ aside {
 
 aside>div {
   border-bottom: 3px solid black;
-  height: 100px;
+  height: 90px;
 }
 
 #player1, #player2 {
@@ -273,7 +273,7 @@ aside>div {
 .player-time {
   margin-top: 15%;
   margin-left: 30%;
-  margin-bottom: -35px;
+  margin-bottom: -30px;
   font-size: 3vw;
   color: red;
   font-family: 'Russo One', sans-serif;
