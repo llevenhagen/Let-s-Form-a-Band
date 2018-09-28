@@ -1020,7 +1020,7 @@ let $playerTwoName;
   }
 
 
-  // Modal itself:
+  // Modals:
   const $modal = $('#modal1');
   const $modal2 = $('#modal2');
   const $closeBtn1 = $('#submit-btn');
