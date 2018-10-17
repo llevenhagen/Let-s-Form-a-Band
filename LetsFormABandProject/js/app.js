@@ -109,22 +109,10 @@ $(() => {
       src: 'images/cash_pic.jpg',
       value: 'cash'
     },
-    // {
-    //   src: 'images/cash_pic.jpg',
-    //   value: 'cash'
-    // },
-    // {
-    //   src: 'images/lazybandmate.png',
-    //   value: 'bandmate'
-    // },
     {
       src: 'images/lazybandmate.png',
       value: 'bandmate'
     },
-    // {
-    //   src: 'images/demanding-boss.jpg',
-    //   value: 'boss'
-    // },
     {
       src: 'images/lazybandmate.png',
       value: 'bandmate'
@@ -168,8 +156,6 @@ $(() => {
     }
   }
 
-  // assignRandomIconAndClass();
-  // console.log($(column1[7]).hasClass('cash'));
 
 
   // =============MAKE ARRAY FOR EACH COLUMN AND ROW:============
@@ -213,16 +199,12 @@ $(() => {
   let row8 = [$('img').eq(7), $('img').eq(15), $('img').eq(23), $('img').eq(31), $('img').eq(39), $('img').eq(47), $('img').eq(55), $('img').eq(63)];
   // ========================FUNCTION FOR IF 3 MATCH============
   // all are cash:
-  const allAreCash = (firstIndex) => {
+  const whichMatch = (firstIndex) => {
     if (firstIndex.hasClass('cash')) {
       currentCash += 50;
       // console.log(currentCash);
       $('#amount').text('$' + currentCash)
-    }
-  }
-  // all are Guitars:
-  const allAreGuitars = (firstIndex) => {
-    if (firstIndex.hasClass('guitar')) {
+    } else if (firstIndex.hasClass('guitar')) {
       // console.log('you have a guitar');
       let image = $('#guitar').children(0)
       // IF YOU ALREADY HAVE A GUITAR SELL FOR 100
@@ -234,11 +216,7 @@ $(() => {
         let newImage = $('<img>').addClass('guitar').attr('src', 'images/guitar.jpg').attr('id', 'guitarImage');
         $('#guitar').append(newImage);
       }
-    }
-  }
-  // all are Bass:
-  const allAreBass = (firstIndex) => {
-    if (firstIndex.hasClass('bass')) {
+    } else if (firstIndex.hasClass('bass')) {
       // console.log('you have a bass');
       let image = $('#bass').children(0);
       if (image.hasClass('bass')) {
@@ -249,11 +227,7 @@ $(() => {
         let newImage = $('<img>').addClass('bass').attr('src', 'images/bass-guitar-pic.png').attr('id', 'bassImage');
         $('#bass').append(newImage);
       }
-    }
-  }
-  // all are Keys:
-  const allAreKeys = (firstIndex) => {
-    if (firstIndex.hasClass('keys')) {
+    } else if (firstIndex.hasClass('keys')) {
       // console.log('you have a keyboard');
       let image = $('#keys').children(0)
       if (image.hasClass('keys')) {
@@ -264,11 +238,7 @@ $(() => {
         let newImage = $('<img>').addClass('keys').attr('src', 'images/keys-icon.png').attr('id', 'keysImage');
         $('#keys').append(newImage);
       }
-    }
-  }
-  // all are Mic:
-  const allAreMic = (firstIndex) => {
-    if (firstIndex.hasClass('mic')) {
+    } else if (firstIndex.hasClass('mic')) {
       // console.log('you have a mic');
       let image = $('#mic').children(0)
       if (image.hasClass('mic')) {
@@ -279,11 +249,7 @@ $(() => {
         let newImage = $('<img>').addClass('mic').attr('src', 'images/mic-pic.png').attr('id', 'micImage');
         $('#mic').append(newImage);
       }
-    }
-  }
-  // all are drums:
-  const allAreDrums = (firstIndex) => {
-    if (firstIndex.hasClass('drums')) {
+    } else if (firstIndex.hasClass('drums')) {
       // console.log('you have a drumset');
       let image = $('#drums').children(0)
       if (image.hasClass('drums')) {
@@ -297,9 +263,36 @@ $(() => {
     }
   }
 
+
   // =====================DECLARE INITIAL CASH====================
   let currentCash = 0;
   // ============TEST EACH COLUMN AND ROW FOR MATCHES=========================
+  const replaceMatch = (firstMatch, secondMatch, thirdMatch) => {
+    newRandomIcon();
+    // console.log(firstMatch.attr('class'));
+
+    firstMatch.removeClass().addClass(randomIcon.value)
+    firstMatch.attr('src', randomIcon.src);
+    newRandomIcon();
+    secondMatch.removeClass().addClass(randomIcon.value)
+    secondMatch.attr('src', randomIcon.src);
+    newRandomIcon();
+    thirdMatch.removeClass().addClass(randomIcon.value)
+    thirdMatch.attr('src', randomIcon.src);
+    newRandomIcon();
+    firstMatch.addClass('animation');
+    secondMatch.addClass('animation');
+    thirdMatch.addClass('animation');
+    setTimeout(matchRemoveClass = () => {
+      firstMatch.removeClass('animation');
+      secondMatch.removeClass('animation');
+      thirdMatch.removeClass('animation');
+    }, 1500);
+    setTimeout(CheckAllColumnsAndRows, 3000);
+  }
+  let firstMatch;
+  let secondMatch;
+  let thirdMatch;
   const checkColumnorRow = (columnOrRow) => {
 
     // check for columnOrRow[0-2]
@@ -309,251 +302,52 @@ $(() => {
       let secondMatch = columnOrRow[1];
       let thirdMatch = columnOrRow[2];
       // ==============REMOVE THE MATCHING 3======================
-      const replaceMatch = () => {
-        newRandomIcon();
-        // console.log(firstMatch.attr('class'));
-
-        firstMatch.removeClass().addClass(randomIcon.value)
-        firstMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        secondMatch.removeClass().addClass(randomIcon.value)
-        secondMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        thirdMatch.removeClass().addClass(randomIcon.value)
-        thirdMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        firstMatch.addClass('animation');
-        secondMatch.addClass('animation');
-        thirdMatch.addClass('animation');
-        setTimeout(matchRemoveClass = () => {
-          firstMatch.removeClass('animation');
-          secondMatch.removeClass('animation');
-          thirdMatch.removeClass('animation');
-        }, 1500);
-        setTimeout(CheckAllColumnsAndRows, 3000);
-      }
-      let stockInventory = () => {
-        allAreCash(columnOrRow[0]);
-        allAreGuitars(columnOrRow[0]);
-        allAreBass(columnOrRow[0]);
-        allAreKeys(columnOrRow[0]);
-        allAreMic(columnOrRow[0]);
-        allAreDrums(columnOrRow[0])
-      }
-      setTimeout(stockInventory, 2000);
-      setTimeout(replaceMatch, 2050);
+      setTimeout(whichMatch, 2000, firstMatch);
+      setTimeout(replaceMatch, 2050, firstMatch, secondMatch, thirdMatch);
 
     }
     // check for column or row index 1-3
     if (columnOrRow[1].attr('class') === columnOrRow[2].attr('class') && columnOrRow[1].attr('class') === columnOrRow[3].attr('class')) {
-      let firstMatch = columnOrRow[1];
-      let secondMatch = columnOrRow[2];
-      let thirdMatch = columnOrRow[3];
-      const replaceMatch = () => {
-        newRandomIcon();
-        // console.log(firstMatch.attr('class'));
-        firstMatch.removeClass().addClass(randomIcon.value);
-        firstMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        secondMatch.removeClass().addClass(randomIcon.value);
-        secondMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        thirdMatch.removeClass().addClass(randomIcon.value);
-        thirdMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        firstMatch.addClass('animation');
-        secondMatch.addClass('animation');
-        thirdMatch.addClass('animation');
-        setTimeout(matchRemoveClass = () => {
-          firstMatch.removeClass('animation');
-          secondMatch.removeClass('animation');
-          thirdMatch.removeClass('animation');
-        }, 1500);
-        // console.log(firstMatch.attr('class'));
-        // console.log(secondMatch.attr('class'));
-        // console.log(thirdMatch.attr('class'));
-        setTimeout(CheckAllColumnsAndRows, 3000);
-      }
-      let stockInventory = () => {
-        allAreCash(columnOrRow[1]);
-        allAreGuitars(columnOrRow[1]);
-        allAreBass(columnOrRow[1]);
-        allAreKeys(columnOrRow[1]);
-        allAreMic(columnOrRow[1]);
-        allAreDrums(columnOrRow[1]);
-      }
-      setTimeout(stockInventory, 2000);
-      setTimeout(replaceMatch, 2050);
+      firstMatch = columnOrRow[1];
+      secondMatch = columnOrRow[2];
+      thirdMatch = columnOrRow[3];
+      setTimeout(whichMatch, 2000, firstMatch);
+      setTimeout(replaceMatch, 2050, firstMatch, secondMatch, thirdMatch);
     }
     // check for column or row index 2-4
     if (columnOrRow[2].attr('class') === columnOrRow[3].attr('class') && columnOrRow[2].attr('class') === columnOrRow[4].attr('class')) {
-      let firstMatch = columnOrRow[2];
-      let secondMatch = columnOrRow[3];
-      let thirdMatch = columnOrRow[4];
-      const replaceMatch = () => {
-        newRandomIcon();
-        // console.log(firstMatch.attr('class'));
-        firstMatch.removeClass().addClass(randomIcon.value);
-        firstMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        secondMatch.removeClass().addClass(randomIcon.value);
-        secondMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        thirdMatch.removeClass().addClass(randomIcon.value);
-        thirdMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        firstMatch.addClass('animation');
-        secondMatch.addClass('animation');
-        thirdMatch.addClass('animation');
-        setTimeout(matchRemoveClass = () => {
-          firstMatch.removeClass('animation');
-          secondMatch.removeClass('animation');
-          thirdMatch.removeClass('animation');
-        }, 1500);
-        // console.log(firstMatch.attr('class'));
-        // console.log(secondMatch.attr('class'));
-        // console.log(thirdMatch.attr('class'));
-        setTimeout(CheckAllColumnsAndRows, 3000);
-      }
-      let stockInventory = () => {
-        allAreCash(columnOrRow[2]);
-        allAreGuitars(columnOrRow[2]);
-        allAreBass(columnOrRow[2]);
-        allAreKeys(columnOrRow[2]);
-        allAreMic(columnOrRow[2]);
-        allAreDrums(columnOrRow[2]);
-      }
-      setTimeout(stockInventory, 2000);
-      setTimeout(replaceMatch, 2050);
+      firstMatch = columnOrRow[2];
+      secondMatch = columnOrRow[3];
+      thirdMatch = columnOrRow[4];
+      setTimeout(whichMatch, 2000, firstMatch);
+      setTimeout(replaceMatch, 2050, firstMatch, secondMatch, thirdMatch);
     }
     // check for column or row index 3-5
     if (columnOrRow[3].attr('class') === columnOrRow[4].attr('class') && columnOrRow[3].attr('class') === columnOrRow[5].attr('class')) {
-      let firstMatch = columnOrRow[3];
-      let secondMatch = columnOrRow[4];
-      let thirdMatch = columnOrRow[5];
-      const replaceMatch = () => {
-        newRandomIcon();
-        // console.log(firstMatch.attr('class'));
-        firstMatch.removeClass().addClass(randomIcon.value);
-        firstMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        secondMatch.removeClass().addClass(randomIcon.value);
-        secondMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        thirdMatch.removeClass().addClass(randomIcon.value);
-        thirdMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        firstMatch.addClass('animation');
-        secondMatch.addClass('animation');
-        thirdMatch.addClass('animation');
-        setTimeout(matchRemoveClass = () => {
-          firstMatch.removeClass('animation');
-          secondMatch.removeClass('animation');
-          thirdMatch.removeClass('animation');
-        }, 1500);
-        // console.log(firstMatch.attr('class'));
-        // console.log(secondMatch.attr('class'));
-        // console.log(thirdMatch.attr('class'));
-        setTimeout(CheckAllColumnsAndRows, 3000);
-      }
-      let stockInventory = () => {
-        allAreCash(columnOrRow[3]);
-        allAreGuitars(columnOrRow[3]);
-        allAreBass(columnOrRow[3]);
-        allAreKeys(columnOrRow[3]);
-        allAreMic(columnOrRow[3]);
-        allAreDrums(columnOrRow[3]);
-      }
-      setTimeout(stockInventory, 2000);
-      setTimeout(replaceMatch, 2050);
+      firstMatch = columnOrRow[3];
+      secondMatch = columnOrRow[4];
+      thirdMatch = columnOrRow[5];
+      setTimeout(whichMatch, 2000, firstMatch);
+      setTimeout(replaceMatch, 2050, firstMatch, secondMatch, thirdMatch);
     }
     // check for column or row index 4-6
     if (columnOrRow[4].attr('class') === columnOrRow[5].attr('class') && columnOrRow[4].attr('class') === columnOrRow[6].attr('class')) {
-      let firstMatch = columnOrRow[4];
-      let secondMatch = columnOrRow[5];
-      let thirdMatch = columnOrRow[6];
-      const replaceMatch = () => {
-        newRandomIcon();
-        // console.log(firstMatch.attr('class'));
-        firstMatch.removeClass().addClass(randomIcon.value);
-        firstMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        secondMatch.removeClass().addClass(randomIcon.value);
-        secondMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        thirdMatch.removeClass().addClass(randomIcon.value);
-        thirdMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        firstMatch.addClass('animation');
-        secondMatch.addClass('animation');
-        thirdMatch.addClass('animation');
-        setTimeout(matchRemoveClass = () => {
-          firstMatch.removeClass('animation');
-          secondMatch.removeClass('animation');
-          thirdMatch.removeClass('animation');
-        }, 1500);
-        // console.log(firstMatch.attr('class'));
-        // console.log(secondMatch.attr('class'));
-        // console.log(thirdMatch.attr('class'));
-        setTimeout(CheckAllColumnsAndRows, 3000);
-      }
-      let stockInventory = () => {
-        allAreCash(columnOrRow[4]);
-        allAreGuitars(columnOrRow[4]);
-        allAreBass(columnOrRow[4]);
-        allAreKeys(columnOrRow[4]);
-        allAreMic(columnOrRow[4]);
-        allAreDrums(columnOrRow[4]);
-      }
-      setTimeout(stockInventory, 2000);
-      setTimeout(replaceMatch, 2050);
+      firstMatch = columnOrRow[4];
+      secondMatch = columnOrRow[5];
+      thirdMatch = columnOrRow[6];
+      setTimeout(whichMatch, 2000, firstMatch);
+      setTimeout(replaceMatch, 2050, firstMatch, secondMatch, thirdMatch);
     }
     // check for column or row index 5-7.
     if (columnOrRow[5].attr('class') === columnOrRow[6].attr('class') && columnOrRow[5].attr('class') === columnOrRow[7].attr('class')) {
-      let firstMatch = columnOrRow[5];
-      let secondMatch = columnOrRow[6];
-      let thirdMatch = columnOrRow[7];
-      const replaceMatch = () => {
-        newRandomIcon();
-        // console.log(firstMatch.attr('class'));
-        firstMatch.removeClass().addClass(randomIcon.value);
-        firstMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        secondMatch.removeClass().addClass(randomIcon.value);
-        secondMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        thirdMatch.removeClass().addClass(randomIcon.value);
-        thirdMatch.attr('src', randomIcon.src);
-        newRandomIcon();
-        firstMatch.addClass('animation');
-        secondMatch.addClass('animation');
-        thirdMatch.addClass('animation');
-        setTimeout(matchRemoveClass = () => {
-          firstMatch.removeClass('animation');
-          secondMatch.removeClass('animation');
-          thirdMatch.removeClass('animation');
-        }, 1500);
-        // console.log(firstMatch.attr('class'));
-        // console.log(secondMatch.attr('class'));
-        // console.log(thirdMatch.attr('class'));
-        setTimeout(CheckAllColumnsAndRows, 3000);
-      }
-      let stockInventory = () => {
-        allAreCash(columnOrRow[5]);
-        allAreGuitars(columnOrRow[5]);
-        allAreBass(columnOrRow[5]);
-        allAreKeys(columnOrRow[5]);
-        allAreMic(columnOrRow[5]);
-        allAreDrums(columnOrRow[5]);
-      }
-      setTimeout(stockInventory, 2000);
-      setTimeout(replaceMatch, 2050);
+      firstMatch = columnOrRow[5];
+      secondMatch = columnOrRow[6];
+      thirdMatch = columnOrRow[7];
+      setTimeout(whichMatch, 2000, firstMatch);
+      setTimeout(replaceMatch, 2050, firstMatch, secondMatch, thirdMatch);
     }
   }
-  // }
-  // {
-  //   console.log('this also worked');
-  // }
+
   CheckAllColumnsAndRows = () => {
     console.log('checking all columns and rows');
     checkForFullInventory();
@@ -587,8 +381,6 @@ $(() => {
   // console.log($elementWithSwap.length);
   // console.log($elementWithNext.length);
   // debugger;
-  // let $current;
-  // console.log('this is working');
 
   // if (elementWithSwap.length === 0 && elementWithNext.length === 0) {
   let $current;
@@ -623,29 +415,36 @@ $(() => {
         $parentIdNumber = Number($parentId);
         // console.log($parentIdNumber);
         // find ID of square to the right, ID + 8
-        $rightParent = $('.square').eq($parentIdNumber + 8);
+        if ($parentIdNumber < 56){
+        $rightParent = $('.square').eq($parentIdNumber + 8);}
+        else { $rightParent = false;}
         // console.log($rightParent);
         // find image assigned to Right Square, for right image:
         $rightImg = $($rightParent).children(0);
         $rightImg.attr('id', 'right')
-        // $rightImgClass = $(rightImg).attr('class');
         // console.log($($rightImg).attr('class'));
         // find ID of square to the left, ID - 8
-        $leftParent = $('.square').eq($parentIdNumber - 8);
+        if ($parentIdNumber > 7) {
+        $leftParent = $('.square').eq($parentIdNumber - 8);}
+        else { $leftParent = false;}
         // console.log($leftParent);
         // find image assigned to Left Square
         $leftImg = $($leftParent).children(0);
         $leftImg.attr('id', 'left');
         // console.log($leftImg);
         // find ID of square top, ID -1
-        $topParent = $('.square').eq($parentIdNumber - 1);
+        if ($parentIdNumber % 8 !== 0) {
+        $topParent = $('.square').eq($parentIdNumber - 1);}
+        else {$topParent = false;}
         // console.log($topParent);
         // find image assigned to top Parent:
         $topImage = $($topParent).children(0);
         $topImage.attr('id', 'top');
         // console.log($topImage);
         // find ID of square bottom, ID+1
-        $bottomParent = $('.square').eq($parentIdNumber + 1);
+        if (($parentIdNumber + 1) % 8 !== 0) {
+        $bottomParent = $('.square').eq($parentIdNumber + 1);}
+        else {$bottomParent = false;}
         // console.log($topParent);
         // find image assigned to the square $bottom
         $bottomImg = $($bottomParent).children(0);
@@ -668,17 +467,11 @@ $(() => {
         let $nextImageParent = $next.parent();
         // console.log($nextImageParent);
         // console.log($rightParent);
-        console.log('next id is' + $next.attr('id'));
-        console.log('left id is' + $leftImg.attr('id'));
-        console.log($leftImg);
-        console.log($topImage);
-        console.log($bottomImg);
-        // $nextImageClass = $next.attr('class');
-        // $nextImageSrc = $next.attr('src');
-        // console.log($rightImg.children());
-        // console.log($rightImg.attr('class'));
-        // console.log($next.children());
-        // console.log($next.attr('class'));
+        // console.log('next id is' + $next.attr('id'));
+        // console.log('left id is' + $leftImg.attr('id'));
+        // console.log($leftImg);
+        // console.log($topImage);
+        // console.log($bottomImg);
         if ($next.attr('id') === $rightImg.attr('id') || $next.attr('id') === $leftImg.attr('id') || $next.attr('id') === $topImage.attr('id') || $next.attr('id') === $bottomImg.attr('id')) {
           $rightImg.removeAttr('id');
           $leftImg.removeAttr('id');
@@ -703,185 +496,21 @@ $(() => {
           $elementWithSwap = $('.image-swap');
           $elementWithNext = $('.next-image');
           CheckAllColumnsAndRows();
-          // $('image').removeAttr('id');
+
         } else {
-          // $('img').off('click');
+
           return false;
         }
       } else {
         // console.log($next);
         $next = null;
-        console.log($next);
+        // console.log($next);
       }
     }
   })
 
+  // Clear Inventory for New Player:
 
-
-
-  //
-  // const makeNeighborsClickable = () => {
-  //   // call other function on every row and column
-  //   checkSingleArrayForNeighbors(column1);
-  //   checkSingleArrayForNeighbors(column2);
-  //   checkSingleArrayForNeighbors(column3);
-  //   checkSingleArrayForNeighbors(column4);
-  //   checkSingleArrayForNeighbors(column5);
-  //   checkSingleArrayForNeighbors(column6);
-  //   checkSingleArrayForNeighbors(column7);
-  //   checkSingleArrayForNeighbors(column8);
-  //   checkSingleArrayForNeighbors(row1);
-  //   checkSingleArrayForNeighbors(row2);
-  //   checkSingleArrayForNeighbors(row3);
-  //   checkSingleArrayForNeighbors(row4);
-  //   checkSingleArrayForNeighbors(row5);
-  //   checkSingleArrayForNeighbors(row6);
-  //   checkSingleArrayForNeighbors(row7);
-  //   checkSingleArrayForNeighbors(row8);
-  // }
-  //
-  // // make function for checking single column or row for neighbors:
-  //
-  // const checkSingleArrayForNeighbors = (array) => {
-  //   // use for loop to call our each img in array
-  //   for (item of array) {
-  //     // console.log(array);
-  //     // find index of item in array, in order to identify neighbors
-  //     let itemIndex = array.indexOf(item);
-  //     // when you click on a specific image in grid:
-  //     // const limitClickOnItems = () => {
-  //     $(item).on('click', (event) => {
-  //       // console.log(itemIndex);
-  //       // find class and source of current image:
-  //       let $current, $upOne, $downOne;
-  //       let downOne = array[itemIndex + 1];
-  //       $current = $(event.currentTarget);
-  //       // if ($current.attr('class') !== 'boss' && $current.attr('class') !== 'bandmate') {
-  //       //   $current.addClass('click-border-red');}
-  //       let upOne = array[itemIndex - 1];
-  //       let currentClass = $current.attr('class');
-  //       let currentSrc = $current.attr('src');
-  //       console.log(currentClass);
-  //       console.log(currentSrc);
-  //       // debugger;
-  //       // find image right after current image:
-  //       // let downOne = array[itemIndex +1]
-  //       // console.log(downOne);
-  //       // debugger;
-  //       // when you've clicked on first image, and then click on next image:
-  //       // but not if it's bandmate or boss
-  //       if ($(downOne).attr('class') === 'boss' || $(downOne).attr('class') === 'bandmate' || $current.attr('class') === 'boss' || $current.attr('class') === 'bandmate') {
-  //         console.log('this is a boss or bandmate');
-  //       } else {
-  //         $(downOne).off('click');
-  //         $(downOne).on('click', () => {
-  //           // $current.removeClass('click-border-red');
-  //           // if ($(downOne).attr('class') !== 'boss' && $(downOne).attr('class') !== 'bandmate') {
-  //           //   $(downOne).addClass('click-border-blue');}
-  //           // console.log('this is working');
-  //           // find class and source of next image:
-  //           // $downOne = $(event.currentTarget);
-  //           let downOneClass = $(downOne).attr('class');
-  //           let downOneSrc = $(downOne).attr('src');
-  //           console.log(downOneClass);
-  //           console.log(downOneSrc);
-  //           // debugger;
-  //           // remove downOnes class and image
-  //           $(downOne).removeClass();
-  //           $(downOne).removeAttr('src');
-  //           // debugger;
-  //           // give DownOne the image and src of class of current
-  //           $(downOne).addClass(currentClass);
-  //           $(downOne).attr('src', currentSrc);
-  //           // debugger;
-  //           let newDownOneClass = $(downOne).attr('class');
-  //           let newDownOneSrc = $(downOne).attr('src');
-  //           console.log(newDownOneClass);
-  //           console.log(newDownOneSrc);
-  //           // debugger;
-  //           // remove current class and image
-  //           $current.removeClass();
-  //           $current.removeAttr('src');
-  //           // debugger;
-  //           // give current the image and src of next
-  //           $current.addClass(downOneClass);
-  //           $current.attr('src', downOneSrc);
-  //           // debugger;
-  //           // $(downOne).off('click');
-  //           // $(upOne).off('click');
-  //           CheckAllColumnsAndRows();
-  //           // debugger;
-  //         })
-  //       }
-  //       // let upOne = array[itemIndex -1];
-  //       if ($(upOne).attr('class') === 'boss' || $(upOne).attr('class') === 'bandmate' || $current.attr('class') === 'boss' || $current.attr('class') === 'bandmate') {
-  //         console.log('this is a boss or bandmate');
-  //       } else {
-  //         $(upOne).off('click');
-  //         $(upOne).on('click', () => {
-  //           // $current.removeClass('click-border-red');
-  //           // if ($(upOne).attr('class') !== 'boss' && $(upOne).attr('class') !== 'bandmate') {
-  //           //   $(upOne).addClass('click-border-green');
-  //           // }
-  //           // let upOne = event.currentTarget;
-  //           // console.log('this also works'+ upOne);
-  //           // find class and source of image right before current:
-  //           // $upOne = $(event.currentTarget);
-  //           let upOneClass = $(upOne).attr('class');
-  //           let upOneSrc = $(upOne).attr('src');
-  //           console.log(upOneClass);
-  //           console.log(upOneSrc);
-  //           // debugger;
-  //           // remove class and src of upOne
-  //           $(upOne).removeClass();
-  //           $(upOne).removeAttr('src');
-  //           // debugger;
-  //           // give upOne the image and src of class of current
-  //           $(upOne).addClass(currentClass);
-  //           $(upOne).attr('src', currentSrc);
-  //           //   upOneClass = $(upOne).attr('class');
-  //           // upOneSrc = $(upOne).attr('src');
-  //           //   console.log(upOneClass);
-  //           //   console.log(upOneSrc);
-  //           // debugger;
-  //           let newUpOneClass = $(upOne).attr('class');
-  //           let newUpOneSrc = $(upOne).attr('src');
-  //           console.log(newUpOneClass);
-  //           console.log(newUpOneSrc);
-  //           // debugger;
-  //           // remove current class and image
-  //           $current.removeClass();
-  //           $current.removeAttr('src');
-  //           // debugger;
-  //           // give current the image and src of next
-  //           $current.addClass(upOneClass);
-  //           $current.attr('src', upOneSrc);
-  //           let newCurrentClass = $current.attr('class');
-  //           let newCurrentSrc = $current.attr('src');
-  //           console.log(newCurrentClass);
-  //           console.log(newCurrentSrc);
-  //           // debugger;
-  //           // $(upOne).off('click');
-  //           // $(downOne).off('click');
-  //           // debugger;
-  //           // $(upOne).off('click');
-  //           CheckAllColumnsAndRows();
-  //         })
-  //       }
-  //       // CheckAllColumnsAndRows();
-  //     })
-  //   }
-
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // limitClickOnItems(item);
-  // }
-  // }
   const clearInventory = () => {
     $('#guitarImage').remove();
     $('#bassImage').remove();
@@ -946,8 +575,7 @@ $(() => {
       }
     };
     openModal3();
-    // $('.player-time').eq(0).text('');
-    // $('.player-time').eq(1).text('');
+
   }
 
   const checkForFullInventory = () => {
@@ -970,10 +598,6 @@ $(() => {
         $(secondsInfo).text(seconds);
         $(minutesInfo).text(minutes);
         restartGame();
-        // reloadGridAndInventory();
-        // startGame();
-        // CheckAllColumnsAndRows();
-        // setTimeout(CheckAllColumnsAndRows, 3000);
       } else {
         $(player2Time).text(minutes + ':' + seconds);
         // log player two seconds and minutes into variable for comparison
@@ -996,8 +620,7 @@ $(() => {
     player2Seconds = 0;
     $('.player-time').eq(0).text('');
     $('.player-time').eq(1).text('');
-    // setTimeout(CheckAllColumnsAndRows, 3000);
-    // setTimeout(startTimer, 3000);
+
     restartGame();
     $('#p1TimerMinutes').empty();
     $('#p1TimerSeconds').empty();
@@ -1046,10 +669,7 @@ $(() => {
 
   }
 
-  // include function CheckAllColumnsAndRows to start game, after 5 seconds:
-  // setTimeout(CheckAllColumnsAndRows, 3000);
-  // setTimeout(startTimer, 3000);
-  // }
+
   // event listener for click on submit button
   $closeBtn1.on('click', clickSubmit);
   $('#playButton').on('click', closeModal2);
@@ -1078,16 +698,8 @@ $(() => {
       $(minutesInfo).text(minutes)
     }
   }
-  // ============================Timer Function===============
-  // let myTimer;
-  // let startTimer = () => {
-  //   myTimer = setInterval(addSeconds, 1000);
-  //   }
-  // let timerControl = setInterval(addSeconds, 1000);
-  // clearInterval(addSeconds);
 
   // ============================Start Game Flow===================
-  // openModal();
   // put Check for Full Inventory at beginning of CheckAllColumnsAndRows
   const startGame = () => {
     openModal();
@@ -1098,7 +710,5 @@ $(() => {
   $('header').append(vinylImage)
   // CheckAllColumnsAndRows();
   // --- onlye need this when modal is inactive
-
-  // call makeNeighborsClickable - where?
 
 })
