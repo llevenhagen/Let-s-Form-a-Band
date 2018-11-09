@@ -1,8 +1,7 @@
 # llevenhagen.github.io
 
-                                 Ready Me :
-
-Live site link: https://llevenhagen.github.io/LetsFormABandProject/
+                            
+Live site link: https://llevenhagen.github.io/Let-s-Form-a-Band/
 
 
 ## Technologies used:
