@@ -16,9 +16,9 @@ header {
 }
 
 header>.vinyl {
-  margin-top: -200px;
+  margin-top: -15.64vw;
   float: right;
-  margin-right: 20px;
+  margin-right: 1.56vw;
 }
 
 header>h1 {
@@ -36,7 +36,7 @@ header>h2 {
   margin-top: -9vw;
   font-family: 'Playfair Display', serif;
   font-size: 2vw;
-  margin-bottom: -20px;
+  margin-bottom: -1.56vw;
 }
 
 /* GRID CSS */
@@ -49,15 +49,15 @@ header>h2 {
 /* Timer: */
 #stopWatch {
   text-align: center;
-  height: 40px;
-  width: 150px;
+  height: 3.129vw;
+  width: 14.56vw;
   color: black;
   background-color: white;
-  border: 2px solid pink;
-  border-radius: 10px;
+  border: .2vw solid pink;
+  border-radius: .78vw;
   display: block;
-  margin-top: -90px;
-  margin-bottom: 30px;
+  margin-top: -7.04vw;
+  margin-bottom: 2.34vw;
   margin-left: auto;
   margin-right: 25%;
   padding: auto;
@@ -66,18 +66,18 @@ header>h2 {
 #stopWatch>span {
   line-height: 100%;
   font-size: 2.5vw;
-  padding: 5px auto;
+  padding: .39vw auto;
   margin: 0;
   vertical-align: top;
 }
 
 /* Grid */
 #grid {
-  margin-left: 17%;
+  margin-left: 19%;
   padding-bottom: 0;
   padding-left: 0;
-  height: 600px;
-  width: 55vw;
+  height: 46.94vw;
+  width: 45.3vw;
   display: inline-flex;
   position: absolute;
 }
@@ -86,69 +86,69 @@ header>h2 {
   flex-direction: column;
   height: 100%;
   width: 12%;
-  margin-bottom: 100px;
+  margin-bottom: 7.8vw;
 }
 
 .square {
   width: 100%;
   height: 10%;
-  margin: 5px;
+  margin: .39vw;
 }
 
 .guitar {
   height: 100%;
   width: 90%;
   vertical-align: bottom;
-  border-radius: 20px;
+  border-radius: 1.56vw;
 }
 
 .bass {
   height: 100%;
   width: 90%;
   vertical-align: bottom;
-  border-radius: 20px;
+  border-radius: 1.56vw;
 }
 
 .mic {
   height: 100%;
   width: 90%;
   vertical-align: bottom;
-  border-radius: 20px;
+  border-radius: 1.56vw;
 }
 
 .cash {
   height: 100%;
   width: 90%;
   vertical-align: bottom;
-  border-radius: 20px;
+  border-radius: 1.56vw;
 }
 
 .keys {
   height: 100%;
   width: 90%;
   vertical-align: bottom;
-  border-radius: 20px;
+  border-radius: 1.56vw;
 }
 
 .bandmate {
   height: 100%;
   width: 90%;
   vertical-align: bottom;
-  border-radius: 20px;
+  border-radius: 1.56vw;
 }
 
 .boss {
   height: 100%;
   width: 90%;
   vertical-align: bottom;
-  border-radius: 20px;
+  border-radius: 1.56vw;
 }
 
 .drums {
   height: 100%;
   width: 90%;
   vertical-align: bottom;
-  border-radius: 20px;
+  border-radius: 1.56vw;
 }
 
 #guitar>img {
@@ -179,7 +179,7 @@ header>h2 {
 /* INVENTORY CSS */
 #inventory {
   margin-top: 1vw;
-  margin-left: -10px;
+  margin-left: -.78vw;
   margin-bottom: 2vw;
   display: flex;
   height: 25%;
@@ -195,19 +195,19 @@ header>h2 {
   width: 15%;
   height: 10vw;
   border: 3px solid #E99018;
-  box-shadow: -5px -5px 5px #E99018;
+  box-shadow: -.39vw -.39vw .39vw #E99018;
   display: inline-block;
   vertical-align: top;
   text-align: center;
   background-color: white;
-  border-radius: 20px;
-  margin-right: -110px;
+  border-radius: 1.56vw;
+  margin-right: -8.6vw;
   font-size: 2vw;
 }
 
 #instruments {
   margin-top: 3vw;
-  margin-left: -70px;
+  margin-left: -5.47vw;
   height: 80%;
   width: 100%;
   flex-direction: row;
@@ -217,20 +217,20 @@ header>h2 {
 
 .instrument {
   font-family: 'Playfair Display', serif;
-  margin-left: 20px;
+  margin-left: 1.56vw;
   width: 12vw;
   height: 13vw;
-  border: 3px solid grey;
-  box-shadow: -5px -5px 5px #888;
+  border: .23vw solid grey;
+  box-shadow: -.39vw -.39vw .39vw #888;
   display: inline-block;
   background-color: white;
-  border-radius: 20px;
+  border-radius: 1.56vw;
   vertical-align: top;
 }
 
 .instrument>h2 {
-  margin-top: 2px;
-  margin-bottom: 4px;
+  margin-top: .156vw;
+  margin-bottom: .3129vw;
   font-size: 2vw;
   /* text-decoration: underline; */
 }
@@ -240,21 +240,21 @@ aside {
   color: white;
   float: right;
   width: 20vw;
-  height: 440px;
+  height: 34.42vw;
   /* background-color: #F2CC5A; */
   background-color: #A8E5F5;
-  border-radius: 20px 0 0 20px;
+  border-radius: 1.56vw 0 0 1.56vw;
   text-align: left;
-  margin-top: 150px;
-  margin-right: 25px;
+  margin-top: 11.73vw;
+  margin-right: 1.956vw;
   margin-bottom: 5vw;
-  padding-left: 15px;
-  box-shadow: -5px -5px 5px white;
+  padding-left: 1.17vw;
+  box-shadow: -.39vw -.39vw .39vw white;
 }
 
 aside>div {
-  border-bottom: 3px solid black;
-  height: 90px;
+  border-bottom: .23vw solid black;
+  height: 7.04vw;
 }
 
 #player1, #player2 {
@@ -273,7 +273,7 @@ aside>div {
 .player-time {
   margin-top: 15%;
   margin-left: 30%;
-  margin-bottom: -30px;
+  margin-bottom: -2.347vw;
   font-size: 3vw;
   color: red;
   font-family: 'Russo One', sans-serif;
@@ -289,8 +289,8 @@ footer {
   color: #C6F0F6;
   font-family: 'Playfair Display', serif;
   text-align: right;
-  margin-right: 10px;
-  margin-top: -20px;
+  margin-right: .78vw;
+  margin-top: -1.56vw;
 }
 
 /*  Modal */
@@ -312,33 +312,33 @@ footer {
 
 #modal-textbox1, #modal-textbox2, #modal-textbox3 {
   text-align: center;
-  font-size: 20px;
+  font-size: 1.56vw;
   font-weight: bold;
   background-color: white;
-  border: 20px solid #FBB2B9;
+  border: 1.56vw solid #FBB2B9;
   font-family: 'Playfair Display', serif;
-  height: 625px;
-  width: 500px;
-  border-radius: 2px;
-  margin: 100px auto 150px;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  height: 48.90vw;
+  width: 39.12vw;
+  border-radius: .156vw;
+  margin: 100px auto 11.737vw;
+  box-shadow: 0 .156vw .156vw rgba(0, 0, 0, 0.2);
   padding: 3% 2% 2%;
   line-height: 200%;
 }
 
 #modal-textbox2 {
-  height: 450px;
+  height: 35.21vw;
   padding: 2%;
   border: 20px solid #05DBCE;
 }
 
 #modal-textbox3 {
-  height: 300px;
-  font-size: 30px;
+  height: 23.47vw;
+  font-size: 2.347vw;
 }
 
 #modal-footer, #modal-footer2 {
-  margin-top: -30px;
+  margin-top: -2.347vw;
   display: inline-block;
 }
 
@@ -355,51 +355,51 @@ footer {
   vertical-align: top;
   display: inline-block;
   margin-left: 0;
-  word-spacing: 3px;
-  font-size: 35px;
+  word-spacing: .234vw;
+  font-size: 2.738vw;
 }
 
 .input-text2 {
   vertical-align: top;
   display: inline-block;
-  margin-left: 40px;
-  word-spacing: 3px;
-  font-size: 35px;
+  margin-left: 3.129vw;
+  word-spacing: .2347vw;
+  font-size: 2.738vw;
 }
 
 form {
-  margin-top: -10px;
-  margin-left: 100px;
+  margin-top: -.78vw;
+  margin-left: 7.82vw;
 }
 
 #input-box {
-  margin-left: -100px;
-  padding: 10px 20px;
+  margin-left: -7.82vw;
+  padding: .78vw 1.56vw;
 }
 
 #input-box2 {
-  margin-left: 50px;
-  padding: 10px 20px;
+  margin-left: 3.91vw;
+  padding: .78vw 1.56vw;
 }
 
 #submit-btn, #playButton, #playAgainButton {
-  margin-top: 20px;
+  margin-top: 1.56vw;
   margin-left: 0;
   background-color: pink;
-  padding: 10px 20px;
-  font-size: 20px;
+  padding: .78vw 1.56vw;
+  font-size: 1.56vw;
 }
 
 #playButton {
-  margin-top: -20px;
-  margin-bottom: 20px;
+  margin-top: -1.56vw;
+  margin-bottom: 1.56vw;
   background-color: #E99018;
 }
 
 .vinyl {
-  height: 210px;
-  width: 210px;
-  transform: translate(400px);
+  height: 16.43vw;
+  width: 16.43vw;
+  transform: translate(31.29vw);
   animation-name: rotate;
   animation-duration: 30s;
   animation-iteration-count: infinite;
@@ -407,7 +407,7 @@ form {
 
 /* Interactive CSS */
 #right, #left, #top, #bottom {
-  border: 3px solid #06A1ED;
+  border: .23vw solid #06A1ED;
 }
 
 .guitar, .mic, .keys, .bass, .drums, .cash {
