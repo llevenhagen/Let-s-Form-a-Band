@@ -320,12 +320,11 @@ footer {
   height: 48.90vw;
   width: 39.12vw;
   border-radius: .156vw;
-  margin: 100px auto 11.737vw;
+  margin: 7.82vw auto 11.737vw;
   box-shadow: 0 .156vw .156vw rgba(0, 0, 0, 0.2);
   padding: 3% 2% 2%;
   line-height: 200%;
 }
-
 #modal-textbox2 {
   height: 35.21vw;
   padding: 2%;
@@ -375,11 +374,13 @@ form {
 #input-box {
   margin-left: -7.82vw;
   padding: .78vw 1.56vw;
+  background: ghostwhite;
 }
 
 #input-box2 {
   margin-left: 3.91vw;
   padding: .78vw 1.56vw;
+  background: ghostwhite;
 }
 
 #submit-btn, #playButton, #playAgainButton {
@@ -447,3 +448,242 @@ form {
     transform: rotate(3600deg);
   }
 }
+
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+  /* MODALS */
+  #modal-textbox1, #modal-textbox2 {
+    width: 70%;
+    height: 100vw;
+    padding: 2%;
+  }
+  #modal-textbox1 p, #modal-textbox1 h3, #modal-textbox2 p, #modal-textbox2 h3{
+    font-size: 4vw;
+    line-height: 115%;
+  }
+  #modal-footer {
+    display: inline-flex;
+    margin: auto;
+    padding: 0;
+  }
+  #modal-footer .input {
+    margin-top: 3vw;
+    margin-right: 5vw;
+    margin-left: 0;
+  }
+  .role-call {
+    width: 100%;
+  }
+  #modal-textbox1 input {
+    font-size: 2.5vw;
+    margin: 3vw auto;
+  }
+  #modal-textbox1 #submit-btn {
+    font-size: 4vw;
+    background: pink;
+    margin-right: 25vw;
+  }
+  #modal-textbox2 p {
+    padding: 3vw;
+    line-height: 130%;
+  }
+  #playButton {
+    margin-top: 1vw;
+    margin-bottom: 2vw;
+    font-size: 4vw;
+  }
+  /* MAIN PAGE */
+  header h1 {
+    font-size: 15vw;
+    margin-left: 3vw;
+  }
+  header>.vinyl {
+    height: 10vw;
+    width: 10vw;
+    margin-top: -8vw;
+  }
+  header h2 {
+    font-size: 4vw;
+    margin-bottom: 1vw;
+    margin-top: -13vw;
+    margin-left: 3vw;
+  }
+  #stopWatch span {
+    font-size: 4vw;
+    line-height: 120%;
+  }
+  #stopWatch {
+    height: 5vw;
+    margin-left: 70vw;
+    margin-top: -5vw;
+  }
+  .column {
+    width: 9.5vw;
+    text-align: center;
+  }
+  #grid {
+    width: 90%;
+    margin-top: 1vw;
+    margin-left: 8vw;
+  }
+  .square {
+    width: 88%;
+    height: 7vw;
+    margin-top: 1vw;
+  }
+  aside {
+  color: white;
+  float: right;
+  width: 10vw;
+  height: 34.42vw;
+  background-color: #A8E5F5;
+  border-radius: 1.56vw 0 0 1.56vw;
+  text-align: left;
+  margin-top: 11.73vw;
+  margin-right: -2vw;
+  margin-bottom: 5vw;
+  padding-left: 1.17vw;
+  box-shadow: -.39vw -.39vw .39vw white;
+}
+aside div {
+  height: 30%;
+}
+#inventory {
+  margin-top: 30vw;
+}
+.instrument {
+  height: 15vw;
+  width: 12vw;
+}
+footer {
+  margin-top: 1vw;
+}
+}
+
+
+@media only screen and (max-width: 600px), (max-device-width: 600px) {
+  #modal-textbox1, #modal-textbox2 {
+  width: 70%;
+  height: 150vw;
+  padding: 2%;
+}
+  #modal-textbox1 p, #modal-textbox1 h3, #modal-textbox2 p, #modal-textbox2 h3{
+    font-size: 5vw;
+    line-height: 130%;
+  }
+  #modal-footer {
+    display: inline-flex;
+    margin: auto;
+    padding: 0;
+  }
+  #modal-footer .input {
+    margin-top: 3vw;
+    margin-right: 5vw;
+    margin-left: 0;
+  }
+  .role-call {
+    width: 100%;
+  }
+  #modal-textbox1 input {
+    font-size: 2.5vw;
+    margin: 3vw auto;
+  }
+  #modal-textbox1 .input-text, #modal-textbox1 .input-text2 {
+    font-size: 4vw;
+  }
+  #modal-textbox1 form {
+      margin-top: 2vw;
+  }
+  #modal-textbox1 form input {
+  font-size: 4vw;
+  }
+  #modal-textbox1 #submit-btn {
+    font-size: 5vw;
+    background: pink;
+    margin-right: 7vw;
+  }
+  #modal-textbox2 p {
+    padding: 3vw;
+    line-height: 130%;
+  }
+
+  #playButton {
+    margin-top: 1vw;
+    margin-bottom: 2vw;
+    font-size: 6vw;
+  }
+  /* MAIN PAGE */
+  header h1 {
+    font-size: 15vw;
+    margin-left: 3vw;
+    margin-bottom: 10vw;
+  }
+  header>.vinyl {
+    height: 15vw;
+    width: 15vw;
+    margin-top: -5vw;
+  }
+  header h2 {
+    font-size: 5vw;
+    margin-bottom: 2vw;
+    margin-left: 4vw;
+  }
+
+  #stopWatch span {
+    font-size: 4vw;
+    line-height: 120%;
+  }
+  #stopWatch {
+    height: 5vw;
+  }
+  .column {
+    width: 10vw;
+    text-align: center;
+  }
+  #grid {
+    width: 90%;
+    margin-top: 4vw;
+    margin-left: 5vw;
+  }
+  .square {
+    width: 90%;
+    height: 8vw;
+    margin-top: 2vw;
+  }
+  aside {
+  color: white;
+  float: right;
+  width: 10vw;
+  height: 40vw;
+  background-color: #A8E5F5;
+  border-radius: 1.56vw 0 0 1.56vw;
+  text-align: left;
+  margin-top: 30vw;
+  margin-right: -17.3vw;
+  margin-bottom: 5vw;
+  padding-left: 1.17vw;
+  box-shadow: -.39vw -.39vw .39vw white;
+}
+aside div {
+  height: 30%;
+}
+#player1, #player2 {
+  font-size: 2.5vw;
+  margin-right: 2vw;
+  margin-left: 0vw;
+}
+.time-text {
+    font-size: 2.5vw;
+}
+#inventory {
+  margin-top: 50vw;
+}
+.instrument {
+  height: 15vw;
+  width: 12vw;
+}
+footer {
+  margin-top: 12vw;
+}
+  }
