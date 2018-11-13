@@ -455,7 +455,7 @@ only screen and (max-width: 760px),
   /* MODALS */
   #modal-textbox1, #modal-textbox2 {
     width: 70%;
-    height: 110vw;
+    height: 120vw;
     padding: 2%;
   }
   /* #modal-textbox1 {
@@ -569,7 +569,7 @@ footer {
 @media only screen and (max-width: 600px), (max-device-width: 600px) {
   #modal-textbox1, #modal-textbox2 {
   width: 70%;
-  height: 170vw;
+  height: 180vw;
   padding: 2%;
 }
 /* #modal-textbox1 {
