@@ -458,6 +458,9 @@ only screen and (max-width: 760px),
     height: 100vw;
     padding: 2%;
   }
+  #modal-textbox1 {
+    height: 110vw;
+  }
   #modal-textbox1 p, #modal-textbox1 h3, #modal-textbox2 p, #modal-textbox2 h3{
     font-size: 4vw;
     line-height: 115%;
@@ -570,7 +573,7 @@ footer {
   padding: 2%;
 }
 #modal-textbox1 {
-  height: 155vw;
+  height: 170vw;
 }
   #modal-textbox1 p, #modal-textbox1 h3, #modal-textbox2 p, #modal-textbox2 h3{
     font-size: 5vw;
