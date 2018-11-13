@@ -455,12 +455,12 @@ only screen and (max-width: 760px),
   /* MODALS */
   #modal-textbox1, #modal-textbox2 {
     width: 70%;
-    height: 100vw;
+    height: 110vw;
     padding: 2%;
   }
-  #modal-textbox1 {
+  /* #modal-textbox1 {
     height: 110vw;
-  }
+  } */
   #modal-textbox1 p, #modal-textbox1 h3, #modal-textbox2 p, #modal-textbox2 h3{
     font-size: 4vw;
     line-height: 115%;
@@ -569,12 +569,12 @@ footer {
 @media only screen and (max-width: 600px), (max-device-width: 600px) {
   #modal-textbox1, #modal-textbox2 {
   width: 70%;
-  height: 150vw;
+  height: 170vw;
   padding: 2%;
 }
-#modal-textbox1 {
+/* #modal-textbox1 {
   height: 170vw;
-}
+} */
   #modal-textbox1 p, #modal-textbox1 h3, #modal-textbox2 p, #modal-textbox2 h3{
     font-size: 5vw;
     line-height: 130%;
