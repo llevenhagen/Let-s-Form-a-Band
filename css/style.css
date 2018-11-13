@@ -499,7 +499,7 @@ only screen and (max-width: 760px),
   }
   /* MAIN PAGE */
   header h1 {
-    font-size: 15vw;
+    font-size: 12vw;
     margin-left: 3vw;
   }
   header>.vinyl {
@@ -510,7 +510,7 @@ only screen and (max-width: 760px),
   header h2 {
     font-size: 4vw;
     margin-bottom: 1vw;
-    margin-top: -13vw;
+    margin-top: -11vw;
     margin-left: 3vw;
   }
   #stopWatch span {
