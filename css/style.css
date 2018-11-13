@@ -340,10 +340,10 @@ footer {
   margin-top: -2.347vw;
   display: inline-block;
 }
-
+/*
 .role-call {
   display: inline-block;
-}
+} */
 
 .input {
   margin-left: 0;
@@ -351,34 +351,34 @@ footer {
 }
 
 .input-text {
-  vertical-align: top;
-  display: inline-block;
-  margin-left: 0;
+  margin-left: -25vw;
+  margin-bottom: -.2vw;
   word-spacing: .234vw;
-  font-size: 2.738vw;
+  font-size: 2vw;
 }
 
 .input-text2 {
-  vertical-align: top;
-  display: inline-block;
-  margin-left: 3.129vw;
+  margin-left: -25vw;
+  margin-bottom: -.2vw;
   word-spacing: .2347vw;
-  font-size: 2.738vw;
+  font-size: 2vw;
 }
 
 form {
-  margin-top: -.78vw;
+  margin-top: -1vw;
   margin-left: 7.82vw;
 }
 
 #input-box {
+  margin-top: -4vw;
   margin-left: -7.82vw;
   padding: .78vw 1.56vw;
   background: ghostwhite;
 }
 
 #input-box2 {
-  margin-left: 3.91vw;
+  margin-top: -4vw;
+  margin-left: -7.82vw;
   padding: .78vw 1.56vw;
   background: ghostwhite;
 }
@@ -472,17 +472,18 @@ only screen and (max-width: 760px),
     margin-right: 5vw;
     margin-left: 0;
   }
-  .role-call {
-    width: 100%;
+  #modal-textbox1 form {
+    margin-top: -6vw;
   }
   #modal-textbox1 input {
     font-size: 2.5vw;
-    margin: 3vw auto;
+  }
+  .input-text, .input-text2 {
+    margin-bottom: 4vw;
   }
   #modal-textbox1 #submit-btn {
     font-size: 4vw;
     background: pink;
-    margin-right: 25vw;
   }
   #modal-textbox2 p {
     padding: 3vw;
@@ -568,6 +569,9 @@ footer {
   height: 150vw;
   padding: 2%;
 }
+#modal-textbox1 {
+  height: 155vw;
+}
   #modal-textbox1 p, #modal-textbox1 h3, #modal-textbox2 p, #modal-textbox2 h3{
     font-size: 5vw;
     line-height: 130%;
@@ -582,8 +586,11 @@ footer {
     margin-right: 5vw;
     margin-left: 0;
   }
-  .role-call {
-    width: 100%;
+  /* #modal-textbox1 form {
+    margin-top: -20vw;
+  } */
+  .input-text {
+    margin-top: -10vw;
   }
   #modal-textbox1 input {
     font-size: 2.5vw;
